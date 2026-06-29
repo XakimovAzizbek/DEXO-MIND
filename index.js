@@ -9,6 +9,7 @@
 const TRAINING_FILES = [
   "oqitish1.html",
   "oqitish2.html",
+  "oqitish3.html",
   // "oqitish3.html",
   // ... shu tarzda davom ettiring
 ];
