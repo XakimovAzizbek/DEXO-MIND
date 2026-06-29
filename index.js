@@ -72,30 +72,63 @@ function addAnswer(trigger, answer) {
      user: ...
      user: ...
      ai: ...
-   Bir nechta ketma-ket "user:" qatorlari bitta keyingi "ai:" ga ulanadi.
+        (kerak bo'lsa shu yerdan bir nechta qator davom etishi mumkin —
+         masalan butun bir HTML/CSS/JS kod bloki)
+
+   MUHIM: "ai:" javobi BIR QATOR BILAN CHEKLANMAYDI. "ai:" dan keyin
+   kelgan HAR BIR qator (bo'sh qatorlar ham, kod qatorlari ham) xuddi
+   shu javobning davomi sifatida qo'shilib boradi — toki yangi "user:"
+   qatori boshlanmaguncha yoki fayl tugamaguncha. Aynan shu o'zgarish
+   tufayli ko'p qatorli kod javoblari endi BUTUNLIGICHA saqlanadi.
 */
 function parseTrainingText(rawText) {
   const lines = rawText.split(/\r?\n/);
   let pendingTriggers = [];
+  let currentAnswerLines = null; // null = hozir javob yig'ilmayapti
 
-  for (let rawLine of lines) {
-    const line = rawLine.trim();
-    if (!line) continue;
-
-    const userMatch = line.match(/^user\s*:\s*(.+)$/i);
-    const aiMatch = line.match(/^ai\s*:\s*(.+)$/i);
-
-    if (userMatch) {
-      pendingTriggers.push(normalize(userMatch[1]));
-    } else if (aiMatch && pendingTriggers.length > 0) {
-      const answer = aiMatch[1].trim();
-      for (const trigger of pendingTriggers) {
-        addAnswer(trigger, answer);
+  function flushAnswerIfAny() {
+    if (currentAnswerLines !== null) {
+      const answer = currentAnswerLines.join("\n").trim();
+      if (answer && pendingTriggers.length > 0) {
+        for (const trigger of pendingTriggers) {
+          addAnswer(trigger, answer);
+        }
       }
       pendingTriggers = [];
+      currentAnswerLines = null;
     }
-    // user: dan oldin kelgan ai: yoki tushunarsiz qator e'tiborga olinmaydi
   }
+
+  for (const rawLine of lines) {
+    const trimmed = rawLine.trim();
+
+    const userMatch = trimmed.match(/^user\s*:\s*(.*)$/i);
+    if (userMatch) {
+      // Yangi "user:" qatori — agar shu paytgacha javob yig'ilayotgan
+      // bo'lsa, uni saqlab qo'yamiz, so'ng yangi trigger qo'shamiz.
+      flushAnswerIfAny();
+      pendingTriggers.push(normalize(userMatch[1]));
+      continue;
+    }
+
+    const aiMatch = trimmed.match(/^ai\s*:\s*(.*)$/i);
+    if (aiMatch && currentAnswerLines === null && pendingTriggers.length > 0) {
+      // Javobni yig'ishni boshlaymiz (birinchi qator)
+      currentAnswerLines = [aiMatch[1]];
+      continue;
+    }
+
+    if (currentAnswerLines !== null) {
+      // "ai:" dan keyingi har qanday qator (bo'sh yoki kod) —
+      // javobning davomi sifatida qo'shiladi.
+      currentAnswerLines.push(rawLine);
+      continue;
+    }
+
+    // "user:" boshlanmasdan oldingi bo'sh/keraksiz qatorlar e'tiborga olinmaydi
+  }
+
+  flushAnswerIfAny(); // faylning oxiridagi javobni ham saqlab qolish uchun
 }
 
 /* ---------- .html o'qitish faylidan toza matnni olish ----------
