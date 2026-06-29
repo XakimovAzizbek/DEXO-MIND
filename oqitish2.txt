@@ -1624,3 +1624,454 @@ user: internet xavfsizligi bo'yicha to'liq qo'llanma
 user: online xavfsizlik qoidalari
 user: internetda xavfsiz ishlash
 ai: Internet xavfsizligi — bu shaxsiy ma'lumotlaringizni, moliyaviy resurslaringizni va qurilmalaringizni onlayn tahdidlardan himoya qilish bo'yicha barcha chora-tadbirlar majmuidir. Quyida internetda xavfsiz ishlash bo'yicha to'liq qo'llanma: 1) Kuchli parollar ishlating: parolingiz kamida 8-12 belgidan iborat bo'lib, katta va kichik harflar, raqamlar va maxsus belgilarni o'z ichiga olishi kerak. Har bir hisobingiz uchun alohida parol ishlating. Parollaringizni qog'ozga yozmang va hech kimga bermang. 2) Ikki bosqichli tasdiqlashni (2FA) yoqing: bu hisobingizga kirishda paroldan tashqari qo'shimcha kod (SMS, authenticator ilovasi) talab qiladi. Bu hisobingizni juda kuchli himoya qiladi. 3) Shubhali havolalardan ehtiyot bo'ling: elektron pochta, SMS yoki ijtimoiy tarmoqlardagi noma'lum havolalarni ochmang. Havolani ochishdan oldin manzilni tekshiring. 4) Antivirus va xavfsizlik dasturlarini o'rnating: kompyuter va telefoningizga ishonchli antivirus dasturini o'rnating va uni muntazam yangilab turing. 5) Dasturlarni faqat rasmiy manbalardan yuklang: Google Play, App Store yoki dasturning rasmiy sayti. Noma'lum manbalardan yuklangan dasturlar xavfli bo'lishi mumkin. 6) Ijtimoiy tarmoqlarda ehtiyot bo'ling: shaxsiy ma'lumotlaringizni (manzil, telefon raqami, ish joyi, oila a'zolari haqidagi ma'lumotlar) hamma ko'radigan qilib qo'ymang. 7) VPN ishlating: ayniqsa jamoat Wi-Fi tarmoqlarida internetdan foydalanganda VPN ma'lumotlaringizni shifrlaydi va himoya qiladi. 8) Zaxira nusxa yarating: muhim fayllaringizni muntazam ravishda bulutli xotiraga yoki tashqi diskka nusxalab qo'ying. 9) Dasturlarni yangilab turing: operatsion tizim, brauzer va boshqa dasturlarni doimiy yangilab turing, chunki yangilanishlar xavfsizlikni oshiradi. 10) Bank va to'lov ma'lumotlarini faqat ishonchli saytlarda ishlating: sayt manzilida "https" va qulf belgisi borligiga ishonch hosil qiling. 11) Email filtrlardan foydalaning: spam va firibgarlik xabarlarini avtomatik filtrlab oling. 12) Farzandlaringizning internet faoliyatini kuzatib boring: ularga internet xavfsizligi qoidalarini o'rgating va vaqt cheklovlarini o'rnating. 13) Shaxsiy ma'lumotlaringizni haddan tashqari ko'p ulashmang: internetda qancha kam ma'lumot ulashsangiz, shuncha xavfsizroq bo'lasiz. Internet xavfsizligi — bu doimiy e'tibor talab qiladigan jarayon. Yuqoridagi qoidalarga amal qilish orqali siz o'zingizni va yaqinlaringizni onlayn tahdidlardan himoya qila olasiz.
+
+user: menga dasturlash o'rganish bo'yicha maslahat ber
+user: dasturlashni qanday o'rganaman
+user: dasturchi bo'lish yo'li
+ai: Dasturlashni o'rganish — bu qiziqarli va foydali jarayon. Quyida sizga amaliy maslahatlar:
+1. Aniq maqsad qo'ying — nima uchun dasturlashni o'rganyapsiz? Web, mobil, ma'lumotlar tahlili yoki o'yinlar?
+2. Birinchi til sifatida Python yoki JavaScript ni tanlang — ular oson va ko'p sohada ishlatiladi.
+3. Har kuni kamida 1-2 soat kod yozing — amaliyot eng muhim!
+4. Kichik loyihalar yarating — kalkulyator, ob-havo ilovasi, shaxsiy sayt.
+5. Xatolardan qo'rqmang — har bir xato sizni rivojlantiradi.
+6. Boshqalarning kodlarini o'qing va tahlil qiling — GitHub da ko'plab loyihalar bor.
+7. Jamoa bilan ishlashni o'rganing — open source loyihalarda qatnashing.
+8. Doimiy o'rganing — texnologiyalar tez o'zgaradi, yangiliklarni kuzatib boring.
+9. Kurslar va darsliklar: Codecademy, FreeCodeCamp, Coursera, Udemy, YouTube.
+10. Sabrli bo'ling — dasturchi bo'lish vaqt talab qiladi, lekin harakat qilsangiz albatta erishasiz! 🚀
+
+user: eng yaxshi dasturlash kurslari
+user: qayerda dasturlash o'rganaman
+user: dasturlash kurslari tavsiya
+ai: Dasturlashni o'rganish uchun quyidagi platformalarni tavsiya qilaman:
+1. FreeCodeCamp — bepul, interaktiv, sertifikat beradi, web dasturlashga e'tibor.
+2. Codecademy — interaktiv mashqlar, ko'plab tillar, pullik va bepul qismlari bor.
+3. Coursera — universitet kurslari, sertifikat, chuqur bilim beradi.
+4. Udemy — ko'plab kurslar, arzon narxlar, amaliy loyihalar.
+5. YouTube — kanallar: "Dasturlash", "CodeWithMosh", "Traversy Media", "freeCodeCamp".
+6. Stepik — rus va o'zbek tilidagi kurslar, interaktiv.
+7. SoloLearn — mobil ilova, qisqa darslar va mashqlar.
+8. Khan Academy — bepul, interaktiv, boshlang'ich uchun ajoyib.
+9. MDN Web Docs — veb-texnologiyalar bo'yicha eng yaxshi hujjat.
+10. W3Schools — HTML, CSS, JavaScript uchun qulay qo'llanma.
+Eng muhimi — bir nechta manbalarni birlashtirib, ko'p amaliyot qilish! 💻
+
+user: qanday qilib o'z saytimni yarataman
+user: sayt yaratishni boshlash
+user: veb-sayt yaratish rejasi
+ai: O'z veb-saytingizni yaratish uchun quyidagi bosqichlarni bajaring:
+1. Reja tuzing: sayt maqsadi, auditoriya, sahifalar (bosh, haqida, xizmatlar, aloqa).
+2. Dizayn yarating: qog'ozda yoki Figma/Adobe XD da eskiz chizing.
+3. HTML yozing: sahifa tuzilishi — sarlavhalar, paragraflar, rasmlar, havolalar.
+4. CSS qo'shing: ranglar, shriftlar, o'lchamlar, joylashuv, responsiv dizayn.
+5. JavaScript qo'shing: interaktivlik — tugmalar, animatsiyalar, forma tekshirish.
+6. Saytni sinab ko'ring: turli brauzer va qurilmalarda tekshiring.
+7. Hosting va domenga joylashtiring: GitHub Pages (bepul), Netlify (bepul), yoki pullik hosting.
+8. Saytni yangilab turing: yangi kontent qo'shing, xatolarni tuzating.
+Agar kod yozishni xohlamasangiz, WordPress, Wix, Tilda, Google Sites dan foydalaning.
+Boshlash uchun eng oddiy usul — GitHub Pages da statik sayt joylashtirish! 🌐
+
+user: qanday qilib o'z botimni yarataman
+user: telegram bot yaratish
+user: bot yasash bo'yicha qo'llanma
+ai: Telegram bot yaratish bo'yicha bosqichma-bosqich qo'llanma:
+1. Telegram da @BotFather ga yozing va /newbot buyrug'ini bering.
+2. Bot nomi va username ni yozing (username bot bilan tugashi kerak).
+3. Sizga API token beriladi — uni saqlab qo'ying (bu sizning bot kalitingiz).
+4. Dasturlash tilini tanlang: Python (python-telegram-bot), Node.js (node-telegram-bot-api), PHP yoki boshqa.
+5. Bot kodini yozing:
+   - Token ni o'rnating.
+   - Buyruqlarni (/start, /help) va xabarlarni qabul qilish.
+   - Javob berish mantiqini yozing.
+6. Botni ishga tushiring: local da test qiling, keyin server (Heroku, PythonAnywhere, VPS) ga joylashtiring.
+7. Botni yangilab turing va foydalanuvchilar fikr-mulohazalarini inobatga oling.
+Misol Python kodi:
+import telebot
+bot = telebot.TeleBot("YOUR_TOKEN")
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(message, "Salom! Men DEXO MIND botman!")
+bot.polling()
+Bot yaratish — juda qiziqarli va foydali tajriba! 🤖
+
+user: qanday qilib mobil ilova yarataman
+user: android ilova yaratish bosqichlari
+user: mobil dasturlash boshlash
+ai: Mobil ilova yaratish bo'yicha bosqichma-bosqich qo'llanma:
+1. G'oya va reja: ilovaning maqsadi, funksiyalari, kimlar uchun ekanligini aniqlang.
+2. Platformani tanlang: Android (Java/Kotlin + Android Studio), iOS (Swift + Xcode) yoki cross-platform (Flutter, React Native).
+3. Dizayn yarating: UI/UX dizayn — ilova interfeysi, ranglar, tugmalar, ekranlar.
+4. Dasturlash: kod yozish, ma'lumotlar bazasi (SQLite, Firebase), API ulash, funksiyalarni amalga oshirish.
+5. Test qilish: turli qurilmalarda sinov, xatolarni tuzatish, optimallashtirish.
+6. Joylashtirish: Google Play Store yoki App Store ga yuklash.
+7. Yangilash: foydalanuvchi fikrlariga qarab ilovani yaxshilang.
+Agar yangi boshlovchi bo'lsangiz, Flutter yoki React Native dan boshlang — bir kod ikkala platformada ishlaydi.
+Birinchi ilova sifatida "Kalkulyator", "Eslatma", "Ob-havo" yoki "Todo List" yarating! 📱
+
+user: qanday qilib youtube kanal rivojlantirman
+user: youtube kanalni oshirish
+user: youtuber bo'lish
+ai: YouTube kanalni rivojlantirish bo'yicha amaliy maslahatlar:
+1. Mavzu tanlang: o'zingizni qiziqtiradigan va yaxshi biladigan soha (dasturlash, ta'lim, o'yinlar, sayohat, pazandachilik).
+2. Sifatli kontent: yaxshi ovoz, yorug'lik, montaj — boshlang'ich jihozlar bilan ham sifatli video tayyorlash mumkin.
+3. Muntazamlik: haftasiga kamida 1-2 ta video joylang — algoritm buni sevadi.
+4. Sarlavha va rasm: qiziqarli va qidiruvga mos sarlavha, ko'zga tashlanadigan rasm.
+5. Tomoshabinlar bilan muloqot: izohlarga javob bering, ularning fikrlarini inobatga oling.
+6. SEO optimallashtirish: video tavsifi, teglar, vaqt belgilari (timestamps) dan foydalaning.
+7. Boshqa platformalarda targ'ib qiling: Instagram, Telegram, Facebook, blog.
+8. Hamkorlik: boshqa YouTuberlar bilan video tayyorlang.
+9. Tahlil: YouTube Analytics orqali qaysi videolar yaxshi natija berayotganini kuzating.
+10. Sabr: muvaffaqiyat birdaniga kelmaydi, doimiy mehnat va rivojlanish kerak.
+Esda tuting: auditoriyaga foyda keltiradigan kontent har doim muvaffaqiyatli bo'ladi! 🎬
+
+user: qanday qilib online pul ishlash
+user: internetdan pul ishlash usullari
+user: online daromad manbalari
+ai: Internetdan pul ishlashning ko'plab usullari mavjud. Eng mashhurlari:
+1. Freylans: Upwork, Freelancer, Fiverr, TopTal da dasturlash, dizayn, yozuvchilik, tarjima xizmatlarini taklif qiling.
+2. Online kurslar: bilgan sohangizda (dasturlash, til, dizayn, matematika) online kurs yarating va soting.
+3. YouTube kanal: sifatli kontent yaratib, reklama, sponsorlik va affiliate marketing orqali daromad toping.
+4. Blog yozish: WordPress yoki Medium da blog oching, Google AdSense, affiliate marketing va sponsorlik.
+5. Affiliate marketing: mahsulotlar havolasini tarqatib, sotuvdan komissiya oling (Amazon, ClickBank, Uzbekiston onlayn do'konlari).
+6. Dasturlash: kichik loyihalar yozib, ularni soting yoki buyurtma asosida ishlang.
+7. Online do'kon: Shopify, WooCommerce yoki Telegram kanal orqali mahsulot soting.
+8. SMM va marketing: ijtimoiy tarmoqlarda biznes sahifalarini boshqarish.
+9. Investitsiyalar: aktsiyalar, kriptovalyuta, fondlar (lekin xatarlarni o'rganib chiqing).
+10. Dropshipping: tovarlarni yetkazib bermasdan, onlayn do'kon orqali sotish.
+11. Veb-sayt yaratish: sayt yaratib, uni sotish yoki reklama joylashtirish.
+12. Telegram botlar: foydali botlar yaratib, ularni monetizatsiya qilish.
+Eng muhimi — bir sohani chuqur o'rganib, unda tajriba orttirish. Kichikdan boshlang va asta-sekin rivojlanib boring! 💰
+
+user: qanday qilib kompyuter xavfsizligini oshiraman
+user: kompyuterni himoya qilish
+user: pc xavfsizlik
+ai: Kompyuteringiz xavfsizligini oshirish uchun quyidagi choralarni ko'ring:
+1. Kuchli parol ishlating: kamida 8 belgi, harflar, raqamlar va maxsus belgilar.
+2. Antivirus o'rnating: Windows Defender, Kaspersky, Bitdefender yoki boshqa ishonchli antivirus.
+3. Dasturlarni yangilab turing: operatsion tizim, brauzer va barcha dasturlar eng so'nggi versiyada bo'lsin.
+4. Firewall yoqing: tarmoq xavfsizligini oshirish uchun.
+5. Shubhali havolalarni ochmang: email, SMS yoki ijtimoiy tarmoqlardagi noma'lum havolalar.
+6. Dasturlarni faqat rasmiy manbalardan yuklang: Microsoft Store, dastur sayti.
+7. Zaxira nusxa yarating: muhim fayllarni bulutda yoki tashqi diskda saqlang.
+8. Ikki bosqichli tasdiqlash: Google, Microsoft va boshqa hisoblarda 2FA yoqing.
+9. VPN ishlating: jamoat Wi-Fi tarmoqlarida shaxsiy ma'lumotlarni himoya qilish uchun.
+10. Brauzer kengaytmalari: adblock va xavfsizlik kengaytmalarini o'rnating.
+11. Email filtrlari: spam va firibgarlik xabarlarini filtrlang.
+12. Ma'lumotlarni shifrlash: muhim fayllarni shifrlab saqlang.
+13. Parol menejeri: LastPass, Bitwarden yoki 1Password dan foydalaning.
+14. Kompyuterni vaqti-vaqti bilan tozalang: keraksiz dasturlar va fayllarni o'chiring.
+15. Xabardor bo'ling: yangi xavfsizlik tahdidlari va ularga qarshi choralarni o'rganib turing.
+Xavfsizlik — bu doimiy e'tibor talab qiladigan jarayon. Yuqoridagi qoidalarga amal qilsangiz, kompyuteringiz xavfsiz bo'ladi! 🔒
+
+user: qanday qilib o'z bilimimni oshirman
+user: o'qish samaradorligi
+user: yaxshi o'qish usullari
+ai: Bilim va o'qish samaradorligini oshirish uchun quyidagi usullardan foydalaning:
+1. Aniq maqsad qo'ying: "Men 3 oyda Python o'rganaman" kabi aniq va vaqtli maqsad.
+2. Kunlik reja tuzing: har kuni kamida 1-2 soat o'qishga ajrating.
+3. Pomodoro texnikasi: 25 daqiqa o'qish, 5 daqiqa tanaffus — bu diqqatni jamlaydi.
+4. Xulosa yozing: o'qigan narsalaringizni qisqacha yozib qo'ying — bu xotirani mustahkamlaydi.
+5. Boshqalarga o'rgating: boshqalarga tushuntirish orqali o'zingiz yaxshiroq eslab qolasiz.
+6. Turli manbalardan o'qing: kitob, video, audio, maqolalar — turli formatlar xotirani yaxshilaydi.
+7. Amaliyot: o'rgangan narsalaringizni darhol qo'llashga harakat qiling.
+8. Takrorlash: ma'lumotni vaqt oralig'ida takrorlash uni uzoq muddatli xotiraga o'tkazadi.
+9. Sog'lom turmush: yetarlicha uyqu, to'g'ri ovqatlanish va sport miya faoliyatini yaxshilaydi.
+10. Meditatsiya: stressni kamaytirish va diqqatni jamlash uchun.
+11. O'z ustingizda ishlang: kuchli va zaif tomonlaringizni aniqlab, ular ustida ishlang.
+12. Kitob o'qing: haftasiga kamida 1-2 soat kitob o'qishga vaqt ajrating.
+13. Savol bering: o'qiyotgan narsangiz haqida savollar berib, javob izlang.
+14. Muhit yarating: o'qish uchun qulay, tinch va tartibli joy tayyorlang.
+15. Doimiy o'rganing: hayot davomida o'rganishni to'xtatmang — bu sizni rivojlantiradi.
+Esda tuting: o'qish — bu marafon, sprint emas. Doimiy va sabrli bo'ling! 📚
+
+user: qanday qilib stressni yengaman
+user: stressni kamaytirish usullari
+user: ruhiy salomatlik
+ai: Stressni yengish va ruhiy salomatlikni mustahkamlash uchun quyidagi usullarni tavsiya qilaman:
+1. Chuqur nafas olish: 4 soniya nafas oling, 4 soniya ushlab turing, 4 soniya chiqaring.
+2. Meditatsiya: kuniga 5-10 daqiqa meditatsiya qilish ongni tinchlantiradi.
+3. Jismoniy mashqlar: yurish, yugurish, yoga, arqon sakrash — stressni kamaytiradi.
+4. Sog'lom uyqu: kuniga 7-8 soat uxlash — tana va ong uchun muhim.
+5. Hobi va qiziqishlar: sevimli mashg'ulot bilan shug'ullanish — ruhiyatni ko'taradi.
+6. Tabiatda vaqt o'tkazing: park, bog' yoki tabiatda sayr qilish.
+7. Ijtimoiy aloqalar: oila va do'stlar bilan vaqt o'tkazing, ular bilan suhbatlashing.
+8. Vaqtni rejalashtirish: kunlik vazifalarni ro'yxat qilib, tartibli bajarish.
+9. Musiqa tinglash: sevimli, tinchlantiruvchi musiqa stressni yengillashtiradi.
+10. Ijobiy fikrlash: qiyin vaziyatlarda ijobiy tomonlarini topishga harakat qiling.
+11. Kichik maqsadlar: katta maqsadlarni kichik qadamlarga bo'lib, ularni bajarib boring.
+12. Ovqatlanish: shakar va kofeinni kamaytiring, meva va sabzavotlar ko'proq iste'mol qiling.
+13. Yozib qo'yish: his-tuyg'ularingizni kundalikka yozing — bu ongni tozalaydi.
+14. Yordam so'rash: agar juda qiyin bo'lsa, mutaxassisdan (psixolog) yordam so'rang.
+15. Dam olish: ishdan vaqt ajratib, dam olishga vaqt bering.
+Esda tuting: stress — hayotning bir qismi, uni to'liq yo'qotib bo'lmaydi, lekin uni boshqarishni o'rganish mumkin! 😌
+
+user: qanday qilib odamlar bilan yaxshi muloqot qilaman
+user: muloqot san'ati
+user: odamlar bilan gaplashish
+ai: Odamlar bilan samarali va yaxshi muloqot qilish uchun quyidagi maslahatlarga amal qiling:
+1. Tinglash: suhbatdoshni diqqat bilan tinglang, gapini bo'lmang.
+2. Ko'z bilan aloqa: gaplashayotganda suhbatdoshning ko'ziga qarab turing — bu ishonch uyg'otadi.
+3. Hurmat: har bir fikrni hurmat qiling, hatto rozi bo'lmasangiz ham.
+4. Aniq gapiring: fikringizni aniq, sodda va tushunarli ifodalang.
+5. Ochiq savollar: "ha/yo'q" dan ko'ra, "nima", "qanday", "nima uchun" deb so'rang.
+6. Tanani til: ochiq, qulay holatda turing, qo'llarni chalishtirmang.
+7. Tabassum: iliq tabassum suhbatni yaxshilaydi.
+8. Empatiya: suhbatdoshning his-tuyg'ularini tushunishga harakat qiling.
+9. Shaxsiy tajriba: o'z tajribangizdan misollar keltiring.
+10. Nom bilan murojaat: odamlarni nomi bilan chaqiring — bu ularni qadrlashni ko'rsatadi.
+11. Sabr: suhbatdoshga fikrini to'liq aytishiga vaqt bering.
+12. Ijobiy yondashuv: tanqiddan ko'ra, ijobiy tomonlarni toping.
+13. O'z fikringizni himoya qiling, lekin hurmat bilan.
+14. Suhbat mavzusini o'zgartirish: agar suhbat noqulay bo'lsa, yumshoq tarzda mavzuni o'zgartiring.
+15. Doimiy amaliyot: muloqot qobiliyati mashq orqali rivojlanadi.
+Yaxshi muloqot — muvaffaqiyatli hayotning kalitlaridan biri! 💬
+
+user: qanday qilib o'z vaqtimni samarali boshqaraman
+user: vaqt boshqaruvi
+user: time management
+ai: Vaqtni samarali boshqarish bo'yicha maslahatlar:
+1. Maqsad qo'ying: aniq, o'lchovli va vaqtli maqsadlar (SMART) belgilang.
+2. Reja tuzing: kunlik, haftalik va oylik rejalar tuzib, ularga amal qiling.
+3. Prioritetlar: muhim va shoshilinch vazifalarni birinchi bajarish (Eisenhower matritsasi).
+4. Pomodoro texnikasi: 25 daqiqa ish, 5 daqiqa tanaffus — diqqatni jamlaydi.
+5. Vaqtni bloklash: har bir vazifaga aniq vaqt bloki ajrating.
+6. To-do ro'yxati: kunlik vazifalarni yozib, bajarilganlarini belgilab boring.
+7. Katta vazifalarni bo'ling: katta loyihalarni kichik qismlarga bo'lib, ularni bosqichma-bosqich bajaring.
+8. Chalg'itadigan narsalarni kamaytiring: telefon, ijtimoiy tarmoqlar, tv — ish vaqtida cheklang.
+9. "Yo'q" deyishni o'rganing: muhim bo'lmagan vazifalarga vaqt sarflamang.
+10. Vaqtni kuzating: qancha vaqtni qayerga sarflayotganingizni yozib boring.
+11. Delegatsiya: imkon bo'lsa, ayrim vazifalarni boshqalarga topshiring.
+12. Sog'lik: yetarlicha uyqu, sport va to'g'ri ovqatlanish samaradorlikni oshiradi.
+13. Tanaffus qiling: ish oralarida qisqa tanaffus qilish — miyani yangilaydi.
+14. Ijodiy vaqt: eng muhim vazifalarni eng faol vaqtingizda bajaring.
+15. Baholash: hafta oxirida qilgan ishlaringizni baholang va keyingi hafta rejasini tuzing.
+Vaqt — hayotdagi eng qimmatli resurs. Uni to'g'ri boshqarishni o'rganing! ⏰
+
+user: qanday qilib o'z ijodkorligimni oshiraman
+user: kreativlikni rivojlantirish
+user: yangi g'oyalar topish
+ai: Ijodkorlik va kreativlikni rivojlantirish bo'yicha maslahatlar:
+1. Yangi narsalar o'rganing: turli sohalarda bilim olish — yangi g'oyalar uchun asos.
+2. Savol bering: "Nima bo'lsa?", "Nega?" deb so'rang — bu fikrlashni ochadi.
+3. Kichik g'oyalarni yozib boring: istalgan vaqtda kelgan g'oyalarni darhol yozib qo'ying.
+4. Turli tajribalar: yangi joylarga boring, yangi odamlar bilan tanishing, yangi taomlar sinab ko'ring.
+5. Ijodiy mashqlar: rasmlar chizish, hikoyalar yozish, musiqa tinglash.
+6. Miyani chalg'itish: agar muammo yechilmasa, boshqa ish bilan shug'ullanib, keyin qayting.
+7. Kreativ muhit: ijodkorlikni qo'llab-quvvatlaydigan, qulay muhit yarating.
+8. Hamkorlik: boshqalar bilan fikr almashish — yangi g'oyalarni tug'diradi.
+9. Cheklovlar: o'zingizga cheklovlar (vaqt, resurs) qo'ying — bu ijodkorlikni oshiradi.
+10. Xatolardan qo'rqmang: har bir xato tajriba va rivojlanish.
+11. Meditatsiya: ongni tinchlantirish va fikrlarni tozalash.
+12. Tabiatda vaqt o'tkazish: tabiat ijodkorlikni ilhomlantiradi.
+13. Kitob o'qish: turli janrdagi kitoblar fikrlash doirasini kengaytiradi.
+14. Ijodiy odamlar bilan muloqot: ular sizni ilhomlantiradi va yangi g'oyalar beradi.
+15. Doimiy amaliyot: ijodkorlik ham mashq qilish orqali rivojlanadi.
+Ijodkorlik — bu tug'ma iste'dod emas, rivojlantirish mumkin bo'lgan qobiliyat! 🎨
+
+user: qanday qilib o'z loyihamni boshqaraman
+user: loyiha boshqaruvi
+user: project management
+ai: Loyiha boshqaruvi bo'yicha asosiy qoidalar va tavsiyalar:
+1. Maqsad va reja: loyiha maqsadini aniq belgilang va bosqichma-bosqich reja tuzing.
+2. Vazifalarni bo'ling: katta loyihani kichik, boshqariladigan vazifalarga ajrating.
+3. Vaqt rejasi: har bir vazifa uchun aniq muddat belgilang.
+4. Jamoa: kim nima qilishini aniq belgilang (agar jamoa bo'lsa).
+5. Aloqa: jamoa a'zolari va manfaatdor tomonlar bilan muntazam muloqot qiling.
+6. Hujjatlash: barcha bosqichlarni, qarorlarni va o'zgarishlarni yozib boring.
+7. Monitoring: vazifalarning bajarilishini muntazam kuzatib boring.
+8. Moslashuvchanlik: rejani o'zgarishlarga moslab o'zgartirishga tayyor bo'ling.
+9. Xatarlarni boshqarish: yuzaga kelishi mumkin bo'lgan muammolarni oldindan aniqlang va ularga tayyorlaning.
+10. Resurslar: byudjet, vaqt, odamlar, texnologiyalarni to'g'ri taqsimlang.
+11. Sifat nazorati: loyiha natijasi sifatli bo'lishini ta'minlang.
+12. Baholash: loyiha yakunida natijalarni baholang va xulosa chiqaring.
+13. Qayta ko'rib chiqish: loyiha davomida vaqt-vaqti bilan rejani ko'rib chiqing.
+14. Motivatsiya: jamoa va o'zingizni motivatsiya qilib turing.
+15. O'rganish: har bir loyihadan saboq oling va keyingi loyihalarda qo'llang.
+Loyiha boshqaruvi — bu tartib, reja va muloqotning muvozanatidir! 📋
+
+user: qanday qilib o'z biznesimni rivojlantirman
+user: biznesni oshirish
+user: biznes rivojlantirish
+ai: O'z biznesingizni rivojlantirish bo'yicha strategiyalar:
+1. Bozorni tahlil qiling: mijozlar kim, raqobatchilar kim, tendensiyalar qanday.
+2. Qiymat taklifi: mijozlarga qanday qiymat yaratasiz, ularni nima jalb qiladi.
+3. Marketing: ijtimoiy tarmoqlar, reklama, SEO, email marketing, PR.
+4. Mijozlar bilan ishlash: ularning fikr-mulohazalarini o'rganing va xizmatni yaxshilang.
+5. Innovatsiyalar: yangi mahsulotlar, xizmatlar, texnologiyalarni joriy qiling.
+6. Jamoa: iqtidorli xodimlarni jalb qiling va ularni rivojlantiring.
+7. Moliyaviy rejalashtirish: byudjet, xarajatlar, daromadlar, investitsiyalar.
+8. Kengayish: yangi bozorlar, hududlar, toifalarga chiqing.
+9. Aloqalar: boshqa bizneslar va tashkilotlar bilan hamkorlik qiling.
+10. Brend: kuchli brend yarating va uni saqlang
+
+user: 2+2 nechi
+ai: 2 + 2 = 4. 😊
+
+user: 10*10
+ai: 10 × 10 = 100. 💡
+
+user: 100/4
+ai: 100 ÷ 4 = 25. ✅
+
+user: 5+5
+ai: 5 + 5 = 10. 😊
+
+user: 9*9
+ai: 9 × 9 = 81. 💪
+
+user: suniy intellekt nima
+user: ai nima
+ai: Sun'iy intellekt — inson aqlini taqlid qiluvchi, ma'lumotlarni tahlil qilish, o'rganish va qaror qabul qilish qobiliyatiga ega texnologiya. 🤖
+
+user: chatgpt nima
+ai: ChatGPT — OpenAI tomonidan ishlab chiqilgan, matnli savollarga tabiiy va tushunarli javob beradigan sun'iy intellekt yordamchisi. 💬
+
+user: gemini nima
+ai: Gemini — Google tomonidan ishlab chiqilgan sun'iy intellekt yordamchisi. Matn yozish, kod yozish, tarjima qilish va boshqa ko'p vazifalarni bajaradi. 🌟
+
+user: claude nima
+ai: Claude — Anthropic tomonidan ishlab chiqilgan sun'iy intellekt yordamchisi. Matn yozish, dasturlash, hujjatlarni tahlil qilishda yordam beradi. 🧠
+
+user: telefon sekin ishlayapti
+user: telefon qotib qolyapti
+ai: Telefonni qayta ishga tushiring, keraksiz fayllarni tozalang va xotirani bo'shating. 📱
+
+user: wifi ishlamayapti
+user: internet yo'q
+ai: Wi-Fi ni o'chirib yoqing, routerni qayta ishga tushiring va tarmoq sozlamalarini tekshiring. 📶
+
+user: parol unutdim
+ai: Hisobingizdagi "Parolni unutdingizmi?" funksiyasidan foydalaning. 🔑
+
+user: kompyuter sekin
+ai: Keraksiz dasturlarni yoping, diskni tozalang va antivirus orqali tekshiring. 💻
+
+user: js da alert
+user: js salom chiqar
+ai: JavaScript alert:
+alert("Assalomu alaykum!");
+
+user: js da tugma bosilganda
+user: js onclick
+ai: Tugma bosilganda:
+<button onclick="salom()">Bos</button>
+<script>
+function salom() { alert("Salom!"); }
+</script>
+
+user: js da o'zgaruvchi
+user: js variable
+ai: O'zgaruvchi yaratish:
+let ism = "Ali";
+let yosh = 25;
+console.log(ism);
+
+user: js da shart
+user: js if else
+ai: Shart operatori:
+if (yosh >= 18) {
+  console.log("Katta");
+} else {
+  console.log("Yosh");
+}
+
+user: css da tugma dizayni
+user: button css
+ai: CSS tugma:
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover { background: #1d4ed8; }
+
+user: css fon rangi
+user: background color
+ai: Fon rangi:
+body { background: #0f172a; }
+
+user: css da matn markazga
+user: text align center
+ai: Matnni markazga joylash:
+h1 { text-align: center; }
+
+user: css da chegara
+user: border
+ai: Chegara qo'shish:
+.box { border: 2px solid #2563eb; border-radius: 10px; }
+
+user: oddiy html kod yoz
+user: html sahifa kerak
+user: html misol
+ai: Mana oddiy HTML sahifa:
+<!DOCTYPE html>
+<html>
+<head><title>Salom</title></head>
+<body>
+<h1>Assalomu alaykum!</h1>
+<p>Bu mening birinchi sahifam.</p>
+</body>
+</html>
+
+user: html da tugma yoz
+user: button html
+ai: HTML tugma:
+<button onclick="alert('Salom!')">Bosish</button>
+
+user: html da rasm qo'shish
+user: img tag
+ai: Rasm qo'shish:
+<img src="rasm.jpg" alt="Rasm tavsifi" width="300">
+
+user: html da havola
+user: a tag
+ai: Havola yaratish:
+<a href="https://google.com">Google ga o'tish</a>
+
+user: html nima
+ai: HTML — veb-sahifalarning tuzilishini yaratish uchun ishlatiladigan belgilash tili. U sarlavhalar, paragraflar, rasmlar va havolalarni joylashtirishga yordam beradi. 🌐
+
+user: css nima
+ai: CSS — veb-sahifaning dizayni va ko'rinishini boshqaruvchi uslublar tili. Ranglar, shriftlar, o'lchamlar va elementlarning joylashishini boshqaradi. 🎨
+
+user: javascript nima
+ai: JavaScript — veb-sahifaga interaktivlik va dinamik funksiyalar qo'shish uchun ishlatiladigan dasturlash tili. ⚡
+
+user: python nima
+ai: Python — sodda va o'qilishi oson, ko'p sohada ishlatiladigan dasturlash tili. Ma'lumotlar tahlili, sun'iy intellekt va veb uchun mashhur. 🐍
+
+user: java nima
+ai: Java — ko'p platformada ishlaydigan, Android ilovalar va katta korporativ tizimlar yaratishda ishlatiladigan dasturlash tili. ☕
+
+user: salom
+user: assalomu alaykum
+user: hello
+user: hi
+user: hey
+ai: Assalomu alaykum! Men DEXO MIND. Sizga qanday yordam bera olaman? 😊
+
+user: qalaysan
+user: qalaysiz
+user: yaxshimisan
+user: ahvoling qanday
+ai: Rahmat, hammasi joyida! Sizga qanday yordam kerak? 🤖
+
+user: isming nima
+user: sen kimsan
+user: o'zingni tanishtir
+ai: Mening ismim DEXO MIND — sun'iy intellekt yordamchisi. Maqsadim sizga savollarga javob berish va turli mavzularda yordam berish. 😊
+
+user: rahmat
+user: katta rahmat
+user: raxmat
+user: thanks
+ai: Arzimaydi! Doim yordam berishdan xursandman. Yana savolingiz bo'lsa, yozing! 😊
+
+user: xayr
+user: hayr
+user: bye
+user: ko'rishguncha
+ai: Xayr! Yana ko'rishguncha. Sizga omad tilayman! 👋
