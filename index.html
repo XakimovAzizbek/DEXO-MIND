@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEXO MIND | AI Engine</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEXO MIND</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <div class="dexo-card">
-        <h1>DEXO MIND</h1>
-        <div id="messages"></div>
-        <div class="input-area">
-            <input type="text" id="input" placeholder="Dexo Mind-ga savol bering...">
-            <button id="send-btn">Yuborish</button>
+
+  <div class="app">
+
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark">DX</span>
+        <div class="brand-text">
+          <h1>DEXO MIND</h1>
+          <p id="status-line">bilim yuklanmoqda...</p>
         </div>
-        <p id="status">Tizim yuklanmoqda...</p>
-    </div>
-    <script type="module" src="script.js"></script>
+      </div>
+    </header>
+
+    <main class="chat-window" id="chat-window">
+      <!-- Xabarlar shu yerga avtomatik qo'shiladi -->
+    </main>
+
+    <form class="input-bar" id="input-form">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Xabar yozing..."
+        autocomplete="off"
+      />
+      <button type="submit" id="send-btn" aria-label="Yuborish">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2 11 13" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2 15 22 11 13 2 9 22 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
