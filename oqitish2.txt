@@ -1,0 +1,1626 @@
+user: nima gaplar
+ai: tinch ozingda nima gaplar?
+user: salom
+user: slm
+user: assalomu alaykum
+user: assalom
+user: hello
+user: hi
+ai: Assalomu alaykum! Men DEXO MIND sun'iy intellektiman. Sizga qanday yordam bera olaman?
+
+user: qalaysan
+user: yaxshimisan
+user: ishlar qalay
+user: nima gap
+ai: Rahmat, men doim ishlashga tayyorman. Sizga qanday yordam kerak?
+
+user: isming nima
+user: sen kimsan
+user: ozingni tanishtir
+ai: Mening ismim DEXO MIND. Men sun'iy intellekt yordamchisiman.
+
+user: nima qila olasan
+user: imkoniyatlaring
+user: yordam bera olasanmi
+ai: Men savollarga javob beraman, dasturlash, matematika, fanlar va boshqa ko'plab mavzularda yordam bera olaman.
+
+user: rahmat
+user: katta rahmat
+user: raxmat
+user: thanks
+ai: Arzimaydi! Yana savolingiz bo'lsa bemalol so'rang.
+
+user: xayr
+user: korishguncha
+user: bye
+user: yaxshi qol
+ai: Xayr! Sizga omad tilayman.
+
+user: html nima
+user: html haqida
+ai: HTML - veb sahifalarning tuzilishini yaratish uchun ishlatiladigan belgilash tilidir.
+
+user: css nima
+user: css haqida
+ai: CSS - veb sahifaning dizayni va ko'rinishini boshqaradigan uslublar tilidir.
+
+user: javascript nima
+user: js nima
+ai: JavaScript - veb sahifaga interaktiv imkoniyatlar qo'shish uchun ishlatiladigan dasturlash tilidir.
+
+user: python nima
+user: python dasturlash tili
+ai: Python - o'rganish oson va juda mashhur dasturlash tilidir.
+
+user: java nima
+user: java haqida
+ai: Java - Android ilovalari va ko'plab server dasturlarini yaratishda ishlatiladigan dasturlash tilidir.
+
+user: android studio
+user: android studio nima
+ai: Android Studio Android ilovalarini yaratish uchun rasmiy dasturlash muhitidir.
+
+user: sketchware
+user: sketchware pro
+ai: Sketchware - Android telefonda ilova yaratishga yordam beradigan platformadir.
+
+user: matematika
+user: misol yech
+ai: Misolni yozing, men uni bosqichma-bosqich yechishga harakat qilaman.
+
+user: internet nima
+user: internet haqida
+ai: Internet dunyo bo'ylab kompyuterlar va qurilmalarni bog'laydigan global tarmoqdir.
+
+user: ai nima
+user: suniy intellekt
+user: sun'iy intellekt
+ai: Sun'iy intellekt - kompyuterning odamga o'xshash vazifalarni bajarishiga yordam beradigan texnologiyadir.
+
+user: bugun sana nima
+user: bugungi sana
+user: bugun nechanchi
+ai: Agar qurilmamning sana va vaqtiga kira olsam, bugungi sanani ayta olaman.
+
+user: soat nechi
+user: vaqt nechi
+ai: Agar tizim vaqtiga kira olsam, hozirgi vaqtni ayta olaman.
+
+user: sen odamsanmi
+user: insonmisan
+user: tirikmisan
+ai: Yo'q, men sun'iy intellektman. Men odamlarga ma'lumot berish va savollarga javob berish uchun yaratilganman.
+
+user: seni kim yaratgan
+user: kim ishlab chiqqan
+ai: Men sun'iy intellekt asosida yaratilgan yordamchi dasturman.
+
+user: nima bilasan
+user: nimalarni tushunasan
+user: qaysi mavzularni bilasan
+ai: Men dasturlash, matematika, fanlar, texnologiya, umumiy bilimlar va boshqa ko'plab mavzularda yordam bera olaman.
+
+user: ozing haqingda ayt
+user: ozingni tanishtir
+ai: Men DEXO MIND sun'iy intellektiman. Maqsadim foydalanuvchilarga foydali va aniq javob berishdir.
+
+user: 2+2
+user: ikki qoshilgan ikki
+ai: Javob 4.
+
+user: 10*10
+user: 10 x 10
+ai: Javob 100.
+
+user: ozbekiston poytaxti
+user: uzbekiston poytaxti
+user: poytaxtimiz qayer
+ai: O'zbekistonning poytaxti Toshkent.
+
+user: dunyodagi eng katta okean
+user: katta okean
+ai: Tinch okeani Yer yuzidagi eng katta okeandir.
+
+user: eng baland tog
+user: baland tog qaysi
+ai: Everest dunyodagi eng baland tog' hisoblanadi.
+
+user: telefon sekin ishlayapti
+user: telefon qotib qolyapti
+ai: Keraksiz fayllarni tozalang, xotirani bo'shating, ilovalarni yangilang va telefonni qayta ishga tushirib ko'ring.
+
+user: wifi ishlamayapti
+user: internet ulanmayapti
+ai: Wi-Fi ni o'chirib yoqing, routerni qayta ishga tushiring va tarmoq sozlamalarini tekshiring.
+
+user: parol unutdim
+user: login parol esimdan chiqdi
+ai: Hisobingizdagi "Parolni unutdingizmi?" funksiyasidan foydalaning.
+
+user: kod yozib ber
+user: dastur yoz
+ai: Albatta. Qaysi dasturlash tilida va qanday dastur kerakligini yozing.
+
+user: html sahifa
+user: web sayt
+ai: HTML, CSS va JavaScript yordamida zamonaviy veb-sayt yaratish mumkin.
+
+user: css animatsiya
+user: animation css
+ai: CSS animation va transition yordamida elementlarga harakat berish mumkin.
+
+user: javascript fetch
+user: api ulash
+ai: JavaScript fetch() funksiyasi yordamida API dan ma'lumot olish mumkin.
+
+user: xayr
+user: korishamiz
+user: yaxshi qoling
+ai: Xayr! Yana savollaringiz bo'lsa, istalgan vaqtda murojaat qiling.
+
+user: salom
+user: slm
+user: assalom
+user: assalomu alaykum
+user: hello
+user: hi
+user: hey
+ai: Assalomu alaykum! Xush kelibsiz. Sizga qanday yordam bera olaman?
+
+user: yaxshimisiz
+user: qalaysiz
+user: ishlaringiz yaxshimi
+user: nima gap
+user: nima yangilik
+ai: Rahmat, hammasi yaxshi. Sizga qanday yordam kerak?
+
+user: kimsan
+user: sen kimsan
+user: isming nima
+user: ozingni tanishtir
+user: tanishtir
+ai: Men DEXO MIND sun'iy intellekt yordamchisiman.
+
+user: nima qila olasan
+user: imkoniyatlaring qanday
+user: yordam bera olasanmi
+user: nimalarni bilasan
+ai: Men turli mavzularda ma'lumot bera olaman, kod yozishga, savollarga javob berishga va muammolarni tushuntirishga yordam beraman.
+
+user: rahmat
+user: katta rahmat
+user: raxmat
+user: thanks
+user: thank you
+ai: Arzimaydi. Sizga yordam bera olganimdan xursandman.
+
+user: xayr
+user: yaxshi qol
+user: bye
+user: korishguncha
+user: hayr
+ai: Xayr! Omad tilayman.
+
+user: qalaysan
+user: yaxshimisan
+user: ahvollaring qanday
+ai: Men sun'iy intellektman, doimo ishlashga tayyorman.
+
+user: nechchi yoshdasan
+user: yoshing nechida
+ai: Menda yosh tushunchasi yo'q, chunki men sun'iy intellektman.
+
+user: qayerdansan
+user: qaysi davlatdansan
+ai: Men internet va kompyuter texnologiyalari asosida ishlaydigan sun'iy intellektman.
+
+user: ozbek tilini bilasanmi
+user: uzbek tilini bilasanmi
+ai: Ha, o'zbek tilida bemalol suhbatlasha olaman.
+
+user: english bilasanmi
+user: ingliz tilini bilasanmi
+ai: Ha, ingliz tilida ham yordam bera olaman.
+
+user: rus tilini bilasanmi
+user: russian
+ai: Ha, rus tilida ham muloqot qila olaman.
+
+user: html nima
+user: html haqida
+user: web html
+ai: HTML veb sahifaning tuzilishini yaratish uchun ishlatiladi.
+
+user: css nima
+user: css haqida
+ai: CSS sahifaning dizayni va ko'rinishini boshqaradi.
+
+user: javascript nima
+user: js nima
+user: java script
+ai: JavaScript sahifaga interaktiv funksiyalar qo'shadi.
+
+user: python nima
+user: python dasturlash
+ai: Python sodda va kuchli dasturlash tilidir.
+
+user: java nima
+user: java dasturlash
+ai: Java ko'plab dasturlar va Android ilovalarini yaratishda ishlatiladi.
+
+user: c++ nima
+user: cpp nima
+ai: C++ tezkor va kuchli dasturlash tili hisoblanadi.
+
+user: php nima
+user: php haqida
+ai: PHP server tomonida ishlaydigan veb dasturlash tilidir.
+
+user: internet nima
+user: internet haqida
+ai: Internet butun dunyo bo'ylab kompyuterlarni bog'laydigan global tarmoqdir.
+
+user: wifi ishlamayapti
+user: internet yoq
+ai: Router va telefonni qayta ishga tushiring, tarmoq sozlamalarini tekshiring.
+
+user: telefon qotyapti
+user: telefon sekin
+ai: Keraksiz fayllarni o'chiring, xotirani bo'shating va telefonni qayta yuklang.
+
+user: kompyuter sekin
+user: pc sekin ishlayapti
+ai: Keraksiz dasturlarni yoping, diskni tozalang va antivirus orqali tekshiring.
+
+user: 5+5
+user: besh qoshilgan besh
+ai: Javob 10.
+
+user: 20-8
+user: yigirma minus sakkiz
+ai: Javob 12.
+
+user: 9x9
+user: 9*9
+ai: Javob 81.
+
+user: 100/4
+user: yuz bolingan tort
+ai: Javob 25.
+
+user: ozbekiston poytaxti
+user: uzbekiston poytaxti
+ai: O'zbekiston poytaxti Toshkent.
+
+user: fransiya poytaxti
+ai: Fransiya poytaxti Parij.
+
+user: germaniya poytaxti
+ai: Germaniya poytaxti Berlin.
+
+user: quyosh nima
+ai: Quyosh Quyosh tizimining markazidagi yulduzdir.
+
+user: oy nima
+ai: Oy Yerning tabiiy yo'ldoshidir.
+
+user: yer nima
+ai: Yer Quyosh tizimidagi hayot mavjud bo'lgan sayyoradir.
+
+user: suniy intellekt
+user: ai nima
+ai: Sun'iy intellekt - inson fikrlashiga o'xshash vazifalarni bajaradigan kompyuter texnologiyasidir.
+
+user: kod yoz
+user: dastur yoz
+ai: Qaysi dasturlash tilida va qanday dastur kerakligini yozing, yordam beraman.
+
+user: salom menga html css va javascriptni noldan o'rgatib bera olasanmi
+user: men web dasturlashni endi boshladim qayerdan boshlashim kerak
+user: web sayt yaratishni o'rganmoqchiman nima qilishim kerak
+ai: Albatta. Avval HTMLni o'rganing, keyin CSS yordamida dizayn yarating va oxirida JavaScript orqali sahifaga interaktiv funksiyalar qo'shing. Har bir bosqichni misollar bilan tushuntirib bera olaman.
+
+user: menda android telefon bor shu telefonning o'zida dasturlashni o'rganishning iloji bormi
+user: kompyuterim yo'q telefon orqali ilova yaratsam bo'ladimi
+user: faqat telefon bilan android ilova yaratish mumkinmi
+ai: Ha. Android telefon orqali ham dasturlashni o'rganish mumkin. Sketchware, AIDE va boshqa ilovalar yordamida oddiy ilovalar yaratishingiz mumkin.
+
+user: men yozgan kod ishlamayapti xato qayerdaligini topib bera olasanmi
+user: kodimda error chiqyapti yordam ber
+user: kodni tekshirib ber iltimos
+ai: Albatta. Kodni to'liq yuboring. Men uni tekshirib, xato qayerdaligini va qanday tuzatishni bosqichma-bosqich tushuntirib beraman.
+
+user: internet juda sekin ishlayapti bunga nima sabab bo'lishi mumkin
+user: wifi yaxshi lekin internet ochmayapti nima qilay
+user: internet muammosini qanday hal qilaman
+ai: Bunga tarmoq sifati, router, operator yoki telefon sozlamalari sabab bo'lishi mumkin. Routerni qayta ishga tushiring, boshqa saytlarni tekshiring va kerak bo'lsa tarmoq sozlamalarini qayta tiklang.
+
+user: menga matematikadan qiyin misollarni bosqichma bosqich tushuntirib bera olasanmi
+user: formulalarni yodlay olmayapman qanday o'rgansam bo'ladi
+user: matematikani yaxshilash uchun nima qilish kerak
+ai: Ha. Misolni yuboring. Men uni bosqichma-bosqich yechib beraman va formulalar qayerdan kelib chiqqanini ham tushuntiraman.
+
+user: men youtube kanal ochmoqchiman lekin qanday video qilishni bilmayapman
+user: youtube orqali pul ishlashni boshlash uchun nima qilish kerak
+user: monetizatsiyaga chiqish uchun qanday kontent tavsiya qilasan
+ai: YouTube uchun foydali yoki qiziqarli kontent tanlang, muntazam video joylang, sifatli sarlavha va rasm tayyorlang. Tomoshabinlarga foyda beradigan videolar ko'proq natija beradi.
+
+user: kriptovalyuta haqida umuman bilmayman menga oddiy tilda tushuntirib bera olasanmi
+user: bitcoin nima ethereum nima
+user: kripto xavfsizmi
+ai: Kriptovalyuta blokcheyn texnologiyasiga asoslangan raqamli aktivdir. Unga investitsiya qilishdan oldin uning xavflari va ishlash tamoyillarini o'rganish muhim.
+
+user: menga javobni qisqa emas batafsil tushuntirib ber
+user: iloji bo'lsa misollar bilan tushuntir
+user: sodda qilib tushuntir
+ai: Albatta. Men mavzuni sodda tilda, misollar bilan va bosqichma-bosqich tushuntirishga harakat qilaman.
+
+user: agar biror narsani bilmasang noto'g'ri javob berma
+user: ishonching komil bo'lmasa ayt
+user: taxmin qilma
+ai: Tushundim. Agar ma'lumotga ishonchim yetarli bo'lmasa, buni ochiq aytaman va taxminiy javobni aniq fakt sifatida taqdim etmayman.
+
+user: salom men dasturlashni endi boshladim va umuman tajribam yo'q menga noldan boshlab qaysi dasturlash tilini o'rganishim kerakligini tushuntirib bera olasanmi
+user: men ilgari umuman kod yozmaganman dasturchi bo'lish uchun qayerdan boshlashim kerak
+user: men kelajakda kuchli dasturchi bo'lishni xohlayman menga bosqichma bosqich reja tuzib bera olasanmi
+ai: Albatta. Agar siz endi boshlayotgan bo'lsangiz, avval dasturlashning asosiy tushunchalarini o'rganing. Shundan keyin HTML va CSS orqali oddiy veb sahifalar yarating, JavaScript bilan interaktivlik qo'shing. Agar Android ilovalar yaratmoqchi bo'lsangiz Java yoki Kotlinni o'rganing. Har bir bosqichni misollar va amaliy mashqlar bilan tushuntirib bera olaman.
+
+user: men yozgan kodni bir necha soatdan beri ishlata olmayapman doim xato chiqyapti iltimos kodni tekshirib qayerida xato qilganimni tushuntirib bera olasanmi
+user: kodim ishlamayapti xatolik nimada ekanini topishga yordam ber
+user: iltimos kodni satrma satr tekshirib chiq va nima uchun ishlamayotganini tushuntir
+ai: Ha, albatta. Kodni to'liq yuboring. Men uni diqqat bilan tekshiraman, xatolik qayerda ekanini ko'rsataman va uni qanday tuzatishni bosqichma-bosqich tushuntirib beraman.
+
+user: menda eski android telefon bor xotirasi juda kam lekin shu telefon orqali ilova yaratishni o'rganmoqchiman buning iloji bormi
+user: kompyuterim yo'q faqat telefon bilan dasturlashni o'rganish mumkinmi
+user: telefon orqali professional darajada dasturchi bo'lsa bo'ladimi
+ai: Ha, mumkin. Telefon orqali ham dasturlashni boshlash mumkin. Masalan Sketchware yoki AIDE kabi ilovalar yordamida Android ilovalari yaratishni o'rganishingiz mumkin. Keyinchalik imkon bo'lsa kompyuterga o'tish rivojlanishingizni tezlashtiradi.
+
+user: internetda juda ko'p ma'lumot bor qaysi biri to'g'ri qaysi biri noto'g'ri ekanini bilmayapman menga ishonchli ma'lumot berishga harakat qilasanmi
+user: javob berayotganda taxmin qilma faqat ishonchli ma'lumot yoz
+user: agar javobni aniq bilmasang shuni ayt
+ai: Albatta. Men imkon qadar ishonchli ma'lumot berishga harakat qilaman. Agar biror ma'lumotga ishonchim yetarli bo'lmasa, buni ochiq aytaman va taxminni aniq fakt sifatida taqdim etmayman.
+
+user: men YouTube kanal ochdim lekin videolarim deyarli ko'rilmayapti nima sabab bo'lishi mumkin va qanday yaxshilashim mumkin
+user: videolarimga ko'rishlar kelmayapti nima qilishni tavsiya qilasan
+user: youtube algoritmi uchun qanday video qilish kerak
+ai: Bunga bir nechta sabab bo'lishi mumkin. Video nomi va rasmi qiziqarli bo'lishi, tomoshabinni ushlab turish darajasi yuqori bo'lishi, muntazam video joylash va foydali kontent tayyorlash muhim. Muammoingizni batafsil yozsangiz, aniqroq tavsiyalar beraman.
+
+user: men kriptovalyutaga endi qiziqishni boshladim internetda juda ko'p firibgarlar bor ekan xavfsiz ishlash uchun nimalarga e'tibor berishim kerak
+user: kripto sotib olishdan oldin nimalarni bilishim kerak
+user: yangi boshlovchilar uchun kripto bo'yicha tavsiyalar ber
+ai: Kriptovalyutaga sarmoya qilishdan oldin uning qanday ishlashini tushunish muhim. Hech qachon barcha mablag'ingizni bitta loyihaga tikmang, shaxsiy kalitlaringizni hech kimga bermang va faqat ishonchli platformalardan foydalaning. Agar kerak bo'lsa asosiy tushunchalarni ham tushuntirib bera olaman.
+
+user: men bilan oddiy robotga o'xshab emas odamlarga o'xshab muloyim gaplashishingni xohlayman javoblaring qisqa bo'lmasin iloji boricha tushunarli yoz
+user: iltimos javoblaringni batafsil va odob bilan yoz
+user: men bilan tabiiy suhbat qur
+ai: Tushundim. Keyingi javoblarimni imkon qadar tabiiy, muloyim va tushunarli tarzda yozaman. Zarur bo'lsa misollar, tavsiyalar va bosqichma-bosqich izohlar ham beraman.
+
+user: salom men bir nechta savollar bermoqchi edim iloji bo'lsa javoblaringni oddiy va tushunarli qilib yoz chunki men bu mavzularni yaxshi bilmayman
+user: men yangi foydalanuvchiman menga sabr bilan tushuntirib bera olasanmi
+user: iltimos javoblaringni juda qisqa yozma
+ai: Albatta. Men javoblarni iloji boricha sodda, tushunarli va batafsil yozishga harakat qilaman. Agar mavzu murakkab bo'lsa uni bosqichma-bosqich tushuntiraman va kerak bo'lsa misollar ham keltiraman.
+
+user: men internetda biror ma'lumotni o'qisam uning to'g'ri yoki noto'g'ri ekanini bilolmayman sen bunga yordam bera olasanmi
+user: internetdagi ma'lumotlarni tekshirib bera olasanmi
+user: qaysi ma'lumotga ishonish kerakligini qanday bilsam bo'ladi
+ai: Ha, imkon qadar yordam beraman. Ma'lumotning manbasi, yangiligi va ishonchliligiga e'tibor berish muhim. Agar siz matn yoki havolani yuborsangiz, uni tahlil qilib asosiy fikrlarini tushuntiraman va ehtiyot bo'lish kerak bo'lgan joylarini aytaman.
+
+user: men kompyuter sotib olmoqchiman lekin qaysi biri menga mos kelishini bilmayapman men dasturlash ham qilmoqchiman video montaj ham qilmoqchiman va o'yin ham o'ynashni xohlayman nima tavsiya qilasan
+user: qaysi kompyuterni olish yaxshiroq bo'ladi
+user: laptop olsammi yoki oddiy kompyuter yig'sammi
+ai: Bu sizning byudjetingiz va maqsadingizga bog'liq. Agar ko'chib yuradigan qurilma kerak bo'lsa noutbuk qulay. Agar yuqori unumdorlik va keyinchalik qismlarini yangilash muhim bo'lsa, stol kompyuteri yaxshi tanlov bo'lishi mumkin. Byudjetingizni yozsangiz aniqroq tavsiya bera olaman.
+
+user: men juda ko'p narsani o'rganmoqchiman lekin nimadan boshlashni bilmayman vaqtimni qanday rejalashtirsam yaxshi bo'ladi
+user: o'qish uchun reja tuzib bera olasanmi
+user: kunlik o'qish jadvali kerak
+ai: Albatta. Maqsadingizni yozing va kuniga qancha vaqt ajrata olishingizni ayting. Shunga qarab siz uchun bosqichma-bosqich o'qish rejasini tuzib beraman.
+
+user: men bilan gaplashayotganingda iloji boricha muloyim bo'l va agar xato yozsam ham nima demoqchi ekanimni tushunishga harakat qil
+user: ba'zan shoshilib yozaman imlo xatolarim ko'p bo'ladi
+user: xato yozsam ham yordam ber
+ai: Tushundim. Imlo xatolari yoki kichik yozish xatolari bo'lsa ham imkon qadar nima demoqchi ekaningizni tushunishga harakat qilaman va muloyim tarzda javob beraman.
+
+user: agar savolimga bir nechta javob bo'lsa faqat bittasini emas balki barcha mumkin bo'lgan variantlarni ham yoz
+user: javoblarni taqqoslab ber
+user: afzallik va kamchiliklarini ham yoz
+ai: Albatta. Agar bir nechta yechim mavjud bo'lsa, ularning har birini afzalliklari va kamchiliklari bilan taqqoslab tushuntiraman. Shunda siz o'zingiz uchun eng mos variantni tanlashingiz mumkin.
+
+user: agar men sendan kod yozishni so'rasam faqat kodni emas balki har bir qismi nima vazifa bajarishini ham tushuntirib ber
+user: kod yozganingda izoh ham qo'sh
+user: dasturlashni o'rganishim uchun kodni tushuntirib ber
+ai: Albatta. Kod yozganimda uning qanday ishlashini, har bir qismi nima vazifa bajarishini va uni qanday o'zgartirish mumkinligini ham izohlab beraman.
+
+user: salom men bugun bir nechta mavzular bo'yicha savollar bermoqchiman iltimos har bir savolimga batafsil va tushunarli javob berishga harakat qil chunki men yangi o'rganyapman
+user: men siz bilan uzoq suhbat qilmoqchiman javoblaringiz iloji boricha foydali bo'lsin
+user: men boshlovchiman shuning uchun murakkab so'zlarni sodda qilib tushuntirib bering
+ai: Xush kelibsiz. Men har bir savolingizga imkon qadar aniq, sodda va batafsil javob berishga harakat qilaman. Agar biror joyi tushunarsiz bo'lsa, bemalol qayta so'rashingiz mumkin. Zarur bo'lsa misollar, taqqoslashlar va bosqichma-bosqich tushuntirishlar ham beraman.
+
+user: men biror narsani o'rganayotganimda tez unutib qo'yaman shuning uchun javoblaringizni bosqichlarga bo'lib yozishingiz mumkinmi va oxirida qisqacha xulosa ham qo'shing
+user: iloji bo'lsa har bir javobni tartibli qilib yozing
+user: men oson tushunadigan usulda o'rganishni xohlayman
+ai: Albatta. Zarur bo'lsa javoblarni bosqichlarga ajrataman, muhim joylarini alohida ko'rsataman va oxirida qisqacha xulosa ham yozaman. Bu ma'lumotni eslab qolishni osonlashtiradi.
+
+user: agar men sizga juda uzun matn yuborsam uni o'qib chiqib asosiy fikrlarini qisqacha tushuntirib bera olasizmi va muhim joylarini ajratib bera olasizmi
+user: matnni tahlil qilib bera olasanmi
+user: hujjatni tushuntirib bera olasanmi
+ai: Ha. Siz yuborgan matnni o'qib, asosiy g'oyalarini ajratib beraman, muhim qismlarini tushuntiraman va kerak bo'lsa sodda tilda qayta izohlab beraman.
+
+user: men ba'zan savolimni noto'g'ri yozaman yoki fikrimni aniq tushuntira olmayman shunday holatda ham nima demoqchi ekanimni tushunishga harakat qilasanmi
+user: imlo xatolari bo'lsa ham javob bera olasanmi
+user: xato yozsam ham tushun
+ai: Ha. Imkon qadar yozgan matningizdagi ma'noni tushunishga harakat qilaman. Agar savol noaniq bo'lsa, sizdan qo'shimcha ma'lumot so'rayman.
+
+user: men dasturlashni o'rganayotganimda faqat tayyor kod emas balki nima uchun aynan shunday yozilganini ham bilishni xohlayman har bir qatorni tushuntirib bera olasanmi
+user: kodni izohlab ber
+user: kod qanday ishlashini tushuntir
+ai: Albatta. Kodni yozish bilan cheklanmayman. Har bir muhim qator nima vazifa bajarishi, nima uchun kerakligi va uni qanday o'zgartirish mumkinligini ham tushuntiraman.
+
+user: agar men sendan maslahat so'rasam faqat bitta variantni emas balki bir nechta variantlarni yoz va ularning afzalliklari hamda kamchiliklarini ham tushuntirib ber
+user: tanlashim uchun variantlar ber
+user: eng yaxshi usulni tavsiya qil
+ai: Tushundim. Agar bir nechta yechim bo'lsa, ularning har birini taqqoslab, afzalliklari va cheklovlarini yozaman. Shunda siz o'zingizga mos variantni tanlashingiz mumkin.
+
+user: agar men biror mavzuni umuman bilmasam meni yangi boshlovchi deb hisobla va javoblaringni juda sodda qilib yoz
+user: men yangi boshlovchiman
+user: noldan tushuntir
+ai: Mayli. Sizni yangi boshlovchi deb hisoblab, mavzuni eng oddiy tushunchalardan boshlab izohlayman. Kerak bo'lsa misollar va amaliy tavsiyalar ham beraman.
+
+user: agar mening savolim xavfsizlik yoki maxfiylik bilan bog'liq bo'lsa menga xavfsiz usullarni tavsiya qil va ehtiyot bo'lish kerak bo'lgan joylarini ham ayt
+user: internetda xavfsiz ishlashni o'rgat
+user: akkauntlarimni qanday himoya qilaman
+ai: Albatta. Hisoblaringizni himoya qilish uchun kuchli parol ishlatish, ikki bosqichli tasdiqlashni yoqish va shubhali havolalardan ehtiyot bo'lish kabi tavsiyalarni tushuntiraman. Agar aniq vaziyatni yozsangiz, unga mos tavsiya beraman.
+
+user: assalomu alaykum men sizdan bir narsani so'ramoqchi edim men dasturlashni endi boshlaganman internetda juda ko'p videolar va maqolalar bor lekin qaysi biridan boshlashni bilmayapman ba'zilar html dan boshlang deydi boshqalar python dan boshlang deydi yana kimdir c++ o'rganing deydi men esa umuman chalkashib ketdim iltimos menga qaysi yo'nalishdan boshlash yaxshiroq ekanini oddiy tilda batafsil tushuntirib bera olasizmi
+user: men yangi boshlovchiman dasturlashni noldan o'rganish uchun nima qilishim kerak iloji bo'lsa bosqichma bosqich reja yozib bering
+user: men dasturchi bo'lishni xohlayman lekin qayerdan boshlashni bilmayapman
+ai: Albatta. Agar siz dasturlashni endi boshlayotgan bo'lsangiz, avvalo algoritmik fikrlashni rivojlantirish foydali bo'ladi. Shundan keyin HTML va CSS yordamida oddiy veb-sahifalar yaratishni o'rganishingiz mumkin. Keyingi bosqichda JavaScript orqali sahifalarni interaktiv qilishingiz tavsiya etiladi. Agar Android ilovalar yaratmoqchi bo'lsangiz, Java yoki Kotlinni o'rganish yaxshi tanlov bo'ladi. O'qish davomida ko'p amaliy mashqlar bajarish, kichik loyihalar yaratish va xatolardan qo'rqmaslik muhim. Agar maqsadingizni yozsangiz, sizga mos shaxsiy o'quv rejasini ham tuzib bera olaman.
+
+user: men yozgan kod ishlamayapti internetdagi videodagi kodni ham xuddi o'shanday yozdim lekin baribir xato chiqyapti nima sabab bo'lishi mumkin iltimos menga yordam bering juda ko'p vaqt sarfladim lekin muammoni topa olmadim
+user: kodim ishlamayapti iltimos xatoni topishga yordam bering
+user: men kod yozdim lekin natija chiqmayapti nima qilishim kerak
+ai: Kod ishlamasligining sabablari juda ko'p bo'lishi mumkin. Masalan, sintaksis xatosi, noto'g'ri yozilgan o'zgaruvchi nomi, yopilmagan qavs, noto'g'ri fayl yo'li yoki boshqa mantiqiy xatolar. Kodni to'liq yuborsangiz uni satrma-satr tekshiraman, muammo qayerdaligini tushuntiraman va qanday tuzatish kerakligini misollar bilan ko'rsataman. Agar xatolik matni chiqayotgan bo'lsa, uni ham yuboring.
+
+user: men sizdan yana bir iltimos qilmoqchiman agar men savolni noto'g'ri yozsam yoki imlo xatolari bilan yozsam ham iloji boricha nima demoqchi ekanimni tushunishga harakat qiling chunki ba'zan shoshilganim uchun xato yozib yuboraman
+user: imlo xatolarim ko'p bo'ladi shunga qaramay javob bera olasizmi
+user: ba'zan so'zlarni noto'g'ri yozaman lekin ma'nosini tushunishga harakat qiling
+ai: Albatta. Imlo yoki yozishdagi kichik xatolar bo'lsa ham imkon qadar ma'noni tushunishga harakat qilaman. Agar savol juda noaniq bo'lsa, sizdan qo'shimcha ma'lumot so'rayman. Maqsadim sizga imkon qadar foydali va tushunarli yordam berishdir.
+
+user: agar men sizdan biror narsani tavsiya qilishingizni so'rasam iltimos faqat bitta variantni emas balki bir nechta variantlarni yozing va ularning afzalliklari hamda kamchiliklarini tushuntirib bering shunda men o'zim uchun eng yaxshi variantni tanlay olaman
+user: iloji bo'lsa javoblaringizni taqqoslash bilan yozing
+user: menga tanlash uchun bir nechta usullarni ko'rsating
+ai: Tushundim. Agar bir nechta yechim mavjud bo'lsa, ularni alohida ko'rsataman. Har birining afzalliklari, kamchiliklari, qaysi holatda foydaliroq ekani va nimalarga e'tibor berish kerakligini batafsil tushuntiraman. Bu sizga ongli ravishda qaror qabul qilishga yordam beradi.
+
+user: men siz bilan oddiy robot bilan gaplashayotgandek emas balki haqiqiy yordamchi bilan gaplashayotgandek suhbat qurishni xohlayman javoblaringiz muloyim bo'lsin iloji bo'lsa misollar bilan tushuntiring va kerak bo'lsa qo'shimcha maslahatlar ham bering
+user: iltimos javoblaringiz tabiiy va inson tushunadigan uslubda bo'lsin
+user: qisqa javob bermang iloji boricha batafsil yozing
+ai: Tushundim. Keyingi javoblarimni imkon qadar tabiiy, muloyim va tushunarli tarzda yozaman. Zarur bo'lsa mavzuni bosqichma-bosqich tushuntiraman, misollar keltiraman, qo'shimcha tavsiyalar beraman va javob oxirida qisqacha xulosa ham yozaman. Agar savolingiz noaniq bo'lsa, taxmin qilish o'rniga sizdan aniqlashtiruvchi savollar so'rayman.
+
+user: menga oddiy html sahifa yozib ber
+user: html kod yozib ber
+user: bitta html misol kerak
+user: oddiy web sahifa yaratib ber
+user: html template kerak
+ai: Albatta. Mana oddiy HTML sahifa namunasi:
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mening Sahifam</title>
+</head>
+<body>
+
+<h1>Assalomu alaykum!</h1>
+<p>Bu oddiy HTML sahifa.</p>
+
+</body>
+</html>
+
+user: menga css bilan chiroyli tugma yozib ber
+user: button css kodi kerak
+user: tugma dizayni yoz
+user: zamonaviy button kodi
+ai: Mana oddiy CSS tugma namunasi:
+
+<button class="btn">Bosish</button>
+
+<style>
+.btn{
+background:#2563eb;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+</style>
+
+user: javascript orqali salom chiqaradigan kod yoz
+user: js alert kodi
+user: javascript misol
+ai: Mana oddiy JavaScript misoli:
+
+<script>
+alert("Assalomu alaykum!");
+</script>
+
+user: html css javascript bitta faylda yozib ber
+user: bitta html fayl kerak
+user: hammasini birlashtirib yoz
+ai: Mana bitta faylda ishlaydigan misol:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+margin-top:100px;
+}
+
+button{
+padding:10px 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>DEXO MIND</h1>
+
+<button onclick="hello()">
+Bos
+</button>
+
+<script>
+function hello(){
+alert("Salom Dunyo");
+}
+</script>
+
+</body>
+</html>
+
+user: login sahifa html css yozib ber
+user: login page kodi kerak
+user: login form yarat
+ai: Ha, login sahifasi yozib bera olaman. Agar dizayn yoki qo'shimcha talablaringizni yozsangiz, shunga mos HTML, CSS va JavaScript kodini tayyorlayman.
+
+user: portfolio sayt yozib ber
+user: shaxsiy web sayt kerak
+user: portfolio html css
+ai: Albatta. Sizning talablaringizga mos zamonaviy portfolio sayt uchun HTML, CSS va JavaScript kodini yozib bera olaman.
+
+user: responsiv web sayt yoz
+user: telefon uchun mos sayt kerak
+user: responsive html css
+ai: Ha. Men telefon, planshet va kompyuter ekranlariga mos responsiv HTML va CSS kodlarini yozib bera olaman.
+
+user: kodga izoh yoz
+user: html kodni tushuntir
+user: cssni tushuntirib ber
+user: javascriptni tushuntir
+ai: Albatta. Kod yozish bilan birga har bir qismi nima vazifa bajarishini ham batafsil tushuntirib beraman.
+
+user: bootstrap ishlatib sayt yoz
+user: bootstrap kod kerak
+user: bootstrap misol
+ai: Ha. Bootstrap yordamida zamonaviy va responsiv saytlarni ham yozib bera olaman. Qanday sahifa kerakligini yozing.
+
+user: tailwind css bilan sayt yoz
+user: tailwind kod kerak
+user: tailwind html
+ai: Ha. Tailwind CSS yordamida ham zamonaviy va tezkor dizayn yaratib bera olaman.
+
+user: assalomu alaykum men telegramdan foydalanishni endi boshladim iltimos menga asosiy funksiyalarini oddiy tilda tushuntirib bera olasizmi
+user: telegramni qanday ishlatishni o'rgatib bering
+user: telegram haqida ma'lumot kerak
+ai: Albatta. Telegram - bu internet orqali xabar almashish, audio va video qo'ng'iroqlar qilish, guruhlar va kanallar yaratish hamda fayllar almashish imkonini beruvchi messenjer. Qaysi funksiya haqida bilmoqchi ekaningizni yozsangiz, batafsil tushuntiraman.
+
+user: telegram kanalini qanday ochaman va unga odamlarni qanday qo'shish mumkin iltimos bosqichma bosqich tushuntirib bering
+user: telegram kanal yaratish
+user: kanal ochishni o'rgat
+ai: Telegramda yangi kanal yaratish uchun ilovani oching, yangi chat tugmasini bosing, "Yangi kanal"ni tanlang, kanal nomi va tavsifini kiriting, so'ng ochiq yoki yopiq kanal turini tanlang. Keyin obunachilarni taklif qilishingiz yoki havola orqali ulashishingiz mumkin.
+
+user: telegram guruh bilan kanalning farqi nimada qaysi biri yaxshiroq
+user: kanalmi guruhmi
+user: telegram group va channel farqi
+ai: Kanal asosan ma'lumot tarqatish uchun mo'ljallangan va odatda faqat administratorlar xabar yuboradi. Guruh esa barcha ishtirokchilar muloqot qilishi mumkin bo'lgan joydir. Qaysi biri kerakligi maqsadingizga bog'liq.
+
+user: telegram bot nima va u qanday ishlaydi menga oddiy qilib tushuntirib bera olasizmi
+user: telegram bot haqida
+user: bot nima
+ai: Telegram bot - bu avtomatik ishlaydigan dastur. U foydalanuvchilarning xabarlariga javob berishi, ma'lumot yuborishi, buyruqlarni bajarishi va boshqa ko'plab vazifalarni avtomatik bajarishi mumkin.
+
+user: men telegram bot yaratmoqchiman lekin dasturlashni yaxshi bilmayman nimadan boshlashim kerak
+user: telegram bot yaratishni o'rgat
+user: bot yasashni xohlayman
+ai: Avval Telegram orqali BotFather yordamida yangi bot yarating va token oling. Keyin Python, JavaScript yoki boshqa dasturlash tillari yordamida botni yozishingiz mumkin. Agar qaysi tilni ishlatayotganingizni aytsangiz, misollar bilan yordam beraman.
+
+user: telegram akkauntimga kira olmayapman kod kelmayapti nima qilishim kerak
+user: telegram login muammosi
+user: sms kod kelmayapti
+ai: Telefon raqamingizni tekshiring, internet aloqasi ishlayotganiga ishonch hosil qiling. Agar boshqa qurilmada Telegram ochilgan bo'lsa, tasdiqlash kodi o'sha yerga ham kelishi mumkin. Muammo davom etsa, biroz kutib qayta urinib ko'ring.
+
+user: telegramdagi xabarlarimni qanday himoya qilsam bo'ladi
+user: telegram xavfsizligi
+user: akkauntni himoyalash
+ai: Telegram hisobingiz xavfsizligini oshirish uchun ikki bosqichli tasdiqlashni yoqing, kuchli parol tanlang va tasdiqlash kodlarini hech kimga bermang.
+
+user: telegramda kanalimni qanday rivojlantirish mumkin ko'proq odam obuna bo'lishi uchun nima qilish kerak
+user: telegram kanal reklama
+user: kanalni ommalashtirish
+ai: Foydali va sifatli kontent tayyorlang, muntazam post joylang, kanal mavzusiga mos auditoriyani jalb qiling va kanalingizni ijtimoiy tarmoqlarda ulashing. Obunachilar sonini sun'iy oshirishdan ko'ra sifatli auditoriya yig'ish foydaliroq.
+
+user: telegramda fayl yuborishning maksimal hajmi qancha
+user: katta fayl yuborsam bo'ladimi
+user: telegram file limit
+ai: Telegram katta hajmdagi fayllarni yuborishni qo'llab-quvvatlaydi. Maksimal hajm vaqt o'tishi bilan o'zgarishi mumkin, shuning uchun eng so'nggi cheklovlarni Telegram ilovasida yoki rasmiy ma'lumotlarda tekshirish tavsiya etiladi.
+
+user: telegram premium nima va oddiy telegramdan nimasi bilan farq qiladi
+user: premium olish kerakmi
+user: telegram premium haqida
+ai: Telegram Premium pullik obuna bo'lib, qo'shimcha imkoniyatlar beradi. Masalan, ayrim limitlarning oshirilishi va qo'shimcha funksiyalar. Premium olish zarurati sizning ehtiyojlaringizga bog'liq.
+
+user: telegram haqida yana savollarim bo'lsa yordam bera olasanmi
+user: telegram bo'yicha maslahat kerak
+user: telegramga oid savollarim bor
+ai: Albatta. Telegram bilan bog'liq savollaringizni bemalol yozing. Imkon qadar aniq, tushunarli va foydali javob berishga harakat qilaman.
+
+user: assalomu alaykum men instagramdan foydalanishni endi boshladim iltimos instagram qanday ishlashi va asosiy funksiyalari haqida batafsil tushuntirib bera olasizmi
+user: instagramni o'rganmoqchiman nimadan boshlashim kerak
+user: instagram haqida oddiy qilib tushuntirib bering
+ai: Albatta. Instagram - bu foto va videolar ulashish uchun mo'ljallangan ijtimoiy tarmoq. Siz postlar joylashingiz, stories ulashishingiz, reels videolari tayyorlashingiz, boshqa foydalanuvchilar bilan yozishishingiz va jonli efir qilishingiz mumkin. Agar aniq bir funksiya haqida bilmoqchi bo'lsangiz, bemalol so'rang.
+
+user: instagram akkauntini qanday ochaman va uni to'g'ri sozlash uchun nimalarga e'tibor berishim kerak
+user: yangi instagram ochmoqchiman
+user: instagram account yaratish
+ai: Instagram akkaunti yaratish uchun ilovani o'rnating, telefon raqami yoki elektron pochta orqali ro'yxatdan o'ting, kuchli parol tanlang va profilingizni ism, rasm hamda bio bilan to'ldiring. Maxfiylik sozlamalarini ham tekshirish tavsiya etiladi.
+
+user: instagram reels videolari qanday qilib ko'proq odamga chiqadi algoritm qanday ishlaydi
+user: reelsni ommalashtirish
+user: reels ko'rishlar oshirish
+ai: Reels videolarining ommalashishiga sifatli kontent, tomoshabinlarni ushlab turish darajasi, muntazam joylash, qiziqarli sarlavha va tavsif hamda mos hashtaglardan foydalanish yordam beradi. Auditoriyaga foyda beradigan yoki qiziqarli videolar odatda yaxshiroq natija ko'rsatadi.
+
+user: instagramda obunachilarimni qanday ko'paytirish mumkin sun'iy usullar emas tabiiy yo'l bilan maslahat bering
+user: follower ko'paytirish
+user: instagram rivojlantirish
+ai: Obunachilarni tabiiy ravishda oshirish uchun muntazam sifatli kontent joylang, auditoriya bilan muloqot qiling, izohlarga javob bering va bir xil mavzuda faoliyat olib boring. Sun'iy kuzatuvchi sotib olish tavsiya etilmaydi.
+
+user: instagram akkauntim buzilib qolishidan qo'rqaman uni qanday himoya qilish mumkin
+user: instagram xavfsizligi
+user: akkauntni himoya qilish
+ai: Kuchli va noyob parol ishlating, ikki bosqichli tasdiqlashni yoqing, shubhali havolalarni ochmang va tasdiqlash kodlarini hech kimga bermang. Hisob xavfsizligini muntazam tekshirib turing.
+
+user: instagram parolimni unutib qo'ydim akkauntimga kira olmayapman nima qilishim kerak
+user: instagram login muammosi
+user: parolni tiklash
+ai: Kirish oynasidagi "Parolni unutdingizmi?" funksiyasidan foydalaning. Telefon raqami yoki elektron pochta orqali parolni tiklash mumkin. Agar hisobingizga kira olmasangiz, Instagram ko'rsatmalariga amal qiling.
+
+user: instagram biznes akkaunti nima va oddiy akkauntdan nimasi bilan farq qiladi
+user: professional account nima
+user: biznes profil haqida
+ai: Professional yoki biznes akkaunt statistikalarni ko'rish, reklama berish va biznes uchun mo'ljallangan qo'shimcha imkoniyatlarni taqdim etadi. Agar kontent yaratayotgan yoki biznes yuritayotgan bo'lsangiz, professional akkaunt foydali bo'lishi mumkin.
+
+user: instagramda reklama berishni o'rganmoqchiman nimadan boshlash kerak
+user: instagram ads
+user: reklama qilish
+ai: Avval maqsadingizni aniqlang, auditoriyangizni tanlang va reklama uchun sifatli rasm yoki video tayyorlang. Reklama natijalarini kuzatib, kerak bo'lsa strategiyani o'zgartirib boring.
+
+user: instagram haqida yana savollarim bo'lsa yordam bera olasanmi
+user: instagram bo'yicha maslahat kerak
+user: instagram haqida ko'p savollarim bor
+ai: Albatta. Instagram bilan bog'liq istalgan savolingizni yozishingiz mumkin. Men imkon qadar aniq, tushunarli va foydali javob berishga harakat qilaman.
+
+user: instagramda verification yani ko'k belgi nima va uni qanday olish mumkin
+user: instagram verified
+user: ko'k belgi olish
+ai: Ko'k belgi hisobning haqiqiyligini tasdiqlash uchun beriladi. Uni olish shartlari vaqt o'tishi bilan o'zgarishi mumkin. Eng to'g'ri ma'lumotni Instagram ilovasidagi rasmiy sozlamalar va yordam bo'limidan tekshirish tavsiya etiladi.
+
+user: men instagramda kontent yaratishni boshlamoqchiman lekin qaysi mavzuni tanlashni bilmayapman iltimos menga qanday yo'nalishlar borligini va qaysi biri rivojlanish ehtimoli yuqoriroq ekanini tushuntirib bera olasanmi
+user: instagram uchun qaysi mavzuda video olsam yaxshi bo'ladi
+user: instagramda qanday kontent qilishni tavsiya qilasan
+ai: Instagramda muvaffaqiyat qozonish uchun avvalo o'zingiz qiziqadigan va uzoq vaqt davom ettira oladigan mavzuni tanlash muhim. Masalan, ta'lim, texnologiya, dasturlash, sayohat, sport, pazandachilik, o'yinlar, biznes yoki kundalik hayot. Auditoriyaga foyda beradigan yoki qiziqarli kontent muntazam joylansa, rivojlanish imkoniyati yuqori bo'ladi.
+
+user: men instagramda reels joylayapman lekin videolarim juda kam ko'rilyapti nima sabab bo'lishi mumkin va buni qanday yaxshilash mumkin
+user: reels umuman chiqmayapti nima qilay
+user: instagram videolarim tavsiyaga tushmayapti
+ai: Bunga bir nechta sabab bo'lishi mumkin. Videoning dastlabki soniyalari qiziqarli bo'lishi, sifati yaxshi bo'lishi, muntazam kontent joylanishi va tomoshabinlarni oxirigacha ushlab turishi muhim. Shuningdek, mos tavsif va hashtaglardan foydalanish foydali bo'lishi mumkin.
+
+user: instagramdagi explore sahifasiga chiqish uchun qanday kontent qilish kerak va algoritm nimalarga e'tibor beradi
+user: explorega qanday chiqaman
+user: instagram algoritmi qanday ishlaydi
+ai: Explore bo'limiga chiqish uchun foydalanuvchilarni qiziqtiradigan original kontent yaratish muhim. Videoning tomosha qilish vaqti, ulashishlar, saqlashlar va izohlar kabi omillar tavsiya qilinishiga ta'sir qilishi mumkin.
+
+user: instagram profilimni professional ko'rinishga keltirmoqchiman bio profil rasmi va postlarimni qanday tartibga keltirsam yaxshi bo'ladi
+user: instagram profil dizayni
+user: profilimni chiroyli qilish
+ai: Profil rasmingiz aniq va sifatli bo'lsin. Bio qisqa va tushunarli bo'lsin, nima bilan shug'ullanishingizni yozing. Postlaringiz bir xil uslubda bo'lishi va auditoriyaga foyda yoki qiziqish uyg'otishi tavsiya etiladi.
+
+user: instagram direct orqali menga noma'lum odamlar yozmoqda bunday holatda nima qilishim kerak va xavfsizlik uchun qanday choralar ko'rish kerak
+user: instagram dm xavfsizligi
+user: begona odamlar yozmoqda
+ai: Agar noma'lum foydalanuvchilar bezovta qilsa, ularni bloklash yoki cheklash mumkin. Shaxsiy ma'lumotlaringizni ulashmang va shubhali havolalarni ochmang. Maxfiylik sozlamalarini tekshirib chiqing.
+
+user: instagramda post joylash uchun eng yaxshi vaqt qaysi va auditoriyam qachon faol bo'lishini qanday bilsam bo'ladi
+user: qachon post tashlagan yaxshi
+user: eng yaxshi vaqt qaysi
+ai: Eng yaxshi vaqt auditoriyangizga bog'liq. Agar professional akkaunt ishlatsangiz, statistikalar orqali obunachilaringiz qaysi vaqtda faol bo'lishini ko'rishingiz mumkin. Shu ma'lumotlarga qarab post joylash foydali bo'ladi.
+
+user: instagramdagi barcha savollarimga batafsil javob ber va agar kerak bo'lsa misollar ham yoz iloji boricha qisqa javob bermagin
+user: instagram bo'yicha tajribali mutaxassis kabi javob ber
+user: instagram haqida chuqur tushuntir
+ai: Tushundim. Instagram bo'yicha savollaringizga imkon qadar batafsil, sodda va foydali javob beraman. Zarur bo'lsa misollar, tavsiyalar va bosqichma-bosqich tushuntirishlar ham qo'shaman. Agar ma'lumot vaqt o'tishi bilan o'zgarishi mumkin bo'lsa, buni ham aytib o'taman.
+
+user: assalomu alaykum men whatsappdan foydalanishni endi boshladim iltimos menga whatsapp qanday ishlashi va uning barcha asosiy funksiyalarini oddiy tilda batafsil tushuntirib bera olasizmi
+user: whatsappni qanday ishlatishni o'rgatib bering
+user: whatsapp haqida ma'lumot kerak
+ai: Albatta. WhatsApp internet orqali xabar almashish, audio va video qo'ng'iroqlar qilish, rasm, video, hujjat va joylashuv yuborish imkonini beruvchi messenjerdir. Shuningdek, guruhlar yaratish, status joylash va jamoalar bilan ishlash imkoniyatlari ham mavjud. Agar aniq bir funksiya haqida bilmoqchi bo'lsangiz, bemalol so'rang.
+
+user: men whatsapp akkauntini yangi ochmoqchiman telefon raqamim orqali qanday ro'yxatdan o'tsam bo'ladi va nimalarga e'tibor berishim kerak
+user: whatsapp account ochish
+user: whatsapp ro'yxatdan o'tish
+ai: WhatsApp ilovasini o'rnating, telefon raqamingizni kiriting va SMS orqali kelgan tasdiqlash kodini yozing. Keyin ism va profil rasmini qo'shishingiz mumkin. Hisobingiz xavfsizligi uchun ikki bosqichli tasdiqlashni yoqish tavsiya etiladi.
+
+user: whatsappdagi xabarlarimni hech kim o'qiy olmasligi uchun qanday xavfsizlik choralarini ko'rishim kerak
+user: whatsapp xavfsizligi
+user: akkauntni himoya qilish
+ai: Kuchli ekran qulfidan foydalaning, ikki bosqichli tasdiqlashni yoqing, tasdiqlash kodini hech kimga bermang va shubhali havolalarni ochmang. Maxfiylik sozlamalarini ham muntazam tekshirib turing.
+
+user: whatsappda guruh yaratishni o'rgatib bera olasanmi va guruhni qanday boshqarish mumkin
+user: whatsapp group yaratish
+user: guruh ochish
+ai: WhatsApp ilovasida yangi chat tugmasini bosing va "Yangi guruh"ni tanlang. Ishtirokchilarni qo'shing, guruh nomi va rasmini belgilang. Administrator sifatida ishtirokchilarni boshqarish, tavsifni o'zgartirish va ruxsatlarni sozlash imkoniyatiga ega bo'lasiz.
+
+user: whatsapp web nima va uni kompyuterda qanday ishlatish mumkin iloji bo'lsa bosqichma bosqich tushuntirib bering
+user: whatsapp web ulash
+user: kompyuterda whatsapp ishlatish
+ai: WhatsApp Web orqali hisobingizni kompyuterda ishlatishingiz mumkin. Telefoningizdagi bog'langan qurilmalar bo'limidan QR kodni skanerlab ulaysiz. Shundan keyin xabarlaringizni kompyuter orqali ham boshqarishingiz mumkin.
+
+user: whatsapp status nima va uni kimlar ko'rishini qanday boshqarish mumkin
+user: whatsapp status haqida
+user: status sozlamalari
+ai: WhatsApp Status orqali 24 soat davomida ko'rinadigan rasm, video yoki matn ulashishingiz mumkin. Maxfiylik sozlamalari orqali statusni kimlar ko'rishini tanlash imkoniyati mavjud.
+
+user: whatsappdagi xabarlarim tasodifan o'chib ketdi ularni qayta tiklashning iloji bormi
+user: chatlarni tiklash
+user: whatsapp backup
+ai: Agar oldindan zaxira nusxasi yaratilgan bo'lsa, ilovani qayta o'rnatganda chatlarni tiklash mumkin. Zaxira nusxasi mavjud bo'lmasa, barcha xabarlarni tiklashning imkoni bo'lmasligi mumkin.
+
+user: whatsapp orqali menga noma'lum odamlar yozmoqda bunday holatda nima qilishim kerak
+user: begona odam yozmoqda
+user: spam xabarlar
+ai: Agar sizni bezovta qilayotgan foydalanuvchi bo'lsa, uni bloklashingiz yoki shikoyat qilishingiz mumkin. Shaxsiy ma'lumotlaringizni noma'lum odamlarga yubormang va shubhali havolalarni ochmang.
+
+user: whatsapp orqali katta hajmdagi video yoki fayllarni yuborish mumkinmi va qanday usullar mavjud
+user: katta fayl yuborish
+user: video yuborish
+ai: WhatsApp orqali rasm, video va hujjatlar yuborish mumkin. Fayl hajmi va qo'llab-quvvatlanadigan formatlar ilovaning joriy versiyasiga bog'liq bo'lishi mumkin. Juda katta fayllar uchun bulutli saqlash xizmatlaridan foydalanish ham qulay yechim bo'lishi mumkin.
+
+user: whatsapp haqida yana savollarim bo'lsa menga batafsil javob bera olasanmi
+user: whatsapp bo'yicha maslahat kerak
+user: whatsapp haqida ko'p savollarim bor
+ai: Albatta. WhatsApp bilan bog'liq har qanday savolingizni yozishingiz mumkin. Men imkon qadar aniq, sodda va batafsil javob berishga harakat qilaman. Agar ma'lumot vaqt o'tishi bilan o'zgarishi mumkin bo'lsa, buni ham aytib o'taman va rasmiy ma'lumotlarni tekshirishni tavsiya qilaman.
+
+user: assalomu alaykum men gemini haqida eshitdim lekin u nima ekanini yaxshi tushunmadim iltimos oddiy tilda batafsil tushuntirib bera olasizmi
+user: gemini nima
+user: google gemini nima
+user: gemini ai haqida ma'lumot bering
+ai: Gemini - Google tomonidan ishlab chiqilgan sun'iy intellekt yordamchisi. U matn yozish, savollarga javob berish, kod yozish, tarjima qilish, matnlarni tahlil qilish va boshqa ko'plab vazifalarni bajarishda yordam beradi. U foydalanuvchilarga tez va qulay tarzda ma'lumot olish imkonini yaratadi.
+
+user: gemini bilan chatgpt o'rtasida qanday farq bor iltimos batafsil tushuntirib bering
+user: chatgpt yaxshimi gemini yaxshimi
+user: gemini va chatgpt farqi
+ai: Gemini va ChatGPT ikkalasi ham sun'iy intellekt yordamchilari hisoblanadi. Ularning imkoniyatlari o'xshash bo'lsa-da, ishlash usuli, integratsiyalari va ayrim funksiyalari farq qilishi mumkin. Qaysi biri siz uchun qulayroq ekani ehtiyojlaringizga bog'liq.
+
+user: gemini yordamida kod yozish mumkinmi
+user: gemini html css javascript yozadimi
+user: gemini dasturlashni biladimi
+ai: Ha. Gemini HTML, CSS, JavaScript, Python, Java, C++, PHP va boshqa ko'plab dasturlash tillarida kod yozishga hamda mavjud kodni tushuntirishga yordam bera oladi.
+
+user: gemini bepulmi yoki pullikmi
+user: gemini ishlatish pullikmi
+user: gemini narxi qancha
+ai: Gemini bepul va pullik imkoniyatlarga ega bo'lishi mumkin. Mavjud tariflar va funksiyalar vaqt o'tishi bilan o'zgarishi mumkin, shuning uchun eng so'nggi ma'lumotni rasmiy xizmat orqali tekshirish tavsiya etiladi.
+
+user: gemini internetdan ma'lumot oladimi
+user: gemini onlayn ishlaydimi
+user: gemini internet kerakmi
+ai: Ayrim Gemini funksiyalari internet ulanishini talab qiladi. Qaysi imkoniyatlar mavjudligi siz foydalanayotgan ilova yoki xizmat turiga bog'liq bo'lishi mumkin.
+
+user: gemini yordamida rasm yaratish mumkinmi
+user: gemini image generation
+user: gemini rasm chizadimi
+ai: Gemini ekotizimidagi ayrim funksiyalar matn asosida rasm yaratish yoki rasm bilan ishlash imkoniyatlarini taqdim etishi mumkin. Bu imkoniyatlar foydalanayotgan versiyangizga qarab farq qiladi.
+
+user: gemini telefonimda ishlaydimi
+user: androidda gemini ishlatish
+user: gemini ios
+ai: Gemini ayrim Android va iOS qurilmalarida ishlashi mumkin. Qo'llab-quvvatlanadigan qurilmalar va imkoniyatlar ilova hamda mintaqaga qarab farq qilishi mumkin.
+
+user: gemini xavfsizmi
+user: gemini ishlatish xavfsizmi
+user: gemini maxfiylik
+ai: Har qanday onlayn xizmatdan foydalanganda maxfiy ma'lumotlarni ehtiyotkorlik bilan ulashish tavsiya etiladi. Shaxsiy parollar, bank ma'lumotlari va boshqa maxfiy ma'lumotlarni sun'iy intellekt xizmatlariga yuborishdan oldin ehtiyot bo'ling.
+
+user: gemini yordamida ingliz tilini o'rgansa bo'ladimi
+user: gemini dars bera oladimi
+user: gemini o'qituvchi bo'la oladimi
+ai: Ha. Gemini til o'rganish, matematika, dasturlash, fanlar va boshqa ko'plab mavzularda tushuntirishlar berishi, mashqlar tuzishi va savollarga javob berishi mumkin.
+
+user: gemini haqida yana savollarim bo'lsa javob bera olasanmi
+user: gemini bo'yicha yordam kerak
+user: gemini haqida ko'proq ma'lumot ber
+ai: Albatta. Gemini bilan bog'liq savollaringizni bemalol yozishingiz mumkin. Imkon qadar aniq, tushunarli va foydali javob berishga harakat qilaman. Agar ma'lumot vaqt o'tishi bilan o'zgargan bo'lishi mumkin bo'lsa, buni ham aytib o'taman.
+
+user: assalomu alaykum men google haqida batafsil ma'lumot olishni xohlayman google nima va u qanday ishlaydi iltimos oddiy tilda tushuntirib bera olasizmi
+user: google nima
+user: google haqida ma'lumot bering
+user: google qanday ishlaydi
+ai: Google dunyodagi eng mashhur qidiruv tizimlaridan biridir. U internetdagi milliardlab veb-sahifalarni indekslaydi va foydalanuvchi qidirgan so'zlarga eng mos natijalarni ko'rsatishga harakat qiladi. Bundan tashqari, Google elektron pochta, xaritalar, bulutli saqlash, tarjima, sun'iy intellekt va boshqa ko'plab xizmatlarni ham taqdim etadi.
+
+user: google search qanday ishlaydi men qidirgan ma'lumotlarni qayerdan topadi va natijalarni qanday saralaydi iltimos batafsil tushuntirib bering
+user: google qidiruv tizimi qanday ishlaydi
+user: google search haqida
+ai: Google internetdagi sahifalarni maxsus dasturlar yordamida ko'rib chiqadi va ularni indekslaydi. Siz qidiruv qilganingizda, tizim shu indeksdan eng mos natijalarni topishga harakat qiladi. Natijalar mavzuga mosligi, sahifa sifati va boshqa omillar asosida tartiblanishi mumkin.
+
+user: google akkauntini qanday ochaman va gmail hisobini qanday yarataman iloji bo'lsa bosqichma bosqich tushuntirib bering
+user: google account ochish
+user: gmail yaratish
+ai: Google akkaunti yaratish uchun ro'yxatdan o'tish sahifasiga o'ting, ism, familiya, foydalanuvchi nomi va kuchli parol kiriting. So'ng telefon raqami yoki elektron pochta orqali tasdiqlash bosqichlarini bajaring. Hisobingiz xavfsizligi uchun ikki bosqichli tasdiqlashni yoqish tavsiya etiladi.
+
+user: google drive nima va undan qanday foydalaniladi fayllarni qanday saqlash va ulashish mumkin
+user: google drive haqida
+user: drive nima
+ai: Google Drive bulutli saqlash xizmatidir. U yerda hujjatlar, rasmlar, videolar va boshqa fayllarni saqlashingiz, ularga turli qurilmalardan kirishingiz va boshqalar bilan ulashishingiz mumkin.
+
+user: google maps nima va undan qanday foydalaniladi
+user: google xarita
+user: google maps haqida
+ai: Google Maps xaritalar va navigatsiya xizmatidir. U orqali manzillarni topish, yo'nalish olish, transport variantlarini ko'rish va ayrim joylar haqida ma'lumot olish mumkin.
+
+user: google translate qanday ishlaydi va u barcha tillarni tarjima qila oladimi
+user: google tarjimon
+user: google translate haqida
+ai: Google Translate ko'plab tillar o'rtasida tarjima qilish imkonini beradi. Tarjima sifati til va matnga qarab farq qilishi mumkin, shuning uchun muhim hujjatlar uchun natijani tekshirib chiqish foydali bo'ladi.
+
+user: google chrome nima va boshqa brauzerlardan nimasi bilan farq qiladi
+user: google chrome haqida
+user: chrome brauzer
+ai: Google Chrome tezkor va ommabop veb-brauzerlardan biridir. U zamonaviy veb-texnologiyalarni qo'llab-quvvatlaydi, kengaytmalar o'rnatish imkonini beradi va Google hisobingiz bilan sinxronlash funksiyasiga ega.
+
+user: google fotos nima va rasmlarimni qanday saqlaydi
+user: google photos
+user: google rasmlar
+ai: Google Photos rasm va videolarni saqlash, tartiblash va qidirish uchun mo'ljallangan xizmatdir. Zaxira nusxa yaratish imkoniyati mavjud bo'lishi mumkin, ammo mavjud limitlar va imkoniyatlar tarifga qarab farq qilishi mumkin.
+
+user: google yordamida qanday qilib internetda to'g'ri ma'lumot qidirishni o'rganish mumkin
+user: google qidiruv sirlarini o'rgat
+user: google search maslahatlari
+ai: Qidiruvni aniqroq qilish uchun kalit so'zlardan foydalaning, savolni iloji boricha tushunarli yozing va natijalarni bir nechta ishonchli manbalar bilan solishtiring. Juda umumiy so'zlar o'rniga aniq iboralardan foydalanish foydali bo'ladi.
+
+user: google xavfsizmi va shaxsiy ma'lumotlarimni qanday himoya qilishim kerak
+user: google maxfiylik
+user: google security
+ai: Google hisobingizni himoya qilish uchun kuchli parol ishlating, ikki bosqichli tasdiqlashni yoqing va shubhali havolalarni ochmang. Hisobingizdagi xavfsizlik sozlamalarini muntazam tekshirib turish tavsiya etiladi.
+
+user: google haqida yana savollarim bo'lsa batafsil javob bera olasanmi
+user: google bo'yicha yordam kerak
+user: google haqida ko'proq ma'lumot ber
+ai: Albatta. Google xizmatlari bilan bog'liq har qanday savolingizni yozishingiz mumkin. Men imkon qadar aniq, sodda va batafsil javob berishga harakat qilaman. Agar ma'lumot vaqt o'tishi bilan o'zgarishi mumkin bo'lsa, buni ham aytib o'taman.
+
+user: assalomu alaykum men claude sun'iy intellekti haqida eshitdim lekin u nima ekanini yaxshi tushunmadim iltimos menga oddiy va batafsil qilib tushuntirib bera olasizmi
+user: claude nima
+user: claude ai nima
+user: claude haqida ma'lumot bering
+ai: Claude - sun'iy intellekt yordamchisi bo'lib, matn yozish, savollarga javob berish, dasturlash, hujjatlarni tahlil qilish, tarjima qilish va boshqa ko'plab vazifalarda yordam berishi mumkin. U foydalanuvchilar bilan tabiiy suhbat qilish uchun yaratilgan.
+
+user: claude kim tomonidan yaratilgan va uning asosiy maqsadi nima iloji bo'lsa batafsil tushuntirib bering
+user: claude kim yaratgan
+user: claude kompaniyasi
+ai: Claude Anthropic kompaniyasi tomonidan ishlab chiqilgan sun'iy intellekt yordamchisidir. Uning maqsadi foydalanuvchilarga foydali, tushunarli va xavfsiz javoblar berishga yordam berishdir.
+
+user: claude bilan chatgpt o'rtasida qanday farq bor iltimos taqqoslab tushuntirib bering
+user: claude yoki chatgpt
+user: claude va chatgpt farqi
+ai: Claude va ChatGPT ikkalasi ham sun'iy intellekt yordamchilari hisoblanadi. Ikkalasi ham matn yozish, dasturlash, tarjima va savollarga javob berishda yordam bera oladi. Ayrim funksiyalar, ishlash usullari va imkoniyatlari esa xizmatning o'ziga va foydalanayotgan versiyangizga qarab farq qilishi mumkin.
+
+user: claude yordamida html css javascript python java c++ php kod yozish mumkinmi
+user: claude dasturlashni biladimi
+user: claude kod yozadimi
+ai: Ha. Claude ko'plab dasturlash tillarida kod yozish, mavjud kodni tushuntirish, xatolarni topish va kodni yaxshilash bo'yicha yordam bera oladi.
+
+user: claude internetdan ma'lumot oladimi yoki faqat oldindan o'rgatilgan bilimlarga asoslanadimi
+user: claude internet ishlatadimi
+user: claude online
+ai: Claude'ning internet bilan ishlash imkoniyati siz foydalanayotgan ilova yoki xizmatga bog'liq bo'lishi mumkin. Ayrim versiyalar qo'shimcha funksiyalarga ega bo'lishi mumkin.
+
+user: claude bepulmi yoki undan foydalanish uchun pul to'lash kerakmi
+user: claude narxi
+user: claude pullikmi
+ai: Claude bepul va pullik rejalarni taklif qilishi mumkin. Tariflar va imkoniyatlar vaqt o'tishi bilan o'zgarishi mumkin, shuning uchun eng so'nggi ma'lumotni rasmiy manbadan tekshirish tavsiya etiladi.
+
+user: claude yordamida uzun hujjatlarni tahlil qilish va xulosa chiqarish mumkinmi
+user: claude document analysis
+user: claude fayl o'qiydimi
+ai: Ha. Claude matn va hujjatlarni tahlil qilish, asosiy fikrlarini ajratish, xulosa chiqarish va savollarga javob berishda yordam berishi mumkin. Imkoniyatlar foydalanayotgan versiyangizga bog'liq bo'lishi mumkin.
+
+user: claude xavfsizmi va unga shaxsiy ma'lumotlarni yuborish mumkinmi
+user: claude security
+user: claude privacy
+ai: Har qanday sun'iy intellekt xizmatidan foydalanganda maxfiy ma'lumotlarni ehtiyotkorlik bilan ulashish tavsiya etiladi. Parollar, bank ma'lumotlari va boshqa maxfiy ma'lumotlarni yuborishdan oldin ehtiyot bo'lish kerak.
+
+user: claude orqali dars qilish va yangi mavzularni o'rganish mumkinmi
+user: claude o'qituvchi bo'la oladimi
+user: claude yordamida o'qish
+ai: Ha. Claude matematika, dasturlash, fanlar, tillar va boshqa ko'plab mavzularda tushuntirishlar berishi, mashqlar tuzishi va o'rganishda yordam berishi mumkin.
+
+user: claude haqida yana savollarim bo'lsa yordam bera olasanmi
+user: claude bo'yicha maslahat kerak
+user: claude haqida ko'proq ma'lumot ber
+ai: Albatta. Claude bilan bog'liq savollaringizni yozishingiz mumkin. Men imkon qadar aniq va foydali javob berishga harakat qilaman. Agar ma'lumot vaqt o'tishi bilan o'zgarishi mumkin bo'lsa, buni ham aytib o'taman.
+
+user: men claude sun'iy intellektidan birinchi marta foydalanmoqchiman lekin undan qanday qilib samarali foydalanishni bilmayman iltimos menga yaxshi prompt yozish usullarini va qanday savollar bersam yaxshi natija olishim mumkinligini batafsil tushuntirib bera olasizmi
+user: claudedan qanday foydalanish kerak
+user: claude prompt yozish
+ai: Claude'dan yaxshi natija olish uchun savolingizni imkon qadar aniq yozish tavsiya etiladi. Maqsadingizni, kerakli natijani va cheklovlarni yozsangiz, javoblar odatda aniqroq bo'ladi. Masalan, "HTML yoz" deyish o'rniga "HTML va CSS yordamida telefon ekraniga mos login sahifasi yozib ber va kodni tushuntir" kabi yozish foydaliroq.
+
+user: claude menga dasturlashni noldan o'rgata oladimi va har bir kodni batafsil tushuntirib bera oladimi
+user: claude dasturlash darsi
+user: claude coding teacher
+ai: Ha. Claude dasturlashni boshlovchilar uchun oddiy tilda tushuntirishi, misollar berishi, kod yozishi, xatolarni topishi va kodning qanday ishlashini izohlashi mumkin. Ammo kodni amalda sinab ko'rish va mustaqil mashq qilish ham muhim.
+
+user: men juda katta html css javascript loyihasi yozmoqchiman claude bunga yordam bera oladimi va loyihani bir nechta qismlarga bo'lib yozib bera oladimi
+user: katta loyiha yozish
+user: claude project
+ai: Ha. Claude katta loyihalarni rejalashtirish, fayllarga bo'lish, kod yozish va tushuntirishda yordam bera oladi. Juda katta loyiha bo'lsa, uni bosqichma-bosqich ishlab chiqish odatda qulayroq bo'ladi.
+
+user: claude xato kodni topib bera oladimi va nima uchun xato chiqayotganini tushuntira oladimi
+user: debug qilish
+user: code error
+ai: Ha. Agar kod va xatolik matnini yuborsangiz, Claude muammoni tahlil qilish, ehtimoliy sabablarni tushuntirish va uni tuzatish bo'yicha tavsiyalar berishi mumkin.
+
+user: claude matematikadan ham yordam bera oladimi murakkab misollarni bosqichma bosqich yechib bera oladimi
+user: claude matematika
+user: math solver
+ai: Ha. Claude matematik masalalarni yechishga va yechim bosqichlarini tushuntirishga yordam bera oladi. Juda murakkab yoki maxsus mavzularda natijani mustaqil tekshirib ko'rish foydali bo'ladi.
+
+user: claude internetdagi eng so'nggi yangiliklarni har doim biladimi yoki ayrim ma'lumotlar eskirgan bo'lishi mumkinmi
+user: claude latest news
+user: claude yangiliklar
+ai: Bu siz foydalanayotgan Claude versiyasiga bog'liq. Ba'zi versiyalarda internet imkoniyatlari mavjud bo'lishi mumkin, boshqalarida esa javoblar o'rgatilgan bilimlarga asoslanadi. Eng yangi ma'lumotlar kerak bo'lsa, rasmiy manbalarni tekshirish tavsiya etiladi.
+
+user: claude bilan uzoq suhbatlashsam u oldingi yozgan gaplarimni eslab qoladimi yoki unutib yuboradimi
+user: claude memory
+user: conversation memory
+ai: Claude odatda bitta suhbat davomida oldingi xabarlarni hisobga olishi mumkin. Ammo uzoq muddatli xotira yoki ma'lumotni keyingi suhbatlarda saqlash imkoniyati siz foydalanayotgan xizmat va uning funksiyalariga bog'liq bo'lishi mumkin.
+
+user: claude yordamida maqola kitob tavsifi loyiha hujjati va boshqa matnlarni yozish mumkinmi
+user: article writing
+user: document writing
+ai: Ha. Claude maqolalar, tavsiflar, hujjatlar, elektron xatlar, rezyumelar va boshqa ko'plab matnlarni yozishda yordam bera oladi. Yakuniy matnni tekshirib chiqish tavsiya etiladi.
+
+user: men claude haqida hali juda ko'p narsalarni bilmayman keyinchalik yana savollar bersam sabr bilan batafsil javob bera olasanmi
+user: claude haqida yana o'rgat
+user: claude yordam
+ai: Albatta. Claude bilan bog'liq istalgan savolingizni bemalol yozishingiz mumkin. Men imkon qadar sodda, tushunarli va foydali javob berishga harakat qilaman hamda kerak bo'lsa misollar va qo'shimcha tavsiyalar ham beraman.
+
+user: salom
+user: assalomu alaykum
+user: hey
+user: hello
+user: hi
+user: slm
+user: assalom
+user: o
+ai: Assalomu alaykum! Men DEXO MIND. Sizga qanday yordam bera olaman? 💡
+
+user: qalaysan
+user: qalaysiz
+user: yaxshimisan
+user: ahvoling qanday
+user: ishlar qalay
+user: nima gap
+user: nima gaplar
+user: yangilik nima
+ai: Rahmat, hammasi joyida! Men doim yordam berishga tayyorman. Sizda qanday savol yoki muammo bor? 🤖
+
+user: isming nima
+user: sen kimsan
+user: o'zingni tanishtir
+user: tanishtir
+user: kim ekanligingni ayt
+user: kimligingni ayt
+ai: Mening ismim DEXO MIND — sun'iy intellekt yordamchisi. Maqsadim sizga savollarga javob berish, dasturlash, texnologiya va boshqa ko'plab mavzularda yordam berish. Qanday yordam kerak? 😊
+
+user: nechchi yoshdasan
+user: yoshing nechida
+user: qancha yoshdasan
+ai: Menda yosh tushunchasi yo'q, chunki men sun'iy intellektman. Lekin har doim yordam berishga tayyorman! 🧠
+
+user: qayerdansan
+user: qaysi davlatdansan
+user: qayerliksan
+ai: Men internet va kompyuter texnologiyalari asosida ishlaydigan sun'iy intellektman. Manzilim — DEXO MIND serverlari! 🌐
+
+user: nima qila olasan
+user: imkoniyatlaring qanday
+user: yordam bera olasanmi
+user: nimalarni bilasan
+user: qanday yordam bera olasan
+ai: Men HTML, CSS, JavaScript, Python, Java, C++ kabi dasturlash tillarida kod yozish, savollarga javob berish, matematik misollar yechish, tarjima qilish, hujjatlarni tahlil qilish va ko'p narsada yordam beraman. Savolingizni yozing! 💻
+
+user: rahmat
+user: katta rahmat
+user: raxmat
+user: tashakkur
+user: thanks
+user: thank you
+user: minnatdorchilik
+ai: Arzimaydi! Doim yordam berishdan xursandman. Yana savolingiz bo'lsa, bemalol so'rang. 😊
+
+user: xayr
+user: hayr
+user: ko'rishguncha
+user: korishguncha
+user: bye
+user: good bye
+user: yaxshi qol
+user: omad
+user: salomat bo'ling
+ai: Xayr! Yana ko'rishguncha. Sizga omad va muvaffaqiyat tilayman. Har doim yordamga tayyorman! 👋
+
+user: qaysi tillarni bilasan
+user: qanday tillarda gaplashasan
+user: til bilasanmi
+ai: Men o'zbek, ingliz, rus va boshqa ko'plab tillarda gaplasha olaman. Qaysi tilda gaplashamiz? 🌍
+
+user: ozbek tilini bilasanmi
+user: uzbek tilini bilasanmi
+user: o'zbekcha gapirasanmi
+ai: Ha, albatta! O'zbek tilida bemalol suhbatlasha olaman. Savolingizni yozing. 🇺🇿
+
+user: ingliz tilini bilasanmi
+user: english bilasanmi
+user: speak english
+ai: Yes, I can speak English! How can I help you? 🇬🇧
+
+user: rus tilini bilasanmi
+user: ruscha gapirasanmi
+user: russian
+ai: Да, я могу говорить по-русски. Чем могу помочь? 🇷🇺
+
+user: qanday mavzularda yordam bera olasan
+user: nimalarni bilasan
+user: qanday savollarga javob berasan
+ai: Men dasturlash, web texnologiyalar, matematika, fizika, kundalik hayot, texnika, sun'iy intellekt, internet va ko'plab boshqa mavzularda yordam bera olaman. Savolingizni yozing! 📚
+
+user: qanday dasturlash tillarini bilasan
+user: qanday kod yozasan
+user: dasturlash tillari
+ai: Men HTML, CSS, JavaScript, Python, Java, C++, PHP, Kotlin, Swift va boshqa ko'plab tillarda kod yozishga yordam bera olaman. Qaysi til kerak? 💻
+
+user: menga dasturlashni o'rgata olasanmi
+user: dasturlashni o'rganmoqchiman
+user: kod yozishni o'rgat
+user: coding o'rgat
+ai: Albatta! Dasturlashni noldan boshlash uchun avval HTML va CSS o'rganish tavsiya etiladi. Keyin JavaScript yoki Python ga o'tishingiz mumkin. Qaysi mavzudan boshlaymiz? 🚀
+
+user: dasturchi bo'lishni xohlayman
+user: dasturchi bo'lish
+user: programmer bo'lish
+ai: Dasturchi bo'lish uchun algoritmik fikrlashni rivojlantirish, amaliy kod yozish va kichik loyihalar qilish muhim. Qaysi yo'nalishga qiziqasiz — web, mobile yoki desktop? 😊
+
+user: qaysi dasturlash tilini o'rganish kerak
+user: eng yaxshi dasturlash tili
+user: dasturlash tilini tanlash
+ai: Bu sizning maqsadingizga bog'liq. Web uchun HTML, CSS, JavaScript; Android uchun Java yoki Kotlin; ma'lumotlar tahlili uchun Python; o'yinlar uchun C++ yoki C#. Maqsadingizni yozing, tavsiya beraman! 🎯
+
+user: html nima
+user: html haqida
+user: web html
+ai: HTML — veb sahifalarning tuzilishini yaratish uchun ishlatiladigan belgilash tili. U sarlavhalar, paragraflar, rasmlar va havolalarni joylashtirishga yordam beradi. 🌐
+
+user: css nima
+user: css haqida
+user: cascading style sheets
+ai: CSS — veb sahifaning dizayni va ko'rinishini boshqaruvchi uslublar tili. Rangi, shrifti, o'lchamlari va elementlarning joylashishini boshqarish mumkin. 🎨
+
+user: javascript nima
+user: js nima
+user: java script
+ai: JavaScript — veb sahifaga interaktivlik va dinamik funksiyalar qo'shish uchun ishlatiladigan dasturlash tili. Tugmalar, animatsiyalar va API dan ma'lumot olish imkonini beradi. ⚡
+
+user: python nima
+user: python dasturlash
+user: python haqida
+ai: Python — sodda va o'qilishi oson, ko'p sohada ishlatiladigan dasturlash tili. Ma'lumotlar tahlili, sun'iy intellekt, veb va boshqa ko'p loyihalar uchun juda mashhur. 🐍
+
+user: java nima
+user: java dasturlash
+user: java haqida
+ai: Java — ko'p platformada ishlaydigan, Android ilovalar va katta korporativ tizimlar yaratishda ishlatiladigan dasturlash tili. ☕
+
+user: c++ nima
+user: cpp nima
+user: c++ haqida
+ai: C++ — yuqori unumdorlik talab qiladigan dasturlar, o'yinlar va operatsion tizimlar uchun ishlatiladigan kuchli dasturlash tili. ⚙️
+
+user: php nima
+user: php haqida
+user: php dasturlash
+ai: PHP — server tomonida ishlaydigan, dinamik veb-saytlar va ma'lumotlar bazalari bilan ishlash uchun ishlatiladigan dasturlash tili. 🔥
+
+user: kotlin nima
+user: kotlin haqida
+ai: Kotlin — Android ilovalarini yaratish uchun Google tomonidan tavsiya etilgan zamonaviy dasturlash tili. Java bilan to'liq mos keladi. 📱
+
+user: swift nima
+user: swift haqida
+ai: Swift — Apple qurilmalari (iPhone, iPad, Mac) uchun ilovalar yaratishda ishlatiladigan dasturlash tili. 🍏
+
+user: react nima
+user: react js
+user: react haqida
+ai: React — Facebook tomonidan ishlab chiqilgan, interaktiv foydalanuvchi interfeyslari yaratish uchun ishlatiladigan JavaScript kutubxonasi. ⚛️
+
+user: vue js nima
+user: vue haqida
+ai: Vue.js — veb ilovalar uchun foydalanuvchi interfeyslari yaratishga yordam beradigan progressiv JavaScript framework. 🟢
+
+user: angular nima
+user: angular haqida
+ai: Angular — Google tomonidan ishlab chiqilgan, keng ko'lamli veb ilovalar yaratish uchun TypeScript asosidagi framework. 🔴
+
+user: bootstrap nima
+user: bootstrap haqida
+ai: Bootstrap — Twitter tomonidan ishlab chiqilgan, tez va responsiv veb saytlar yaratish uchun CSS framework. 📱
+
+user: tailwind css nima
+user: tailwind haqida
+ai: Tailwind CSS — pastki darajadagi, moslashuvchan va tez dizayn yaratish imkonini beruvchi utility-first CSS framework. 🎨
+
+user: sql nima
+user: sql haqida
+user: ma'lumotlar bazasi
+ai: SQL — ma'lumotlar bazalarini boshqarish va ulardan ma'lumot olish uchun ishlatiladigan so'rov tili. 📊
+
+user: mongodb nima
+user: mongodb haqida
+ai: MongoDB — hujjatga asoslangan, moslashuvchan va keng ko'lamli ma'lumotlar bazasi hisoblanadi. 🍃
+
+user: node js nima
+user: node.js haqida
+ai: Node.js — JavaScript ni server tomonida ishlatish imkonini beruvchi platforma. 🟩
+
+user: api nima
+user: api haqida
+user: application programming interface
+ai: API — ikki dastur o'rtasida ma'lumot almashish imkonini beruvchi interfeys. Web API lar orqali boshqa xizmatlardan ma'lumot olish mumkin. 🔌
+
+user: git nima
+user: git haqida
+user: github
+ai: Git — kodlarni boshqarish va versiyalarni kuzatish uchun ishlatiladigan tizim. GitHub esa Git loyihalarini joylash va boshqalar bilan ulashish platformasi. 📂
+
+user: docker nima
+user: docker haqida
+ai: Docker — dasturlarni konteynerlarga joylashtirib, ularni istalgan muhitda ishlatish imkonini beruvchi platforma. 🐳
+
+user: linux nima
+user: linux haqida
+ai: Linux — ochiq kodli, xavfsiz va serverlar, telefonlar (Android), superkompyuterlar uchun keng ishlatiladigan operatsion tizim. 🐧
+
+user: windows nima
+user: windows haqida
+ai: Windows — Microsoft tomonidan ishlab chiqilgan, dunyodagi eng keng tarqalgan operatsion tizimlardan biri. 🪟
+
+user: macos nima
+user: mac haqida
+ai: macOS — Apple kompyuterlari uchun ishlab chiqilgan, chiroyli dizaynli va xavfsiz operatsion tizim. 🖥️
+
+user: android nima
+user: android haqida
+ai: Android — Google tomonidan ishlab chiqilgan, dunyodagi eng keng tarqalgan mobil operatsion tizim. 📱
+
+user: ios nima
+user: ios haqida
+ai: iOS — Apple telefonlari (iPhone) uchun ishlab chiqilgan operatsion tizim. 🍏
+
+user: internet nima
+user: internet haqida
+ai: Internet — butun dunyo bo'ylab kompyuterlar, telefonlar va boshqa qurilmalarni o'zaro bog'laydigan global tarmoq. 🌍
+
+user: wifi nima
+user: wifi haqida
+ai: Wi-Fi — qurilmalarni simsiz tarmoqqa ulash imkonini beradigan texnologiya. 📶
+
+user: bluetooth nima
+user: bluetooth haqida
+ai: Bluetooth — qisqa masofada qurilmalar o'rtasida simsiz ma'lumot almashish texnologiyasi. 🔵
+
+user: vpn nima
+user: vpn haqida
+ai: VPN — internetda shaxsiy ma'lumotlarni himoya qilish va geografik cheklovlarni chetlab o'tish uchun ishlatiladigan xizmat. 🔒
+
+user: suniy intellekt nima
+user: ai nima
+user: artificial intelligence
+ai: Sun'iy intellekt — inson aqlini taqlid qiluvchi, ma'lumotlarni tahlil qilish, o'rganish va qaror qabul qilish qobiliyatiga ega texnologiya. 🤖
+
+user: mashina o'rganish nima
+user: machine learning
+user: ml nima
+ai: Mashina o'rganish — sun'iy intellektning bir bo'limi bo'lib, kompyuterlar ma'lumotlardan o'rganib, o'zini yaxshilaydi. 📈
+
+user: chatgpt nima
+user: chat gpt haqida
+ai: ChatGPT — OpenAI tomonidan ishlab chiqilgan, matnli savollarga tabiiy va tushunarli javob beradigan sun'iy intellekt yordamchisi. 💬
+
+user: gemini nima
+user: google gemini nima
+user: gemini ai haqida
+ai: Gemini — Google tomonidan ishlab chiqilgan sun'iy intellekt yordamchisi. Matn yozish, kod yozish, tarjima qilish va boshqa ko'p vazifalarni bajaradi. 🌟
+
+user: claude nima
+user: claude ai nima
+user: claude haqida
+ai: Claude — Anthropic tomonidan ishlab chiqilgan sun'iy intellekt yordamchisi bo'lib, matn yozish, dasturlash, hujjatlarni tahlil qilish va savollarga javob berishda yordam beradi. 🧠
+
+user: deepseek nima
+user: deepseek haqida
+ai: DeepSeek — Xitoyda ishlab chiqilgan kuchli sun'iy intellekt yordamchisi bo'lib, matn va kod bilan ishlash, murakkab masalalarni yechishda yordam beradi. 🇨🇳
+
+user: copilot nima
+user: github copilot
+ai: GitHub Copilot — kod yozishda AI yordamchisi bo'lib, dasturchilarga kod taklif qiladi va xatolarni topishga yordam beradi. 👨‍💻
+
+user: blokcheyn nima
+user: blockchain haqida
+ai: Blokcheyn — ma'lumotlarni xavfsiz va shaffof saqlash uchun zanjirsimon tuzilma. Kriptovalyutalar asosida turadi. 🔗
+
+user: kriptovalyuta nima
+user: bitcoin nima
+user: crypto haqida
+ai: Kriptovalyuta — blokcheyn texnologiyasiga asoslangan raqamli pul. Eng mashhurlari — Bitcoin, Ethereum. 💰
+
+user: nft nima
+user: nft haqida
+ai: NFT — noyob raqamli aktivlar bo'lib, san'at, musiqa va boshqa raqamli mahsulotlarni xarid qilish imkonini beradi. 🎨
+
+user: metavers nima
+user: metaverse haqida
+ai: Metaverse — virtual va kengaytirilgan reallikni birlashtirgan, odamlar o'zaro muloqot qiladigan raqamli dunyo. 🌌
+
+user: robototexnika nima
+user: robot haqida
+ai: Robototexnika — robotlarni loyihalash, yasash va dasturlash bilan shug'ullanadigan fan sohasi. 🤖
+
+user: matematika
+user: misol yech
+user: matematik misol
+ai: Misolingizni yozing, men uni bosqichma-bosqich yechishga harakat qilaman. Qo'shish, ayirish, ko'paytirish, bo'lish, tenglamalar yoki boshqa — hammasiga tayyorman! 📐
+
+user: 2+2
+user: ikki qoshilgan ikki
+user: 2+2 nechi
+ai: 2+2=4. Oddiy matematika! 😊
+
+user: 10*10
+user: 10 x 10
+user: 10 ko'paytirish 10
+ai: 10×10=100. Juda oson! 💡
+
+user: 100/4
+user: 100 ni 4 ga bo'lish
+ai: 100÷4=25. To'g'ri javob! ✅
+
+user: 5+5
+user: besh qoshilgan besh
+ai: 5+5=10. Yana bir bor! 😊
+
+user: 20-8
+user: yigirma minus sakkiz
+ai: 20-8=12. Ana xolos! ✅
+
+user: 9*9
+user: 9 ko'paytirish 9
+ai: 9×9=81. Juda zo'r! 💪
+
+user: pi nima
+user: pi soni
+user: 3.14
+ai: Pi (π) — aylananing uzunligini diametriga bo'lish natijasidir va taxminan 3.14159 ga teng. Matematikada muhim son. 🔵
+
+user: tenglama yech
+user: algebra
+user: tenglama
+ai: Tenglamani yozing, men yechimini topishga yordam beraman. Masalan: 2x+5=13. ✏️
+
+user: geometriya
+user: shakllar
+ai: Geometriya — shakllar, ularning o'lchamlari va xossalari haqidagi fan. Qanday shakl haqida bilmoqchisiz? 📐
+
+user: fizika
+user: fizika haqida
+ai: Fizika — materiya, energiya, harakat va ularning o'zaro ta'sirini o'rganadigan fan. Qanday mavzu qiziqtiradi? ⚛️
+
+user: kimyo
+user: kimyo haqida
+ai: Kimyo — moddalar, ularning tuzilishi va o'zgarishlarini o'rganadigan fan. Qanday mavzu haqida bilmoqchisiz? 🧪
+
+user: biologiya
+user: biologiya haqida
+ai: Biologiya — tirik organizmlar, ularning tuzilishi va hayotiy faoliyatini o'rganadigan fan. 🌿
+
+user: tarix
+user: tarix haqida
+ai: Tarix — o'tmishdagi voqealar va insoniyat rivojini o'rganadigan fan. Qaysi davr qiziqtiradi? 📜
+
+user: geografiya
+user: geografiya haqida
+ai: Geografiya — Yer yuzi, tabiati, aholisi va iqtisodiyotini o'rganadigan fan. 🌍
+
+user: astronomiya
+user: astronomiya haqida
+ai: Astronomiya — koinot, yulduzlar, sayyoralar va boshqa samoviy jismlarni o'rganadigan fan. 🌟
+
+user: ozbekiston poytaxti
+user: uzbekiston poytaxti
+user: poytaxtimiz qayer
+ai: O'zbekistonning poytaxti — Toshkent. Buyuk shahar! 🇺🇿
+
+user: dunyodagi eng katta okean
+user: katta okean
+user: eng katta okean
+ai: Tinch okeani — Yer yuzidagi eng katta okean. 🌊
+
+user: eng baland tog
+user: baland tog
+user: eng baland tog' qaysi
+ai: Everest — dunyodagi eng baland tog'. Balandligi taxminan 8848 metr. 🏔️
+
+user: eng uzun daryo
+user: katta daryo
+ai: Nil — dunyodagi eng uzun daryo. Taxminan 6650 km. 🌊
+
+user: eng katta sahro
+user: sahro
+ai: Sahara — dunyodagi eng katta issiq sahro. 9 million km² dan ortiq. 🏜️
+
+user: dunyodagi eng katta davlat
+user: eng katta davlat
+ai: Rossiya — dunyodagi eng katta davlat. Maydoni 17 million km² dan ortiq. 🇷🇺
+
+user: eng ko'p aholili davlat
+user: aholi soni
+ai: Hindiston — dunyodagi eng ko'p aholili davlat. 1.4 milliard dan ortiq. 🇮🇳
+
+user: eng qadimgi shahar
+user: qadimgi shahar
+ai: Damashq, Ierixo yoki Shahrisabz kabi shaharlar eng qadimgilardan hisoblanadi. 🏛️
+
+user: eng katta hayvon
+user: eng katta jonivor
+ai: Ko'k kit — dunyodagi eng katta hayvon. Uzunligi 30 metrgacha, og'irligi 200 tonnagacha. 🐋
+
+user: eng tez hayvon
+user: tez yuguruvchi
+ai: Gepard — dunyodagi eng tez yuguruvchi quruqlik hayvoni. Tezligi 120 km/soatgacha. 🐆
+
+user: eng kuchli hayvon
+user: kuchli jonivor
+ai: Afrika fili — eng kuchli quruqlik hayvoni. Og'irligi 6 tonnagacha. 🐘
+
+user: samolyot nima
+user: samolyot haqida
+ai: Samolyot — havoda uchish uchun mo'ljallangan, qanotli va dvigatelli transport vositasi. ✈️
+
+user: kema nima
+user: kema haqida
+ai: Kema — suvda yuk yoki yo'lovchi tashish uchun mo'ljallangan transport vositasi. 🚢
+
+user: poyezd nima
+user: poyezd haqida
+ai: Poyezd — temir yo'l bo'ylab yuk va yo'lovchi tashish uchun mo'ljallangan transport vositasi. 🚂
+
+user: avtomobil nima
+user: mashina haqida
+ai: Avtomobil — yerga tayangan, yo'lovchi va yuk tashish uchun mo'ljallangan transport vositasi. 🚗
+
+user: velosiped nima
+user: velosiped haqida
+ai: Velosiped — pedal yordamida harakatlanadigan ikki g'ildirakli transport vositasi. 🚲
+
+user: telefon sekin ishlayapti
+user: telefon qotib qolyapti
+user: telefon sekinlashdi
+ai: Keraksiz fayllarni tozalang, ilovalarni yoping, xotirani bo'shating va telefonni qayta ishga tushiring. Bu odatda yordam beradi. 📱
+
+user: wifi ishlamayapti
+user: internet ulanmayapti
+user: wifi yo'q
+ai: Wi-Fi ni o'chirib yoqing, routerni qayta ishga tushiring, tarmoq sozlamalarini tekshiring. Agar ishlamasa, provayderingizga murojaat qiling. 📶
+
+user: parol unutdim
+user: login parol
+user: parol esimdan chiqdi
+ai: Hisobingizdagi "Parolni unutdingizmi?" funksiyasidan foydalaning. Telefon raqami yoki email orqali tiklash mumkin. 🔑
+
+user: kod yozib ber
+user: dastur yoz
+user: html kod kerak
+ai: Albatta! Qaysi dasturlash tilida va qanday vazifa kerakligini yozing. Men kod yozaman va tushuntiraman! 💻
+
+user: menga misol kod kerak
+user: misol dastur
+user: namuna kod
+ai: Qaysi mavzuda misol kerak? HTML, CSS, JavaScript, Python yoki boshqa til? Yozing, tayyorlayman! 📝
+
+user: html sahifa
+user: web sayt
+user: html sayt
+ai: HTML, CSS va JavaScript yordamida zamonaviy veb-sayt yaratish mumkin. Qanday sahifa kerak? 🌐
+
+user: login sahifa
+user: login form
+user: kirish sahifasi
+ai: Login sahifasi yozib bera olaman. HTML, CSS va JavaScript bilan. Dizayn talablaringizni yozing! 🔐
+
+user: portfolio sayt
+user: shaxsiy web sayt
+user: portfolio
+ai: Portfolio sayt yozib beraman. Ismingiz, kasbingiz, loyihalaringiz va aloqa ma'lumotlari bo'lishi mumkin. Qanday ko'rinish xohlaysiz? 👨‍💼
+
+user: e-commerce sayt
+user: online do'kon
+user: savdo sayti
+ai: E-commerce sayt yaratish mumkin. Mahsulotlar, savat, buyurtma va to'lov tizimlari. Qanday funksiyalar kerak? 🛒
+
+user: blog sayt
+user: blog yozish
+user: blog ochish
+ai: Blog sayt yozib bera olaman. Maqolalar, kategoriyalar, izohlar va admin panel. Qanday xususiyatlar kerak? ✍️
+
+user: bootstrap ishlatib sayt yoz
+user: bootstrap kod
+ai: Bootstrap yordamida tez va responsiv sayt yaratish mumkin. Qanday sahifa kerak? 📱
+
+user: tailwind ishlatib sayt yoz
+user: tailwind kod
+ai: Tailwind CSS yordamida zamonaviy va moslashuvchan dizayn tayyorlash mumkin. Qanday sahifa kerak? 🎨
+
+user: react bilan sayt yoz
+user: react kod
+ai: React yordamida interaktiv va tez veb ilovalar yaratish mumkin. Qanday loyiha kerak? ⚛️
+
+user: node js kod
+user: backend kod
+ai: Node.js bilan backend yozish mumkin. API, ma'lumotlar bazasi, autentifikatsiya. Qanday funksiya kerak? 🟩
+
+user: telegram bot yoz
+user: bot yaratish
+ai: Telegram bot yaratish uchun BotFather dan token olish va Python yoki JavaScript da kod yozish kerak. Qaysi tilda yozamiz? 🤖
+
+user: android ilova yoz
+user: mobil ilova
+user: android app
+ai: Android ilovalar yaratish uchun Java yoki Kotlin, Android Studio kerak. Qanday ilova kerak? 📱
+
+user: o'yin yoz
+user: game yaratish
+ai: O'yin yaratish uchun C++, C#, Unity yoki Python dan foydalanish mumkin. Qanday o'yin kerak? 🎮
+
+user: kodim ishlamayapti
+user: error chiqyapti
+user: kodimda xato
+ai: Kodni to'liq yuboring va qanday xatolik chiqayotganini yozing. Men tekshirib, tuzatishga yordam beraman! 🔧
+
+user: kodni tushuntir
+user: kod qanday ishlaydi
+user: har bir qatorni tushuntir
+ai: Kodni yozing, men har bir qismi nima vazifa bajarishini batafsil tushuntirib beraman. 📖
+
+user: dasturlash maslahat
+user: coding advice
+user: dasturlash bo'yicha maslahat
+ai: Dasturlashni o'rganishda eng muhimi — amaliyot va kichik loyihalar qilish. Xatolardan qo'rqmang, ular sizni rivojlantiradi. 💪
+
+user: internetdagi ma'lumot ishonchlimi
+user: ma'lumotni tekshir
+user: ishonchli ma'lumot
+ai: Ma'lumotning ishonchliligini tekshirish uchun manbasiga, yangiligiga va boshqa manbalar bilan solishtirishga e'tibor bering. Men ham yordam berishga harakat qilaman. 🔍
+
+user: bugun sana nima
+user: bugungi sana
+user: bugun nechanchi
+ai: Men qurilmamning vaqtiga kira olmayman, lekin siz telefon yoki kompyuteringizdan bugungi sanani ko'rishingiz mumkin. 📅
+
+user: soat nechi
+user: vaqt nechi
+ai: Ayni vaqtni telefoningiz yoki kompyuteringizdan ko'rib oling. Men vaqtni ko'rsata olmayman. ⏰
+
+user: ob-havo qanday
+user: bugun havo
+ai: Ob-havo ma'lumotini telefon ilovangiz yoki internet orqali tekshirishingiz mumkin. 🌤️
+
+user: ingliz tilini qanday o'rganaman
+user: til o'rganish
+user: inglizcha gapirish
+ai: Ingliz tilini o'rganish uchun har kuni 10-15 daqiqa lug'at yodlash, tinglash va gapirish mashqlari qilish foydali. Inglizcha filmlar va podkastlar ham yordam beradi. 🇬🇧
+
+user: motivatsiya
+user: o'zini rivojlantirish
+user: maqsadga erishish
+ai: Maqsadingizni aniq belgilang, kichik qadamlarga bo'ling va har kuni biror narsa qiling. Muvaffaqiyat — doimiy harakat natijasidir. Siz buni uddalaysiz! 💪🌟
+
+user: o'zini rivojlantirish kitobi
+user: yaxshi kitoblar
+user: kitob tavsiya
+ai: "Atom odatlar", "Zamonaviy odam uchun 48 qonun", "7 ko'nikma" va "Siz o'ylagandan kuch
+
+user: menga dasturlashni batafsil tushuntirib ber
+user: dasturlash nima ekanligini tushuntir
+user: dasturlash haqida to'liq ma'lumot
+ai: Dasturlash — bu kompyuterga qanday vazifalarni bajarish kerakligini maxsus til orqali ko'rsatish jarayonidir. Buni xuddi odamga retsept yozib berishga o'xshatish mumkin — qadam-baqadam ko'rsatma. Dasturlash tillari (masalan, Python, JavaScript, Java) yordamida biz kompyuterga aniq buyruqlar beramiz va u ularni bajaradi. Dasturlash orqali veb-saytlar, mobil ilovalar, o'yinlar, sun'iy intellekt tizimlari, robotlar va boshqa ko'plab texnologiyalar yaratiladi. Bugungi kunda dasturlash deyarli barcha sohalarda qo'llaniladi: tibbiyot, moliya, ta'lim, transport, savdo va hokazo. Dasturlashni o'rganish nafaqat ish topish, balki mantiqiy fikrlash, muammolarni hal qilish va ijodkorlikni rivojlantirish uchun ham juda foydali. Dasturlashni boshlash uchun avval oddiy tillardan boshlash tavsiya etiladi — masalan, Python yoki JavaScript. Keyin asta-sekin murakkabroq tillar va texnologiyalarga o'tishingiz mumkin. Eng muhimi — ko'p amaliyot qilish va kichik loyihalar yaratishdir. Xatolardan qo'rqmang, chunki har bir xato sizni rivojlantiradi. Dasturchi bo'lish yo'lida sabr-toqat, qiziqish va doimiy o'rganish muhim omillardir.
+
+user: kompyuter qanday ishlaydi
+user: kompyuter arxitekturasi
+user: kompyuter haqida batafsil
+ai: Kompyuter — bu ma'lumotlarni qabul qilish, ularni qayta ishlash va natijalarni chiqarish qobiliyatiga ega bo'lgan elektron qurilma. U asosan quyidagi asosiy qismlardan tashkil topgan: protsessor (CPU) — kompyuterning "miyasi" bo'lib, barcha hisob-kitoblarni bajaradi; operativ xotira (RAM) — vaqtinchalik ma'lumotlarni saqlaydigan tezkor xotira; qattiq disk (HDD) yoki SSD — doimiy ma'lumotlarni saqlash uchun xizmat qiladi; anakarta — barcha qismlarni o'zaro bog'laydigan asosiy plata; elektr ta'minoti bloki — kompyuterga energiya beradi; video karta — tasvir va grafiklarni chiqarish uchun javobgar. Kompyuter ishlashi uchun operatsion tizim (Windows, macOS, Linux) va dasturiy ta'minot kerak. Operatsion tizim kompyuter resurslarini boshqaradi va dasturlar ishlashi uchun muhit yaratadi. Kompyuterlar ikkilik sanoq sistemasida ishlaydi — barcha ma'lumotlar 0 va 1 ko'rinishida saqlanadi va qayta ishlanadi. Zamonaviy kompyuterlar sekundiga milliardlab operatsiyalarni bajarishga qodir. Kompyuterlarning rivojlanish tarixi juda qiziqarli — dastlab katta xonalarni egallagan mashinalardan hozirgi kichik va kuchli qurilmalargacha. Kompyuterlarni ishlatish sohalari juda keng: ofis ishlari, dizayn, dasturlash, o'yinlar, ilmiy hisob-kitoblar, sun'iy intellekt va boshqalar.
+
+user: internet qanday ishlaydi
+user: internet haqida batafsil tushuntir
+user: internet tarmog'i
+ai: Internet — bu butun dunyo bo'ylab millionlab kompyuterlar, telefonlar va boshqa qurilmalarni o'zaro bog'laydigan global tarmoqdir. U TCP/IP protokoli asosida ishlaydi. Ma'lumotlar internet orqali paketlar shaklida uzatiladi — har bir paket jo'natuvchi va oluvchi manziliga ega bo'lgan kichik ma'lumotlar bo'lagidir. Internetga ulanish uchun internet-provayder (ISP) xizmatidan foydalaniladi. Uy sharoitida Wi-Fi router orqali simsiz ulanish amalga oshiriladi. Veb-saytlar serverlarda saqlanadi va foydalanuvchi ularga brauzer (Chrome, Firefox, Safari) orqali kirishi mumkin. Brauzer serverga so'rov yuboradi, server esa veb-sahifani brauzerga qaytaradi. Internetning asosiy xizmatlari: World Wide Web (WWW), elektron pochta, fayl almashish, onlayn o'yinlar, ijtimoiy tarmoqlar, video va audio oqimlar. Internet butun dunyo bo'ylab ma'lumotlar almashishni juda tez va oson qildi. Bugungi kunda internet deyarli barcha sohalarda qo'llaniladi: ta'lim, savdo, tibbiyot, bank ishi, hukumat, ko'ngilochar va boshqalar. Internet xavfsizligi juda muhim — shaxsiy ma'lumotlarni himoya qilish, kuchli parollardan foydalanish va shubhali havolalardan ehtiyot bo'lish kerak. Internetning kelajagi — 5G, IoT (narsalar interneti), sun'iy intellekt va metaverse kabi texnologiyalar bilan bog'liq.
+
+user: sun'iy intellekt nima va u qanday ishlaydi
+user: suniy intellekt haqida batafsil
+user: ai texnologiyasi
+ai: Sun'iy intellekt (AI) — bu inson aql-zakovatini taqlid qiluvchi va murakkab vazifalarni bajarishga qodir bo'lgan kompyuter tizimlaridir. U ma'lumotlarni tahlil qilish, o'rganish, xulosa chiqarish, qaror qabul qilish, tilni tushunish, tasvirlarni aniqlash va boshqa ko'plab vazifalarni bajarishi mumkin. Sun'iy intellektning asosiy turlari: tor AI (faqat ma'lum bir vazifani bajaradigan, masalan, shaxmat o'ynaydigan dastur), umumiy AI (har qanday intellektual vazifani bajaradigan inson darajasidagi AI) va super AI (inson aqlidan oshib ketadigan AI). Hozirgi kunda asosan tor AI dan foydalaniladi. Sun'iy intellekt mashina o'rganishi (ML) va chuqur o'rganish (Deep Learning) texnologiyalariga asoslanadi. Mashina o'rganish — bu algoritmlarga ma'lumotlar berish va ularni o'z-o'zidan o'rganishiga imkon yaratish. Chuqur o'rganish esa neyron tarmoqlar yordamida murakkab ma'lumotlarni qayta ishlaydi. Sun'iy intellektning qo'llanilish sohalari juda keng: tibbiyotda kasalliklarni tashxislash, banklarda firibgarlikni aniqlash, avtomobillarda avtopilot, tarjima tizimlari, ovozli yordamchilar (Siri, Alexa), tavsiya tizimlari (Netflix, YouTube) va boshqalar. Sun'iy intellektning rivojlanishi bilan bir qatorda etik muammolar ham paydo bo'lmoqda — maxfiylik, ish o'rinlarining o'zgarishi, qarorlarning shaffofligi va boshqalar. Kelajakda sun'iy intellekt inson hayotining barcha sohalariga chuqur kirib borishi kutilmoqda.
+
+user: veb-sayt qanday yaratiladi
+user: web sayt yaratish jarayoni
+user: sayt yaratish bosqichlari
+ai: Veb-sayt yaratish bir necha bosqichdan iborat murakkab va qiziqarli jarayondir. Birinchi bosqich — rejalashtirish: saytning maqsadi, auditoriyasi, tuzilishi va funksiyalarini aniqlash. Ikkinchi bosqich — dizayn: saytning ko'rinishi, ranglar, shriftlar, menyu va sahifalar tartibini ishlab chiqish. Bu bosqichda odatda Figma, Adobe XD yoki Photoshop kabi dasturlardan foydalaniladi. Uchinchi bosqich — frontend yaratish: HTML (sahifa tuzilishi), CSS (dizayn va uslublar) va JavaScript (interaktivlik va dinamik funksiyalar) yordamida saytning ko'rinadigan qismi yaratiladi. To'rtinchi bosqich — backend yaratish: server, ma'lumotlar bazasi va saytning ichki mantiqi (masalan, ro'yxatdan o'tish, buyurtma berish, ma'lumotlarni saqlash) ishlab chiqiladi. Buning uchun PHP, Python, Node.js, Java kabi tillardan foydalaniladi. Beshinchi bosqich — test qilish: sayt turli brauzer va qurilmalarda sinovdan o'tkaziladi, xatolar tuzatiladi, xavfsizlik tekshiriladi. Oltinchi bosqich — joylashtirish (hosting): sayt internetda ochiq bo'lishi uchun hosting xizmatiga yuklanadi va domen nomi o'rnatiladi. Yakuniy bosqich — texnik xizmat ko'rsatish: saytni yangilab turish, xatolarni tuzatish, kontent qo'shish va xavfsizlikni ta'minlash. Oddiy saytlarni yaratish uchun WordPress, Wix yoki Tilda kabi platformalardan foydalanish mumkin. Professional saytlar uchun esa React, Angular, Vue.js, Django, Laravel kabi zamonaviy texnologiyalar qo'llaniladi. Veb-sayt yaratish — bu doimiy rivojlanib boruvchi va juda talab qilinadigan sohadir.
+
+user: html css va javascript nima va ular qanday farq qiladi
+user: frontend texnologiyalari
+user: web dasturlash asoslari
+ai: HTML, CSS va JavaScript — veb-saytlarni yaratish uchun ishlatiladigan uchta asosiy texnologiya bo'lib, ularning har biri o'z vazifasini bajaradi. HTML (HyperText Markup Language) — veb-sahifaning tuzilishi yoki "skeleti" ni yaratadi. U sarlavhalar, paragraflar, rasmlar, havolalar, ro'yxatlar va jadvallar kabi elementlarni sahifaga joylashtirish imkonini beradi. HTML ni xuddi uyning g'ishtlari deb hisoblash mumkin. CSS (Cascading Style Sheets) — sahifaning dizayni, ko'rinishi va uslubini boshqaradi. U ranglar, shriftlar, o'lchamlar, fon rasmlari, elementlarning joylashuvi, margin va padding kabi xususiyatlarni belgilaydi. CSS ni uyning bo'yoqlari, devor qog'ozi va mebellari deb hisoblash mumkin. JavaScript (JS) — sahifaga interaktivlik va dinamik funksiyalar qo'shadi. U tugmalar bosilganda harakat qilish, animatsiyalar, forma tekshirish, ma'lumotlarni yuklash va o'zgartirish, API dan ma'lumot olish va boshqa ko'plab vazifalarni bajaradi. JavaScript ni uyning elektr simlari, chiroqlar va boshqa interaktiv tizimlari deb hisoblash mumkin. Uchala texnologiya birgalikda ishlaydi: HTML tuzilmani, CSS ko'rinishni, JavaScript esa harakat va funksionallikni ta'minlaydi. Zamonaviy veb-saytlar ushbu uchta texnologiyani murakkab va chiroyli tarzda birlashtiradi. Ularni o'rganish orqali siz o'z veb-saytlaringizni yaratishingiz, ijodkorligingizni namoyon qilishingiz va dasturchi sifatida karyerangizni boshlashingiz mumkin.
+
+user: python dasturlash tilini o'rganish rejasi
+user: python qanday o'rganiladi
+user: python o'rganish bosqichlari
+ai: Python — bu boshlang'ich dasturchilar uchun eng qulay va foydali tillardan biridir. Python o'rganish rejasi quyidagi bosqichlardan iborat bo'lishi mumkin: 1) Asosiy tushunchalar: o'zgaruvchilar, ma'lumotlar turlari (son, matn, ro'yxat, lug'at), shart operatorlari (if, else), tsikllar (for, while), funksiyalar. Buni 2-3 hafta ichida o'zlashtirish mumkin. 2) Murakkabroq mavzular: ro'yxat va lug'atlar bilan ishlash, fayllarni ochish va yozish, istisno holatlarini boshqarish (try-except), modullar va kutubxonalar. Yana 2-3 hafta. 3) Amaliyot: kichik loyihalar yozish — kalkulyator, shaxsiy ma'lumotlar bazasi, oddiy o'yinlar (to'g'ri topish, so'z o'yini). 4) Maxsus yo'nalish: qaysi sohada ishlashni xohlaysiz — veb-dasturlash (Django, Flask), ma'lumotlar tahlili (Pandas, NumPy), sun'iy intellekt (TensorFlow, PyTorch), avtomatlashtirish yoki o'yin yaratish. 5) Loyihalar: o'zingiz qiziqadigan loyihalarni yaratish — masalan, shaxsiy blog, ma'lumotlar tahlili loyihasi yoki bot. 6) Ochiq kod va hamkorlik: GitHub da loyihalarni joylashtirish, boshqalarning kodlarini o'qish va jamoa bilan ishlash. Python o'rganishda eng muhim narsa — har kuni kamida 1-2 soat amaliyot qilish, kod yozish va xatolardan o'rganishdir. YouTube dagi bepul darslar, Codecademy, Coursera, Stepik kabi platformalar va Python rasmiy hujjatlari yordam beradi. Python jamoasi va resurslari juda katta va faol, shuning uchun yordam so'rash oson. Python o'rganish — bu nafaqat yangi kasb, balki mantiqiy fikrlash va muammolarni hal qilish qobiliyatini rivojlantirish uchun ajoyib imkoniyatdir.
+
+user: javascript nima va qanday o'rganiladi
+user: javascript o'rganish rejasi
+user: js haqida batafsil
+ai: JavaScript (JS) — bu veb-sahifalarga interaktivlik, dinamik funksiyalar va harakat qo'shish uchun ishlatiladigan dasturlash tili. JavaScript HTML va CSS bilan birgalikda ishlaydi va veb-saytlarni "jonlantiradi". Uning yordamida tugmalar bosilganda harakat qilish, animatsiyalar, forma tekshirish, ma'lumotlarni yuklash va o'zgartirish, API dan ma'lumot olish, soat, kalendar, chat, o'yinlar va boshqa ko'plab funksiyalarni yaratish mumkin. JavaScript o'rganish rejasi: 1) Asosiy tushunchalar: o'zgaruvchilar (var, let, const), ma'lumotlar turlari (son, matn, array, object), operatorlar, shartlar (if-else), tsikllar (for, while), funksiyalar. 2) DOM (Document Object Model) bilan ishlash: veb-sahifa elementlarini topish (getElementById, querySelector), ularni o'zgartirish va hodisalar (events) — masalan, tugma bosilganda ish bajarish. 3) Murakkab mavzular: array va object metodlari, callback funksiyalar, Promise, async/await, AJAX va API so'rovlari. 4) Framework va kutubxonalar: React, Vue.js, Angular, jQuery (hozir kam ishlatiladi). 5) Node.js: JavaScript ni server tomonida ishlatish, backend dasturlash. 6) Loyihalar: kalkulyator, ob-havo ilovasi, todo list, chat ilovasi, o'yinlar, e-commerce sayt funksiyalari. JavaScript o'rganishda eng muhimi — amaliyot va kichik loyihalar yaratish. MDN Web Docs, JavaScript.info, YouTube kanallar va interaktiv platformalar (Codecademy, FreeCodeCamp) juda ko'p yordam beradi. JavaScript dunyodagi eng mashhur va talab qilinadigan dasturlash tillaridan biri bo'lib, uni bilish veb-dasturchi sifatida karyerangizni boshlash uchun ajoyib imkoniyatdir.
+
+user: mobil ilovalar qanday yaratiladi
+user: android ilova yaratish
+user: mobil dasturlash haqida
+ai: Mobil ilovalar yaratish — bu zamonaviy texnologiyalarning eng qiziqarli va talab qilinadigan sohalaridan biridir. Mobil ilovalar asosan ikkita asosiy platforma uchun yaratiladi: Android (Google) va iOS (Apple). Android ilovalari Java yoki Kotlin tillarida, Android Studio muhitida yaratiladi. iOS ilovalari esa Swift yoki Objective-C tillarida, Xcode muhitida yaratiladi. So'nggi yillarda cross-platform (bir kod bilan ikkala platformada ishlaydigan) texnologiyalar ham mashhur bo'ldi: Flutter (Dart), React Native (JavaScript), Xamarin (C#). Mobil ilova yaratish jarayoni: 1) G'oya va rejalashtirish — ilovaning maqsadi, auditoriyasi va funksiyalarini aniqlash. 2) Dizayn — UI/UX dizayn yaratish, ilova interfeysi va foydalanuvchi tajribasini loyihalash. 3) Dasturlash — ilova kodini yozish, ma'lumotlar bazasi (SQLite, Firebase), API ulash, funksiyalarni amalga oshirish. 4) Test qilish — ilovani turli qurilmalarda sinovdan o'tkazish, xatolarni tuzatish va optimallashtirish. 5) Joylashtirish — ilovani Google Play Store (Android) yoki App Store (iOS) ga yuklash, kerakli hujjatlarni tayyorlash. 6) Texnik xizmat — ilovani yangilab turish, yangi funksiyalar qo'shish va foydalanuvchi fikr-mulohazalarini inobatga olish. Mobil ilovalar yaratishni boshlash uchun avval oddiy ilovalardan boshlash tavsiya etiladi — masalan, kalkulyator, eslatma, ob-havo ilovasi. Keyin asta-sekin murakkabroq loyihalarga o'tish mumkin. Bugungi kunda mobil ilovalar deyarli barcha sohalarda qo'llaniladi: ta'lim, sog'liqni saqlash, moliya, savdo, ijtimoiy tarmoqlar, o'yinlar va boshqalar. Mobil dasturlash — bu juda talab qilinadigan va yaxshi daromad keltiradigan sohadir.
+
+user: ma'lumotlar bazasi nima va qanday ishlaydi
+user: database haqida batafsil
+user: ma'lumotlar bazasi turlari
+ai: Ma'lumotlar bazasi (database) — bu ma'lumotlarni tartibli, xavfsiz va samarali saqlash, boshqarish va qidirish uchun mo'ljallangan tizimdir. Uni katta kutubxona deb hisoblash mumkin — barcha kitoblar (ma'lumotlar) tartibli joylashtirilgan va kerakli kitobni tezda topish mumkin. Ma'lumotlar bazalari asosan ikki turga bo'linadi: 1) SQL (Relational) ma'lumotlar bazalari — ma'lumotlar jadvallar shaklida saqlanadi va ular o'zaro bog'langan. Masalan: MySQL, PostgreSQL, SQLite, Oracle. Ularda ma'lumotlar bilan ishlash uchun SQL (Structured Query Language) tilidan foydalaniladi. 2) NoSQL ma'lumotlar bazalari — jadvalsiz, moslashuvchan tuzilma. Masalan: MongoDB (hujjatli), Redis (kalit-qiymat), Cassandra (ustunli), Neo4j (grafli). Ular katta hajmdagi yoki tarkibi o'zgaruvchan ma'lumotlar uchun qulay. Ma'lumotlar bazasi asosiy operatsiyalari: CREATE (yaratish), READ (o'qish), UPDATE (yangilash), DELETE (o'chirish) — qisqacha CRUD. Ma'lumotlar bazalari veb-saytlar, mobil ilovalar, bank tizimlari, onlayn do'konlar, ijtimoiy tarmoqlar, tibbiyot va boshqa ko'plab sohalarda qo'llaniladi. Ma'lumotlar bazasini loyihalashda ma'lumotlarning tuzilishi, xavfsizligi, tezligi va zaxira nusxalarni yaratish kabi omillar hisobga olinadi. Ma'lumotlar bazasi bilan ishlash dasturchi va ma'lumotlar tahlilchilari uchun muhim ko'nikma hisoblanadi.
+
+user: internet xavfsizligi bo'yicha to'liq qo'llanma
+user: online xavfsizlik qoidalari
+user: internetda xavfsiz ishlash
+ai: Internet xavfsizligi — bu shaxsiy ma'lumotlaringizni, moliyaviy resurslaringizni va qurilmalaringizni onlayn tahdidlardan himoya qilish bo'yicha barcha chora-tadbirlar majmuidir. Quyida internetda xavfsiz ishlash bo'yicha to'liq qo'llanma: 1) Kuchli parollar ishlating: parolingiz kamida 8-12 belgidan iborat bo'lib, katta va kichik harflar, raqamlar va maxsus belgilarni o'z ichiga olishi kerak. Har bir hisobingiz uchun alohida parol ishlating. Parollaringizni qog'ozga yozmang va hech kimga bermang. 2) Ikki bosqichli tasdiqlashni (2FA) yoqing: bu hisobingizga kirishda paroldan tashqari qo'shimcha kod (SMS, authenticator ilovasi) talab qiladi. Bu hisobingizni juda kuchli himoya qiladi. 3) Shubhali havolalardan ehtiyot bo'ling: elektron pochta, SMS yoki ijtimoiy tarmoqlardagi noma'lum havolalarni ochmang. Havolani ochishdan oldin manzilni tekshiring. 4) Antivirus va xavfsizlik dasturlarini o'rnating: kompyuter va telefoningizga ishonchli antivirus dasturini o'rnating va uni muntazam yangilab turing. 5) Dasturlarni faqat rasmiy manbalardan yuklang: Google Play, App Store yoki dasturning rasmiy sayti. Noma'lum manbalardan yuklangan dasturlar xavfli bo'lishi mumkin. 6) Ijtimoiy tarmoqlarda ehtiyot bo'ling: shaxsiy ma'lumotlaringizni (manzil, telefon raqami, ish joyi, oila a'zolari haqidagi ma'lumotlar) hamma ko'radigan qilib qo'ymang. 7) VPN ishlating: ayniqsa jamoat Wi-Fi tarmoqlarida internetdan foydalanganda VPN ma'lumotlaringizni shifrlaydi va himoya qiladi. 8) Zaxira nusxa yarating: muhim fayllaringizni muntazam ravishda bulutli xotiraga yoki tashqi diskka nusxalab qo'ying. 9) Dasturlarni yangilab turing: operatsion tizim, brauzer va boshqa dasturlarni doimiy yangilab turing, chunki yangilanishlar xavfsizlikni oshiradi. 10) Bank va to'lov ma'lumotlarini faqat ishonchli saytlarda ishlating: sayt manzilida "https" va qulf belgisi borligiga ishonch hosil qiling. 11) Email filtrlardan foydalaning: spam va firibgarlik xabarlarini avtomatik filtrlab oling. 12) Farzandlaringizning internet faoliyatini kuzatib boring: ularga internet xavfsizligi qoidalarini o'rgating va vaqt cheklovlarini o'rnating. 13) Shaxsiy ma'lumotlaringizni haddan tashqari ko'p ulashmang: internetda qancha kam ma'lumot ulashsangiz, shuncha xavfsizroq bo'lasiz. Internet xavfsizligi — bu doimiy e'tibor talab qiladigan jarayon. Yuqoridagi qoidalarga amal qilish orqali siz o'zingizni va yaqinlaringizni onlayn tahdidlardan himoya qila olasiz.

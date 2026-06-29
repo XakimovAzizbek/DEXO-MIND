@@ -2,20 +2,28 @@
    DEXO MIND — index.js
    =========================================================
    SIZ SHU YERGA O'QITISH FAYLLARINI QO'SHASIZ.
-   Har bir faylni "oqitishN.html" deb nomlang va shu ro'yxatga
+   Har bir faylni "oqitishN.txt" deb nomlang va shu ro'yxatga
    qo'shing. Fayllar soni CHEKSIZ — xohlagancha qo'shing.
+
+   NEGA .txt, .html EMAS?
+   .html fayl ochilganda ba'zi tahrirlovchilar/brauzerlar uni
+   "veb-sahifa" deb hisoblab, ichidagi <tag>larni kod sifatida
+   talqin qilishga urinadi (bu avval xatolikka olib kelgan edi).
+   .txt esa hamma joyda har doim "oddiy matn" deb tanilgan —
+   ichida qancha <html>, <script> yozilgan bo'lsa ham, ular hech
+   qachon "kod" sifatida ishlatilmaydi, faqat matn bo'lib qoladi.
    ========================================================= */
 
 const TRAINING_FILES = [
-  "oqitish1.html",
-  "oqitish2.html",
-  "oqitish3.html",
-  // "oqitish3.html",
+  "oqitish1.txt",
+  "oqitish2.txt",
+  "oqitish3.txt",
+  // "oqitish4.txt",
   // ... shu tarzda davom ettiring
 ];
 
 /* =========================================================
-   oqitishN.html FAYLLARNI QANDAY YOZISH KERAK:
+   oqitishN.txt FAYLLARNI QANDAY YOZISH KERAK:
 
    user: salom
    user: assalomu alaykum
@@ -131,15 +139,16 @@ function parseTrainingText(rawText) {
   flushAnswerIfAny(); // faylning oxiridagi javobni ham saqlab qolish uchun
 }
 
-/* ---------- .html o'qitish faylidan toza matnni olish ----------
-   Fayl ichida HTML teglar bo'lsa ham, faqat matnni ajratib olamiz.
+/* ---------- Barcha oqitish fayllarini yuklash ----------
+   MUHIM: oqitish*.txt fayllari ODDIY MATN fayllari. Ularni fetch
+   qilganimizdan keyin HECH QACHON DOMParser/HTML parser orqali
+   o'tkazmaymiz. Agar shunday qilsak, javob ichidagi haqiqiy HTML teglar
+   (<html>, <style>, <button> va h.k.) brauzer tomonidan ASL KOD deb
+   talqin qilinib, teglarning o'zi g'oyib bo'lib, faqat ichidagi matn
+   (masalan "Demo", "Bos") qolib ketadi — bu aynan oldin yuzaga kelgan
+   xatolik edi. Shu yerda fetch() orqali kelgan matn boshqa hech narsaga
+   o'tkazilmasdan, to'g'ridan-to'g'ri parseTrainingText'ga beriladi.
 */
-function extractTextFromHtml(htmlString) {
-  const doc = new DOMParser().parseFromString(htmlString, "text/html");
-  return doc.body ? doc.body.textContent : htmlString;
-}
-
-/* ---------- Barcha oqitish fayllarini yuklash ---------- */
 async function loadAllTrainingFiles() {
   let loadedCount = 0;
   let failedFiles = [];
@@ -148,8 +157,7 @@ async function loadAllTrainingFiles() {
     try {
       const response = await fetch(fileName, { cache: "no-store" });
       if (!response.ok) throw new Error(response.status);
-      const html = await response.text();
-      const text = extractTextFromHtml(html);
+      const text = await response.text();
       parseTrainingText(text);
       loadedCount++;
     } catch (err) {
