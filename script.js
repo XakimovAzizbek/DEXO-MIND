@@ -1,35 +1,51 @@
-import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
-
-const status = document.getElementById('status');
 const messages = document.getElementById('messages');
 const input = document.getElementById('input');
 const btn = document.getElementById('send-btn');
+const status = document.getElementById('status');
 
-async function initAI() {
+// Hugging Face tokeningizni shu yerga qo'ying
+const HF_TOKEN = "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"; 
+// Model manzili
+const API_URL = "https://api-inference.huggingface.co/models/google/gemma-2-2b-it";
+
+async function runAI(prompt) {
     try {
-        status.textContent = 'Model yuklanmoqda... (bu vaqt oladi)';
-        
-        // Modelni yuklash
-        const generator = await pipeline('text2text-generation', 'Xenova/flan-t5-small');
-        
-        status.textContent = 'DEXO MIND Online';
-        
-        btn.addEventListener('click', async () => {
-            const text = input.value;
-            if (!text) return;
-            
-            messages.innerHTML += `<p><b>Siz:</b> ${text}</p>`;
-            input.value = '';
-            
-            // AI javobini olish
-            const output = await generator(text);
-            messages.innerHTML += `<p style="color: #00e5ff;"><b>DEXO MIND:</b> ${output[0].generated_text}</p>`;
-            messages.scrollTop = messages.scrollHeight;
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${HF_TOKEN}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ inputs: prompt })
         });
-    } catch (err) {
-        console.error(err);
-        status.textContent = 'Xatolik yuz berdi: ' + err.message;
+        
+        const result = await response.json();
+        
+        // Hugging Face javob formatini tekshirish
+        if (result && result[0] && result[0].generated_text) {
+            return result[0].generated_text;
+        } else {
+            return "Kechirasiz, model javob qaytarmadi.";
+        }
+    } catch (error) {
+        console.error(error);
+        return "Xatolik yuz berdi: Internet yoki Tokenni tekshiring.";
     }
 }
 
-initAI();
+status.textContent = 'DEXO MIND Online (HuggingFace Powered)';
+
+btn.addEventListener('click', async () => {
+    const text = input.value;
+    if (!text) return;
+    
+    messages.innerHTML += `<p><b>Siz:</b> ${text}</p>`;
+    input.value = '';
+    status.textContent = 'DEXO MIND o\'ylamoqda...';
+
+    const aiResponse = await runAI(text);
+    
+    messages.innerHTML += `<p style="color: #00e5ff;"><b>DEXO MIND:</b> ${aiResponse}</p>`;
+    status.textContent = 'DEXO MIND Online';
+    messages.scrollTop = messages.scrollHeight;
+});
