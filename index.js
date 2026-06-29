@@ -8,8 +8,7 @@
 
 const TRAINING_FILES = [
   "oqitish1.html",
-  "oqitish2.html"
-  // "oqitish2.html",
+  "oqitish2.html",
   // "oqitish3.html",
   // ... shu tarzda davom ettiring
 ];
@@ -26,6 +25,10 @@ const TRAINING_FILES = [
 
    - Bitta "ai:" javobidan oldin bir nechta "user:" qatori
      bo'lishi mumkin — ularning barchasi shu bitta javobga ulanadi.
+   - Bir xil "user:" trigger (masalan "salom") bir nechta faylda
+     qaytarilsa, BARCHA javoblar saqlanadi va AI har safar ulardan
+     TASODIFIY birini tanlab javob beradi — shu sabab javoblar
+     bir-birini o'chirib yubormaydi.
    - Qatorlar orasida bo'sh joy qoldirishingiz mumkin, muhim emas.
    - "user:salom" yoki "user: salom" — ikkisi ham ishlaydi.
    ========================================================= */
@@ -36,7 +39,11 @@ const userInput = document.getElementById("user-input");
 const statusLine = document.getElementById("status-line");
 const sendBtn = document.getElementById("send-btn");
 
-// Bilim bazasi: { trigger -> javob }
+// Bilim bazasi: { trigger -> [javob1, javob2, ...] }
+// MUHIM: har bir trigger uchun RO'YXAT saqlanadi, bitta string emas.
+// Shunday qilib bir nechta faylda bir xil savol (masalan "salom")
+// takrorlansa, eski javob YANGISI bilan ALMASHTIRILMAYDI —
+// ikkisi ham saqlanib qoladi va navbat bilan ishlatiladi.
 let knowledgeBase = {};
 let isReady = false;
 
@@ -47,6 +54,16 @@ function normalize(text) {
     .trim()
     .replace(/[.,!?;:'"()«»]/g, "")
     .replace(/\s+/g, " ");
+}
+
+/* ---------- Trigger uchun javob qo'shish (overwrite emas, push) ---------- */
+function addAnswer(trigger, answer) {
+  if (!knowledgeBase[trigger]) {
+    knowledgeBase[trigger] = [];
+  }
+  if (!knowledgeBase[trigger].includes(answer)) {
+    knowledgeBase[trigger].push(answer);
+  }
 }
 
 /* ---------- Bitta oqitish faylini parse qilish ----------
@@ -72,7 +89,7 @@ function parseTrainingText(rawText) {
     } else if (aiMatch && pendingTriggers.length > 0) {
       const answer = aiMatch[1].trim();
       for (const trigger of pendingTriggers) {
-        knowledgeBase[trigger] = answer;
+        addAnswer(trigger, answer);
       }
       pendingTriggers = [];
     }
@@ -109,11 +126,12 @@ async function loadAllTrainingFiles() {
 
   isReady = true;
   const triggerCount = Object.keys(knowledgeBase).length;
+  const answerCount = Object.values(knowledgeBase).reduce((sum, arr) => sum + arr.length, 0);
 
   if (failedFiles.length > 0) {
     statusLine.textContent = `${loadedCount} fayl yuklandi, ${failedFiles.length} ta xato (konsolni tekshiring)`;
   } else {
-    statusLine.textContent = `tayyor — ${triggerCount} ta bilim ulandi`;
+    statusLine.textContent = `tayyor — ${triggerCount} savol, ${answerCount} javob ulandi`;
   }
 }
 
@@ -124,25 +142,49 @@ function addMessage(text, role) {
   bubble.textContent = text;
   chatWindow.appendChild(bubble);
   chatWindow.scrollTop = chatWindow.scrollHeight;
+  return bubble;
 }
 
-/* ---------- Javob topish mantiqi ---------- */
+/* ---------- "AI yozayapti..." indikatorini ko'rsatish ---------- */
+function showTypingIndicator() {
+  const wrap = document.createElement("div");
+  wrap.className = "msg ai typing";
+  wrap.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+  chatWindow.appendChild(wrap);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+  return wrap;
+}
+
+/* ---------- Javob topish mantiqi ----------
+   Trigger uchun bir nechta javob bo'lsa, ulardan TASODIFIY biri tanlanadi.
+*/
 function findAnswer(userText) {
   const cleaned = normalize(userText);
 
   // 1) Aniq mos kelish
-  if (knowledgeBase[cleaned]) {
-    return knowledgeBase[cleaned];
+  if (knowledgeBase[cleaned] && knowledgeBase[cleaned].length > 0) {
+    return pickRandom(knowledgeBase[cleaned]);
   }
 
   // 2) Qisman mos kelish (trigger so'rovning ichida bo'lsa)
+  //    Eng uzun (eng aniq) trigger'ni tanlaymiz, tasodifiy emas.
+  let bestTrigger = null;
   for (const trigger in knowledgeBase) {
     if (cleaned.includes(trigger) || trigger.includes(cleaned)) {
-      return knowledgeBase[trigger];
+      if (!bestTrigger || trigger.length > bestTrigger.length) {
+        bestTrigger = trigger;
+      }
     }
   }
+  if (bestTrigger) {
+    return pickRandom(knowledgeBase[bestTrigger]);
+  }
 
-  return "Buni hali o'rganmaganman. Menga oqitish faylida shu savolga javob qo'shib ber 🙂";
+  return "Buni hali o'rganmaganman. Menga boshqa savol berib koring";
+}
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 /* ---------- Forma yuborilganda ---------- */
@@ -153,14 +195,22 @@ inputForm.addEventListener("submit", (e) => {
 
   addMessage(text, "user");
   userInput.value = "";
+  sendBtn.classList.add("pulse");
+  setTimeout(() => sendBtn.classList.remove("pulse"), 250);
 
   if (!isReady) {
     addMessage("Hali bilimlar yuklanmoqda, biroz kuting...", "system");
     return;
   }
 
+  const typingBubble = showTypingIndicator();
   const reply = findAnswer(text);
-  setTimeout(() => addMessage(reply, "ai"), 150);
+
+  const delay = 400 + Math.random() * 400;
+  setTimeout(() => {
+    typingBubble.remove();
+    addMessage(reply, "ai");
+  }, delay);
 });
 
 /* ---------- Ishga tushirish ---------- */
