@@ -24,16 +24,6 @@ const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 // Groq bo'yicha rasm hajmi cheklovi: bitta so'rovda 4MB dan oshmasligi kerak
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 
-/* =========================================================
-   IXTIYORIY: oqitish*.txt fayllaringizni AI'ning "shaxsiyati"
-   yoki qo'shimcha bilimi sifatida ishlatish mumkin.
-   ========================================================= */
-const KNOWLEDGE_FILES = [
-  "oqitish1.txt",
-  "oqitish2.txt",
-  "oqitish3.txt",
-];
-
 const chatWindow = document.getElementById("chat-window");
 const inputForm = document.getElementById("input-form");
 const userInput = document.getElementById("user-input");
@@ -48,36 +38,17 @@ const attachmentPreview = document.getElementById("attachment-preview");
 
 // Suhbat tarixi — OpenAI/Groq formatida: { role, content }
 let conversationHistory = [];
-let systemKnowledge = "";
 let isReady = false;
 
 // Hozir biriktirilgan fayl (faqat bittasi bir vaqtda — rasm YOKI matn fayl)
 let pendingAttachment = null; // { type: "image"|"file", name, dataUrl?, text? }
 
-/* ---------- oqitish*.txt fayllarini yuklab, bitta matnga birlashtirish ---------- */
-async function loadKnowledgeFiles() {
-  let combined = "";
-  let loadedCount = 0;
-
-  for (const fileName of KNOWLEDGE_FILES) {
-    try {
-      const response = await fetch(fileName, { cache: "no-store" });
-      if (!response.ok) throw new Error(response.status);
-      const text = await response.text();
-      combined += text + "\n\n";
-      loadedCount++;
-    } catch (err) {
-      console.warn(`"${fileName}" yuklanmadi:`, err);
-    }
-  }
-
-  systemKnowledge = combined.trim();
-
-  const systemPrompt = systemKnowledge
-    ? "Sen DEXO MIND ismli AI yordamchisan. Quyidagi ma'lumotlar sening bilim bazang, kerak bo'lganda shulardan foydalan, lekin umumiy savollarga ham erkin javob ber:\n\n" + systemKnowledge
-    : "Sen DEXO MIND ismli foydali AI yordamchisan.";
-
-  conversationHistory.push({ role: "system", content: systemPrompt });
+/* ---------- Ishga tushirishda boshlang'ich sozlash ---------- */
+function initChat() {
+  conversationHistory.push({
+    role: "system",
+    content: "Sen DEXO MIND ismli foydali AI yordamchisan.",
+  });
 
   isReady = true;
   statusLine.textContent = "tayyor — savolingizni yozing";
@@ -312,4 +283,4 @@ inputForm.addEventListener("submit", async (e) => {
 });
 
 /* ---------- Ishga tushirish ---------- */
-loadKnowledgeFiles();
+initChat();
