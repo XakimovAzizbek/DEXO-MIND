@@ -1,46 +1,38 @@
 /* =========================================================
-   DEXO MIND — index.js
+   DEXO MIND — index.js (Groq API + rasm/fayl yuborish)
    =========================================================
-   SIZ SHU YERGA O'QITISH FAYLLARINI QO'SHASIZ.
-   Har bir faylni "oqitishN.txt" deb nomlang va shu ro'yxatga
-   qo'shing. Fayllar soni CHEKSIZ — xohlagancha qo'shing.
 
-   NEGA .txt, .html EMAS?
-   .html fayl ochilganda ba'zi tahrirlovchilar/brauzerlar uni
-   "veb-sahifa" deb hisoblab, ichidagi <tag>larni kod sifatida
-   talqin qilishga urinadi (bu avval xatolikka olib kelgan edi).
-   .txt esa hamma joyda har doim "oddiy matn" deb tanilgan —
-   ichida qancha <html>, <script> yozilgan bo'lsa ham, ular hech
-   qachon "kod" sifatida ishlatilmaydi, faqat matn bo'lib qoladi.
+   BU YERGA O'Z API KALITINGIZNI QO'YING:
+   https://console.groq.com/keys dan oling (gsk_ bilan boshlanadi).
+
+   MUHIM XAVFSIZLIK ESLATMASI:
+   Kalit shu faylda OCHIQ turadi. Bu loyihani GitHub kabi OMMAVIY
+   joyga yuklamang — aks holda kalitingizni har kim ko'rib, undan
+   foydalanishi mumkin. Faqat shaxsiy/lokal foydalanish uchun mos.
    ========================================================= */
 
-const TRAINING_FILES = [
+const GROQ_API_KEY = "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";
+
+// Oddiy matn suhbat uchun — tez va tekin tarifda saxiy
+const GROQ_TEXT_MODEL = "llama-3.1-8b-instant";
+
+// Rasm yuborilganda shu modelga o'tamiz — chunki u rasmni "ko'ra oladi" (vision)
+const GROQ_VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
+
+const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+
+// Groq bo'yicha rasm hajmi cheklovi: bitta so'rovda 4MB dan oshmasligi kerak
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+
+/* =========================================================
+   IXTIYORIY: oqitish*.txt fayllaringizni AI'ning "shaxsiyati"
+   yoki qo'shimcha bilimi sifatida ishlatish mumkin.
+   ========================================================= */
+const KNOWLEDGE_FILES = [
   "oqitish1.txt",
   "oqitish2.txt",
   "oqitish3.txt",
-  // "oqitish4.txt",
-  // ... shu tarzda davom ettiring
 ];
-
-/* =========================================================
-   oqitishN.txt FAYLLARNI QANDAY YOZISH KERAK:
-
-   user: salom
-   user: assalomu alaykum
-   ai: Assalomu alaykum! Nima xizmat?
-
-   user: isming nima
-   ai: Mening ismim DEXO MIND.
-
-   - Bitta "ai:" javobidan oldin bir nechta "user:" qatori
-     bo'lishi mumkin — ularning barchasi shu bitta javobga ulanadi.
-   - Bir xil "user:" trigger (masalan "salom") bir nechta faylda
-     qaytarilsa, BARCHA javoblar saqlanadi va AI har safar ulardan
-     TASODIFIY birini tanlab javob beradi — shu sabab javoblar
-     bir-birini o'chirib yubormaydi.
-   - Qatorlar orasida bo'sh joy qoldirishingiz mumkin, muhim emas.
-   - "user:salom" yoki "user: salom" — ikkisi ham ishlaydi.
-   ========================================================= */
 
 const chatWindow = document.getElementById("chat-window");
 const inputForm = document.getElementById("input-form");
@@ -48,143 +40,72 @@ const userInput = document.getElementById("user-input");
 const statusLine = document.getElementById("status-line");
 const sendBtn = document.getElementById("send-btn");
 
-// Bilim bazasi: { trigger -> [javob1, javob2, ...] }
-// MUHIM: har bir trigger uchun RO'YXAT saqlanadi, bitta string emas.
-// Shunday qilib bir nechta faylda bir xil savol (masalan "salom")
-// takrorlansa, eski javob YANGISI bilan ALMASHTIRILMAYDI —
-// ikkisi ham saqlanib qoladi va navbat bilan ishlatiladi.
-let knowledgeBase = {};
+const imageInput = document.getElementById("image-input");
+const fileInput = document.getElementById("file-input");
+const imageBtn = document.getElementById("image-btn");
+const fileBtn = document.getElementById("file-btn");
+const attachmentPreview = document.getElementById("attachment-preview");
+
+// Suhbat tarixi — OpenAI/Groq formatida: { role, content }
+let conversationHistory = [];
+let systemKnowledge = "";
 let isReady = false;
 
-/* ---------- Yordamchi: matnni tozalash (solishtirish uchun) ---------- */
-function normalize(text) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[.,!?;:'"()«»]/g, "")
-    .replace(/\s+/g, " ");
-}
+// Hozir biriktirilgan fayl (faqat bittasi bir vaqtda — rasm YOKI matn fayl)
+let pendingAttachment = null; // { type: "image"|"file", name, dataUrl?, text? }
 
-/* ---------- Trigger uchun javob qo'shish (overwrite emas, push) ---------- */
-function addAnswer(trigger, answer) {
-  if (!knowledgeBase[trigger]) {
-    knowledgeBase[trigger] = [];
-  }
-  if (!knowledgeBase[trigger].includes(answer)) {
-    knowledgeBase[trigger].push(answer);
-  }
-}
-
-/* ---------- Bitta oqitish faylini parse qilish ----------
-   Format:
-     user: ...
-     user: ...
-     ai: ...
-        (kerak bo'lsa shu yerdan bir nechta qator davom etishi mumkin —
-         masalan butun bir HTML/CSS/JS kod bloki)
-
-   MUHIM: "ai:" javobi BIR QATOR BILAN CHEKLANMAYDI. "ai:" dan keyin
-   kelgan HAR BIR qator (bo'sh qatorlar ham, kod qatorlari ham) xuddi
-   shu javobning davomi sifatida qo'shilib boradi — toki yangi "user:"
-   qatori boshlanmaguncha yoki fayl tugamaguncha. Aynan shu o'zgarish
-   tufayli ko'p qatorli kod javoblari endi BUTUNLIGICHA saqlanadi.
-*/
-function parseTrainingText(rawText) {
-  const lines = rawText.split(/\r?\n/);
-  let pendingTriggers = [];
-  let currentAnswerLines = null; // null = hozir javob yig'ilmayapti
-
-  function flushAnswerIfAny() {
-    if (currentAnswerLines !== null) {
-      const answer = currentAnswerLines.join("\n").trim();
-      if (answer && pendingTriggers.length > 0) {
-        for (const trigger of pendingTriggers) {
-          addAnswer(trigger, answer);
-        }
-      }
-      pendingTriggers = [];
-      currentAnswerLines = null;
-    }
-  }
-
-  for (const rawLine of lines) {
-    const trimmed = rawLine.trim();
-
-    const userMatch = trimmed.match(/^user\s*:\s*(.*)$/i);
-    if (userMatch) {
-      // Yangi "user:" qatori — agar shu paytgacha javob yig'ilayotgan
-      // bo'lsa, uni saqlab qo'yamiz, so'ng yangi trigger qo'shamiz.
-      flushAnswerIfAny();
-      pendingTriggers.push(normalize(userMatch[1]));
-      continue;
-    }
-
-    const aiMatch = trimmed.match(/^ai\s*:\s*(.*)$/i);
-    if (aiMatch && currentAnswerLines === null && pendingTriggers.length > 0) {
-      // Javobni yig'ishni boshlaymiz (birinchi qator)
-      currentAnswerLines = [aiMatch[1]];
-      continue;
-    }
-
-    if (currentAnswerLines !== null) {
-      // "ai:" dan keyingi har qanday qator (bo'sh yoki kod) —
-      // javobning davomi sifatida qo'shiladi.
-      currentAnswerLines.push(rawLine);
-      continue;
-    }
-
-    // "user:" boshlanmasdan oldingi bo'sh/keraksiz qatorlar e'tiborga olinmaydi
-  }
-
-  flushAnswerIfAny(); // faylning oxiridagi javobni ham saqlab qolish uchun
-}
-
-/* ---------- Barcha oqitish fayllarini yuklash ----------
-   MUHIM: oqitish*.txt fayllari ODDIY MATN fayllari. Ularni fetch
-   qilganimizdan keyin HECH QACHON DOMParser/HTML parser orqali
-   o'tkazmaymiz. Agar shunday qilsak, javob ichidagi haqiqiy HTML teglar
-   (<html>, <style>, <button> va h.k.) brauzer tomonidan ASL KOD deb
-   talqin qilinib, teglarning o'zi g'oyib bo'lib, faqat ichidagi matn
-   (masalan "Demo", "Bos") qolib ketadi — bu aynan oldin yuzaga kelgan
-   xatolik edi. Shu yerda fetch() orqali kelgan matn boshqa hech narsaga
-   o'tkazilmasdan, to'g'ridan-to'g'ri parseTrainingText'ga beriladi.
-*/
-async function loadAllTrainingFiles() {
+/* ---------- oqitish*.txt fayllarini yuklab, bitta matnga birlashtirish ---------- */
+async function loadKnowledgeFiles() {
+  let combined = "";
   let loadedCount = 0;
-  let failedFiles = [];
 
-  for (const fileName of TRAINING_FILES) {
+  for (const fileName of KNOWLEDGE_FILES) {
     try {
       const response = await fetch(fileName, { cache: "no-store" });
       if (!response.ok) throw new Error(response.status);
       const text = await response.text();
-      parseTrainingText(text);
+      combined += text + "\n\n";
       loadedCount++;
     } catch (err) {
-      failedFiles.push(fileName);
       console.warn(`"${fileName}" yuklanmadi:`, err);
     }
   }
 
-  isReady = true;
-  const triggerCount = Object.keys(knowledgeBase).length;
-  const answerCount = Object.values(knowledgeBase).reduce((sum, arr) => sum + arr.length, 0);
+  systemKnowledge = combined.trim();
 
-  if (failedFiles.length > 0) {
-    statusLine.textContent = `${loadedCount} fayl yuklandi, ${failedFiles.length} ta xato (konsolni tekshiring)`;
-  } else {
-    statusLine.textContent = `tayyor — ${triggerCount} savol, ${answerCount} javob ulandi`;
-  }
+  const systemPrompt = systemKnowledge
+    ? "Sen DEXO MIND ismli AI yordamchisan. Quyidagi ma'lumotlar sening bilim bazang, kerak bo'lganda shulardan foydalan, lekin umumiy savollarga ham erkin javob ber:\n\n" + systemKnowledge
+    : "Sen DEXO MIND ismli foydali AI yordamchisan.";
+
+  conversationHistory.push({ role: "system", content: systemPrompt });
+
+  isReady = true;
+  statusLine.textContent = "tayyor — savolingizni yozing";
 }
 
 /* ---------- Xabarni chat oynasiga chiqarish ---------- */
-function addMessage(text, role) {
+function addMessage(text, role, extraNode) {
   const bubble = document.createElement("div");
   bubble.className = `msg ${role}`;
-  bubble.textContent = text;
+  if (text) bubble.appendChild(document.createTextNode(text));
+  if (extraNode) bubble.appendChild(extraNode);
   chatWindow.appendChild(bubble);
   chatWindow.scrollTop = chatWindow.scrollHeight;
   return bubble;
+}
+
+function addImageMessage(text, dataUrl) {
+  const img = document.createElement("img");
+  img.src = dataUrl;
+  img.className = "msg-image";
+  return addMessage(text, "user", img);
+}
+
+function addFileMessage(text, fileName) {
+  const chip = document.createElement("div");
+  chip.className = "msg-filechip";
+  chip.textContent = `📄 ${fileName}`;
+  return addMessage(text, "user", chip);
 }
 
 /* ---------- "AI yozayapti..." indikatorini ko'rsatish ---------- */
@@ -197,63 +118,198 @@ function showTypingIndicator() {
   return wrap;
 }
 
-/* ---------- Javob topish mantiqi ----------
-   Trigger uchun bir nechta javob bo'lsa, ulardan TASODIFIY biri tanlanadi.
-*/
-function findAnswer(userText) {
-  const cleaned = normalize(userText);
-
-  // 1) Aniq mos kelish
-  if (knowledgeBase[cleaned] && knowledgeBase[cleaned].length > 0) {
-    return pickRandom(knowledgeBase[cleaned]);
-  }
-
-  // 2) Qisman mos kelish (trigger so'rovning ichida bo'lsa)
-  //    Eng uzun (eng aniq) trigger'ni tanlaymiz, tasodifiy emas.
-  let bestTrigger = null;
-  for (const trigger in knowledgeBase) {
-    if (cleaned.includes(trigger) || trigger.includes(cleaned)) {
-      if (!bestTrigger || trigger.length > bestTrigger.length) {
-        bestTrigger = trigger;
-      }
-    }
-  }
-  if (bestTrigger) {
-    return pickRandom(knowledgeBase[bestTrigger]);
-  }
-
-  return "Buni hali o'rganmaganman. Menga boshqa savol berib koring";
+/* ---------- Fayl/rasmni base64 Data URL ko'rinishida o'qish ---------- */
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 }
 
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+function readFileAsText(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsText(file);
+  });
+}
+
+/* ---------- Biriktirilgan fayl preview chipini chizish ---------- */
+function renderAttachmentPreview() {
+  attachmentPreview.innerHTML = "";
+
+  if (!pendingAttachment) {
+    attachmentPreview.classList.remove("active");
+    return;
+  }
+
+  attachmentPreview.classList.add("active");
+
+  const chip = document.createElement("div");
+  chip.className = "attachment-chip";
+
+  if (pendingAttachment.type === "image") {
+    const img = document.createElement("img");
+    img.src = pendingAttachment.dataUrl;
+    chip.appendChild(img);
+  }
+
+  const name = document.createElement("span");
+  name.className = "chip-name";
+  name.textContent = pendingAttachment.name;
+  chip.appendChild(name);
+
+  const remove = document.createElement("span");
+  remove.className = "chip-remove";
+  remove.textContent = "✕";
+  remove.addEventListener("click", () => {
+    pendingAttachment = null;
+    renderAttachmentPreview();
+  });
+  chip.appendChild(remove);
+
+  attachmentPreview.appendChild(chip);
+}
+
+/* ---------- Rasm tanlanganda ---------- */
+imageBtn.addEventListener("click", () => imageInput.click());
+
+imageInput.addEventListener("change", async () => {
+  const file = imageInput.files[0];
+  imageInput.value = ""; // keyingi safar xuddi shu faylni qayta tanlasa ham "change" otsin
+  if (!file) return;
+
+  if (file.size > MAX_IMAGE_BYTES) {
+    addMessage("Bu rasm juda katta (4MB dan oshmasligi kerak).", "system");
+    return;
+  }
+
+  const dataUrl = await readFileAsDataUrl(file);
+  pendingAttachment = { type: "image", name: file.name, dataUrl };
+  renderAttachmentPreview();
+});
+
+/* ---------- Matn fayl tanlanganda ---------- */
+fileBtn.addEventListener("click", () => fileInput.click());
+
+fileInput.addEventListener("change", async () => {
+  const file = fileInput.files[0];
+  fileInput.value = "";
+  if (!file) return;
+
+  const text = await readFileAsText(file);
+  pendingAttachment = { type: "file", name: file.name, text };
+  renderAttachmentPreview();
+});
+
+/* ---------- Groq API'ga so'rov yuborish (matn yoki rasm bilan) ---------- */
+async function askGroq(userText, attachment) {
+  let model = GROQ_TEXT_MODEL;
+  let userMessageForHistory;
+  let userMessageForApi;
+
+  if (attachment && attachment.type === "image") {
+    model = GROQ_VISION_MODEL;
+    const promptText = userText || "Bu rasmda nima borligini tasvirlab ber.";
+    userMessageForApi = {
+      role: "user",
+      content: [
+        { type: "text", text: promptText },
+        { type: "image_url", image_url: { url: attachment.dataUrl } },
+      ],
+    };
+    // Tarixga soddalashtirilgan shaklda saqlaymiz (rasmni qayta-qayta yubormaslik uchun)
+    userMessageForHistory = { role: "user", content: `[rasm yuborildi: ${attachment.name}] ${promptText}` };
+  } else if (attachment && attachment.type === "file") {
+    const combinedText =
+      (userText ? userText + "\n\n" : "") +
+      `--- Biriktirilgan fayl: ${attachment.name} ---\n${attachment.text}`;
+    userMessageForApi = { role: "user", content: combinedText };
+    userMessageForHistory = userMessageForApi;
+  } else {
+    userMessageForApi = { role: "user", content: userText };
+    userMessageForHistory = userMessageForApi;
+  }
+
+  // So'rovga: tarixning oldingi qismi (oddiy matn holida) + yangi xabar (rasm bo'lsa to'liq holida)
+  const messagesToSend = [...conversationHistory, userMessageForApi];
+
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${GROQ_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model,
+      messages: messagesToSend,
+    }),
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`API xato (${response.status}): ${errText}`);
+  }
+
+  const data = await response.json();
+  const reply = data?.choices?.[0]?.message?.content?.trim() || "Kechirasiz, javob ololmadim.";
+
+  // Tarixga soddalashtirilgan foydalanuvchi xabari + AI javobini qo'shamiz
+  conversationHistory.push(userMessageForHistory);
+  conversationHistory.push({ role: "assistant", content: reply });
+
+  return reply;
 }
 
 /* ---------- Forma yuborilganda ---------- */
-inputForm.addEventListener("submit", (e) => {
+inputForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = userInput.value.trim();
-  if (!text) return;
+  const attachment = pendingAttachment;
 
-  addMessage(text, "user");
+  if (!text && !attachment) return;
+
+  if (GROQ_API_KEY === "BU_YERGA_OZ_KALITINGIZNI_QOYING") {
+    addMessage(
+      "API kalit hali kiritilmagan. index.js faylining yuqorisida GROQ_API_KEY ni o'zgartiring.",
+      "system"
+    );
+    return;
+  }
+
+  // Xabarni ekranga chiqarish
+  if (attachment && attachment.type === "image") {
+    addImageMessage(text, attachment.dataUrl);
+  } else if (attachment && attachment.type === "file") {
+    addFileMessage(text, attachment.name);
+  } else {
+    addMessage(text, "user");
+  }
+
   userInput.value = "";
-  sendBtn.classList.add("pulse");
-  setTimeout(() => sendBtn.classList.remove("pulse"), 250);
+  pendingAttachment = null;
+  renderAttachmentPreview();
 
   if (!isReady) {
-    addMessage("Hali bilimlar yuklanmoqda, biroz kuting...", "system");
+    addMessage("Hali tayyorlanmoqda, biroz kuting...", "system");
     return;
   }
 
   const typingBubble = showTypingIndicator();
-  const reply = findAnswer(text);
 
-  const delay = 400 + Math.random() * 400;
-  setTimeout(() => {
+  try {
+    const reply = await askGroq(text, attachment);
     typingBubble.remove();
     addMessage(reply, "ai");
-  }, delay);
+  } catch (err) {
+    typingBubble.remove();
+    console.error(err);
+    addMessage("Xatolik yuz berdi: " + err.message, "system");
+  }
 });
 
 /* ---------- Ishga tushirish ---------- */
-loadAllTrainingFiles();
+loadKnowledgeFiles();
