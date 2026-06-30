@@ -24,6 +24,30 @@ const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 // Groq bo'yicha rasm hajmi cheklovi: bitta so'rovda 4MB dan oshmasligi kerak
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 
+/* =========================================================
+   RASM YARATISH (Pollinations.AI orqali) — kalit kerak emas,
+   ro'yxatdan o'tish ham kerak emas, butunlay bepul.
+
+   Xabarda "rasm" so'zi + chizish/yaratish ma'nosidagi fe'l birga
+   kelsa (ikki nuqta bo'lsa ham, bo'lmasa ham), Groq'ga emas, shu
+   manzilga so'rov yuboriladi. Masalan: "rasm chiz: ...", "rasm
+   yasab ber", "qani rasm" (oxirgisida tavsif bo'lmasa, foydalanuvchidan
+   so'raladi).
+   ========================================================= */
+const IMAGE_GEN_URL = "https://image.pollinations.ai/prompt/";
+
+// Ikki nuqta bilan keladigan aniq qoliplar — tavsif shulardan keyin keladi
+const IMAGE_COLON_TRIGGERS = ["rasm chiz:", "rasm yarat:", "rasm chizib ber:", "rasm yasab ber:"];
+
+// Ikki nuqtasiz, erkin so'rovlarni aniqlash uchun: "rasm" so'zi + fe'l ildizi
+const IMAGE_WORD = /\brasm(ni|ga|lar)?\b/i;
+const IMAGE_VERB = /\b(chiz|yasa|yarat)/i;
+
+// Qisqa, fe'lsiz so'rovlar — masalan "qani rasm", "rasm bormi" —
+// bularda "rasm" so'zi bilan birga kelib, rasm so'rayotganini bildiradigan
+// qo'shimcha so'zlar bo'ladi
+const IMAGE_SHORT_REQUEST = /\b(qani|bormi|korsat|ko'rsat)\b.*\brasm\w*\b|\brasm\w*\b.*\b(qani|bormi|korsat|ko'rsat)\b/i;
+
 const chatWindow = document.getElementById("chat-window");
 const inputForm = document.getElementById("input-form");
 const userInput = document.getElementById("user-input");
@@ -65,11 +89,12 @@ function addMessage(text, role, extraNode) {
   return bubble;
 }
 
-function addImageMessage(text, dataUrl) {
+function addImageMessage(text, src, role) {
   const img = document.createElement("img");
-  img.src = dataUrl;
+  img.src = src;
   img.className = "msg-image";
-  return addMessage(text, "user", img);
+  img.loading = "lazy";
+  return addMessage(text, role || "user", img);
 }
 
 function addFileMessage(text, fileName) {
@@ -87,6 +112,59 @@ function showTypingIndicator() {
   chatWindow.appendChild(wrap);
   chatWindow.scrollTop = chatWindow.scrollHeight;
   return wrap;
+}
+
+/* ---------- Xabar rasm yaratish so'rovi ekanligini tekshirish ----------
+   1) Avval aniq qoliplarni tekshiramiz: "rasm chiz: ..." — tavsif
+      ikki nuqtadan keyin keladi.
+   2) Topilmasa, erkin holatni tekshiramiz: xabarda "rasm" so'zi VA
+      chizish/yaratish ma'nosidagi fe'l birga uchrasa (masalan "rasm
+      yasab ber", "qani rasm chiz", "dexo mind uchun rasm yasab ber"),
+      shu holda butun xabar rasm so'rovi deb hisoblanadi. Tavsif sifatida:
+      - agar xabarda boshqa mazmunli so'zlar bo'lsa (masalan "dexo mind
+        uchun"), o'sha qism tavsif sifatida ishlatiladi;
+      - aks holda (faqat "rasm chiz" kabi qisqa buyruq bo'lsa), tavsif
+        bo'sh qaytariladi va foydalanuvchidan so'raladi.
+   Natija: rasm so'rovi bo'lmasa null, bo'lsa tavsif matni (bo'sh ham
+   bo'lishi mumkin).
+*/
+function extractImagePrompt(userText) {
+  const lower = userText.toLowerCase().trim();
+
+  // 1) Aniq "trigger:" qoliplari
+  for (const trigger of IMAGE_COLON_TRIGGERS) {
+    if (lower.startsWith(trigger)) {
+      return userText.slice(trigger.length).trim();
+    }
+  }
+
+  // 2) Erkin holat: "rasm" so'zi + chizish/yaratish fe'li ikkisi ham bo'lsa
+  if (IMAGE_WORD.test(lower) && IMAGE_VERB.test(lower)) {
+    // Buyruq so'zlarini xabardan olib tashlab, qolganini tavsif deb olamiz
+    const cleaned = userText
+      .replace(/\b(qani|menga|iltimos|ozim uchun|o'zim uchun)\b/gi, "")
+      .replace(/\brasm(ni|ga|lar)?\b/gi, "")
+      .replace(/\b(chizib ber|chiz|yasab ber|yasa|yarat(ib ber)?)\b/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+    return cleaned;
+  }
+
+  // 3) Qisqa, fe'lsiz so'rov: "qani rasm", "rasm bormi" va h.k.
+  if (IMAGE_SHORT_REQUEST.test(lower)) {
+    return ""; // tavsif yo'q — foydalanuvchidan so'raladi
+  }
+
+  return null;
+}
+
+/* ---------- Pollinations.AI orqali rasm yaratish ----------
+   Kalit kerak emas — shunchaki tavsifni URL'ga qo'shib, shu manzildan
+   rasmni to'g'ridan-to'g'ri <img> sifatida ko'rsatamiz.
+*/
+function buildImageUrl(prompt) {
+  const seed = Math.floor(Math.random() * 1000000); // har safar boshqa natija chiqishi uchun
+  return `${IMAGE_GEN_URL}${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true`;
 }
 
 /* ---------- Fayl/rasmni base64 Data URL ko'rinishida o'qish ---------- */
@@ -243,6 +321,36 @@ inputForm.addEventListener("submit", async (e) => {
 
   if (!text && !attachment) return;
 
+  // ---- 1) Rasm YARATISH so'rovimi? (Pollinations.AI, kalit kerak emas) ----
+  const imagePrompt = !attachment ? extractImagePrompt(text) : null;
+  if (imagePrompt !== null) {
+    if (!imagePrompt) {
+      addMessage("Rasm tavsifini ham yozing, masalan: \"rasm chiz: qor bosgan tog'lar\"", "system");
+      return;
+    }
+
+    addMessage(text, "user");
+    userInput.value = "";
+
+    const typingBubble = showTypingIndicator();
+    const imageUrl = buildImageUrl(imagePrompt);
+
+    // Rasm yuklanguncha kutamiz, shundan keyin "yozayapti" indikatorini almashtiramiz
+    const preload = new Image();
+    preload.onload = () => {
+      typingBubble.remove();
+      addImageMessage(`Mana: "${imagePrompt}"`, imageUrl, "ai");
+    };
+    preload.onerror = () => {
+      typingBubble.remove();
+      addMessage("Rasmni yarata olmadim, birozdan keyin qayta urinib ko'ring.", "system");
+    };
+    preload.src = imageUrl;
+
+    return; // Groq'ga umuman murojaat qilinmaydi
+  }
+
+  // ---- 2) Oddiy matn/rasm-ko'rish/fayl so'rovi — Groq orqali ----
   if (GROQ_API_KEY === "BU_YERGA_OZ_KALITINGIZNI_QOYING") {
     addMessage(
       "API kalit hali kiritilmagan. index.js faylining yuqorisida GROQ_API_KEY ni o'zgartiring.",
@@ -253,7 +361,7 @@ inputForm.addEventListener("submit", async (e) => {
 
   // Xabarni ekranga chiqarish
   if (attachment && attachment.type === "image") {
-    addImageMessage(text, attachment.dataUrl);
+    addImageMessage(text, attachment.dataUrl, "user");
   } else if (attachment && attachment.type === "file") {
     addFileMessage(text, attachment.name);
   } else {
