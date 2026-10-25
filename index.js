@@ -11,9 +11,10 @@ class NeuralNet {
         this.initWeights();
     }
     initWeights() {
-        this.W1 = new Float32Array(this.hiddenSize * this.inputSize).map(() => (Math.random() * 2 - 1) * 0.1);
+        // Vaznlarni kichikroq qilib initsializatsiya qilish (portlashni oldini oladi)
+        this.W1 = new Float32Array(this.hiddenSize * this.inputSize).map(() => (Math.random() * 2 - 1) * 0.01);
         this.b1 = new Float32Array(this.hiddenSize);
-        this.W2 = new Float32Array(this.outSize * this.hiddenSize).map(() => (Math.random() * 2 - 1) * 0.1);
+        this.W2 = new Float32Array(this.outSize * this.hiddenSize).map(() => (Math.random() * 2 - 1) * 0.01);
         this.b2 = new Float32Array(this.outSize);
     }
     loadWeights(data) {
@@ -105,6 +106,7 @@ const copyJsonBtn = document.getElementById('copy-json-btn');
 let vocab, charToIdx, idxToChar;
 let model;
 const contextSize = 10; 
+const hiddenSize = 64; // 128 dan 64 ga tushirildi
 
 function buildVocab(text) {
     vocab = [...new Set(text.split(''))];
@@ -123,7 +125,7 @@ async function loadExistingModel() {
         
         const data = await response.json();
         buildVocab(data.vocabText);
-        model = new NeuralNet(vocab.length, contextSize, 128);
+        model = new NeuralNet(vocab.length, contextSize, hiddenSize);
         model.loadWeights(data);
         
         statusDot.className = 'status-dot ready';
@@ -147,7 +149,7 @@ document.getElementById('train-btn').addEventListener('click', () => {
     if (text.length < 50) return alert("Kamida 50 ta harf kiriting!");
     
     buildVocab(text);
-    model = new NeuralNet(vocab.length, contextSize, 128);
+    model = new NeuralNet(vocab.length, contextSize, hiddenSize);
     
     const indices = text.split('').map(c => charToIdx[c]);
     const data = [];
@@ -162,7 +164,8 @@ document.getElementById('train-btn').addEventListener('click', () => {
     trainBtn.disabled = true;
     exportBtn.disabled = true;
     let epoch = 0;
-    const totalEpochs = 5000; 
+    const totalEpochs = 2000; // 5000 dan 2000 ga tushirildi
+    const lr = 0.005; // Learning rate 0.05 dan 0.005 ga tushirildi
 
     const interval = setInterval(() => {
         let loss = 0;
@@ -170,7 +173,7 @@ document.getElementById('train-btn').addEventListener('click', () => {
             const item = data[Math.floor(Math.random() * data.length)];
             const x = new Float32Array(model.inputSize);
             for (let c = 0; c < contextSize; c++) x[c * vocab.length + item.context[c]] = 1;
-            loss += model.train(x, item.target, 0.05); 
+            loss += model.train(x, item.target, lr); 
         }
         epoch += 100;
         lossDisplay.textContent = `O'qitilmoqda... Epoch: ${epoch} | Xatolik: ${(loss / 100).toFixed(4)}`;
@@ -185,7 +188,7 @@ document.getElementById('train-btn').addEventListener('click', () => {
 });
 
 // ==========================================
-// 5. MODELNI YUKLAB OLISH (MOBIL UCHUN TUZATILGAN)
+// 5. MODELNI YUKLAB OLISH
 // ==========================================
 document.getElementById('export-btn').addEventListener('click', () => {
     if (!model) return alert("Model topilmadi!");
@@ -209,7 +212,6 @@ document.getElementById('export-btn').addEventListener('click', () => {
         a.download = "model.json";
         a.style.display = 'none';
         
-        // Mobil brauzerlar uchun havolani vaqtincha sahifaga qo'shish shart
         document.body.appendChild(a);
         a.click();
         
@@ -219,7 +221,6 @@ document.getElementById('export-btn').addEventListener('click', () => {
         }, 1000);
         
     } catch (error) {
-        // Agar brauzer fayl yuklashni bloklasa (masalan, Telegram brauzeri)
         console.warn("Fayl yuklash bloklandi, zaxira rejim ishga tushdi.");
         jsonOutput.value = jsonString;
         jsonOutput.style.display = 'block';
@@ -228,7 +229,6 @@ document.getElementById('export-btn').addEventListener('click', () => {
     }
 });
 
-// Zaxira rejim: Nusxalash tugmasi
 copyJsonBtn.addEventListener('click', () => {
     jsonOutput.select();
     document.execCommand('copy');
@@ -236,7 +236,7 @@ copyJsonBtn.addEventListener('click', () => {
 });
 
 // ==========================================
-// 6. CHAT (Suhbat)
+// 6. CHAT
 // ==========================================
 const messagesEl = document.getElementById('messages');
 const userInput = document.getElementById('user-input');
@@ -249,7 +249,6 @@ function addMessage(role, text) {
         <div class="message-avatar">${role === 'user' ? '👤' : '🤖'}</div>
         <div class="message-content"></div>
     `;
-    // XSS dan himoya qilish uchun textContent ishlatamiz
     div.querySelector('.message-content').textContent = text;
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;

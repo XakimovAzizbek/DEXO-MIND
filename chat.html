@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shaxsiy AI</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">Shaxsiy AI</span>
+            </div>
+            <div class="model-status" id="model-status">
+                <span class="status-dot" id="status-dot"></span>
+                <span id="status-text">Yuklanmoqda...</span>
+            </div>
+        </header>
+
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loading-screen">
+            <div class="spinner"></div>
+            <p>Model yuklanmoqda...</p>
+            <small>Agar bu uzoq davom etsa, model.json fayli joyida ekanligini tekshiring.</small>
+        </div>
+
+        <!-- Error Screen -->
+        <div class="error-screen" id="error-screen" style="display: none;">
+            <div class="error-icon">⚠️</div>
+            <h2>Model topilmadi</h2>
+            <p>Iltimos, <code>model.json</code> faylini sayt papkasiga yuklang va sahifani yangilang.</p>
+        </div>
+
+        <!-- Chat Area -->
+        <main class="chat-container" id="chat-section" style="display: none;">
+            <div id="messages" class="messages"></div>
+
+            <!-- Tavsiyalar -->
+            <div class="suggestions" id="suggestions">
+                <button class="suggestion-chip" data-text="Savol: Salom">Salom ayt</button>
+                <button class="suggestion-chip" data-text="Savol: Isming nima?">Isming nima?</button>
+                <button class="suggestion-chip" data-text="Savol: Sen kim yaratgan?">Sen kim yaratgansan?</button>
+            </div>
+
+            <footer class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Xabar yozing..." rows="1"></textarea>
+                    <button id="send-btn" class="send-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+                <p class="disclaimer">Bu kichik model — xatolarga yo'l qo'yishi mumkin.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>
