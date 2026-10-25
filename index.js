@@ -1,10 +1,8 @@
 import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
 
-// --- Transformers.js Muhit Sozlamalari ---
-// Modelni faqat tarmoqdan (CDN) yuklash
+// --- Transformers.js Sozlamalari ---
 env.allowLocalModels = false;
-// Brauzer keshini majburiy yoqish (sahifa yangilanganda qayta yuklanmasligi uchun)
-env.useBrowserCache = true;
+env.useBrowserCache = true; // Keshni yoqish (qayta yuklanmasligi uchun)
 
 // --- DOM Elementlari ---
 const chatContainer = document.getElementById('chat-container');
@@ -23,10 +21,11 @@ let isLoading = false;
 let thinkMode = false;
 let searchMode = false;
 let isFirstMessage = true;
+let chatHistory = []; // Suhbat tarixini saqlash uchun
 
-// --- Model Identifikatori ---
-// LaMini-Flan-T5-77M modeli yengil va mobil qurilmalar uchun mos
-const MODEL_ID = "Xenova/LaMini-Flan-T5-77M";
+// --- Yangi Model ---
+// Qwen1.5-0.5B-Chat - haqiqiy suhbat uchun o'qitilgan model
+const MODEL_ID = "Xenova/Qwen1.5-0.5B-Chat";
 
 // --- Modelni Yuklash ---
 async function initModel() {
@@ -34,50 +33,43 @@ async function initModel() {
         statusDot.className = 'status-dot loading';
         statusText.textContent = 'Model yuklanmoqda... (0%)';
 
-        generator = await pipeline('text2text-generation', MODEL_ID, {
+        // text-generation pipeline ishlatamiz
+        generator = await pipeline('text-generation', MODEL_ID, {
             progress_callback: (data) => {
                 if (data.status === 'progress') {
                     const percent = Math.round((data.loaded / data.total) * 100);
                     statusText.textContent = `Yuklanmoqda: ${percent}%`;
-                } else if (data.status === 'ready') {
-                    statusText.textContent = 'Model tayyor';
                 }
             }
         });
 
         statusDot.className = 'status-dot ready';
-        statusText.textContent = 'Model tayyor (Keshdan yoki tarmoqdan)';
+        statusText.textContent = 'Model tayyor';
         sendBtn.disabled = false;
     } catch (error) {
         console.error("Model yuklashda xato:", error);
         statusDot.className = 'status-dot';
         statusText.textContent = 'Model yuklanmadi';
-        alert("Model yuklanmadi. Internet aloqasini tekshiring yoki brauzer keshini tozalang.");
+        alert("Model yuklanmadi. Internet aloqasini tekshiring yoki xotirani bo'shating.");
     }
 }
 
-// --- Internetdan Qidirish (CORS proksi orqali) ---
+// --- Internetdan Qidirish (Wikipedia API) ---
 async function searchWeb(query) {
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`)}`;
     try {
-        const response = await fetch(proxyUrl);
-        const html = await response.text();
-
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const results = doc.querySelectorAll('.result__body');
-
-        let extracted = [];
-        results.forEach((result, index) => {
-            if (index >= 3) return; // Mobil uchun 3 ta natija yetarli
-            const title = result.querySelector('.result__title')?.innerText || '';
-            const snippet = result.querySelector('.result__snippet')?.innerText || '';
-            if (title || snippet) {
-                extracted.push(`${title}: ${snippet}`);
-            }
-        });
-
-        return extracted.length > 0 ? extracted.join('\n\n') : null;
+        // Wikipedia API orqali qidirish (CORS muammosi yo'q)
+        const wikiUrl = `https://uz.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`;
+        const response = await fetch(wikiUrl);
+        const data = await response.json();
+        
+        if (data.query && data.query.search.length > 0) {
+            // Eng yaxshi 3 ta natijani olamiz va HTML teglaridan tozalaymiz
+            const results = data.query.search.slice(0, 3).map(item => 
+                `${item.title}: ${item.snippet.replace(/<[^>]*>/g, '')}`
+            );
+            return results.join('\n\n');
+        }
+        return null;
     } catch (error) {
         console.error("Qidiruv xatosi:", error);
         return null;
@@ -156,53 +148,56 @@ async function sendMessage() {
     addMessage('user', text);
     showTypingIndicator();
 
-    let contextText = '';
     let usedSearch = false;
+    let contextInfo = "";
 
-    // Agar Search rejimi yoqilgan bo'lsa
+    // 1. Qidiruv (agar yoqilgan bo'lsa)
     if (searchMode) {
-        try {
-            const searchResults = await searchWeb(text);
-            if (searchResults) {
-                contextText = `Quyidagi ma'lumotlardan foydalanib savolga javob ber:\n${searchResults}\n\nSavol: ${text}\nJavob:`;
-                usedSearch = true;
-            } else {
-                contextText = `Savol: ${text}\nJavob:`;
-            }
-        } catch (e) {
-            console.error("Qidiruvda xato:", e);
-            contextText = `Savol: ${text}\nJavob:`;
+        const searchResults = await searchWeb(text);
+        if (searchResults) {
+            contextInfo = `Quyidagi ma'lumotlardan foydalanib javob ber:\n${searchResults}\n\n`;
+            usedSearch = true;
         }
-    } else {
-        contextText = `Savol: ${text}\nJavob:`;
     }
 
-    // Think rejimi uchun prompt
-    let finalPrompt = contextText;
+    // 2. Suhbat tarixini shakllantirish
+    // Qwen modeli o'zining maxsus formatida gaplashishni yaxshi ko'radi
+    let prompt = "";
+    
     if (thinkMode) {
-        finalPrompt = `Sen chuqur fikrlaydigan AI yordamchisisan. Savolga javob berishdan oldin bosqichma-bosqich o'ylab ko'r. O'ylash jarayonini yoz, so'ngra yakuniy javobni ber.\n\n${contextText}`;
+        prompt += "Sen chuqur fikrlaydigan yordamchisan. Avval o'ylab ko'r, keyin javob ber.\n";
     }
+    
+    prompt += contextInfo;
+    prompt += `Savol: ${text}\nJavob:`;
 
     try {
-        // Transformers.js orqali generatsiya qilish
-        const output = await generator(finalPrompt, {
-            max_new_tokens: 256, // Mobil qurilmalar uchun token cheklovi
+        // 3. Modeldan javob olish
+        const output = await generator(prompt, {
+            max_new_tokens: 300,
             temperature: 0.7,
-            do_sample: true
+            do_sample: true,
+            repetition_penalty: 1.2 // Bir xil gapni takrorlashni oldini oladi
         });
 
         removeTypingIndicator();
         
-        // T5 modeli ba'zan promptni ham qaytaradi, uni tozalaymiz
+        // Model qaytargan matnni tozalash (promptning o'zini olib tashlash)
         let responseText = output[0].generated_text;
-        if (responseText.startsWith(finalPrompt)) {
-            responseText = responseText.replace(finalPrompt, '').trim();
+        if (responseText.includes("Javob:")) {
+            responseText = responseText.split("Javob:")[1].trim();
+        } else {
+            responseText = responseText.replace(prompt, '').trim();
         }
         
-        addMessage('assistant', responseText || "Kechirasiz, javob generatsiya qila olmadim.", { think: thinkMode, search: usedSearch });
+        // Agar model bo'sh joy qaytarsa
+        if (!responseText) responseText = "Kechirasiz, tushunmadim. Boshqacha so'rab ko'ring.";
+
+        addMessage('assistant', responseText, { think: thinkMode, search: usedSearch });
+        
     } catch (error) {
         removeTypingIndicator();
-        addMessage('assistant', `Xatolik yuz berdi: ${error.message}`);
+        addMessage('assistant', `Xatolik: ${error.message}`);
     } finally {
         isLoading = false;
         sendBtn.disabled = false;
