@@ -1,394 +1,241 @@
-/* =========================================================
-   DEXO MIND — index.js (Groq API + rasm/fayl yuborish)
-   =========================================================
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
 
-   BU YERGA O'Z API KALITINGIZNI QO'YING:
-   https://console.groq.com/keys dan oling (gsk_ bilan boshlanadi).
+// Brauzer uchun lokal modelni o'chirib qo'yamiz (CDN dan yuklaydi)
+env.allowLocalModels = false;
 
-   MUHIM XAVFSIZLIK ESLATMASI:
-   Kalit shu faylda OCHIQ turadi. Bu loyihani GitHub kabi OMMAVIY
-   joyga yuklamang — aks holda kalitingizni har kim ko'rib, undan
-   foydalanishi mumkin. Faqat shaxsiy/lokal foydalanish uchun mos.
-   ========================================================= */
+// --- DOM Elementlari ---
+const chatContainer = document.getElementById('chat-container');
+const messagesEl = document.getElementById('messages');
+const welcomeScreen = document.getElementById('welcome-screen');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const thinkBtn = document.getElementById('think-btn');
+const searchBtn = document.getElementById('search-btn');
+const statusDot = document.getElementById('status-dot');
+const statusText = document.getElementById('status-text');
 
-const GROQ_API_KEY = "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";
+// --- Holat ---
+let generator = null;
+let isLoading = false;
+let thinkMode = false;
+let searchMode = false;
+let isFirstMessage = true;
 
-// Oddiy matn suhbat uchun — tez va tekin tarifda saxiy
-const GROQ_TEXT_MODEL = "llama-3.1-8b-instant";
+// --- Transformers.js Modelini Yuklash ---
+// LaMini-Flan-T5-77M modeli yengil va mobil qurilmalar uchun mos
+const MODEL_ID = "Xenova/LaMini-Flan-T5-77M";
 
-// Rasm yuborilganda shu modelga o'tamiz — chunki u rasmni "ko'ra oladi" (vision)
-const GROQ_VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
+async function initModel() {
+    try {
+        statusDot.className = 'status-dot loading';
+        statusText.textContent = 'Model yuklanmoqda... (0%)';
 
-const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+        generator = await pipeline('text2text-generation', MODEL_ID, {
+            progress_callback: (data) => {
+                if (data.status === 'progress') {
+                    const percent = Math.round((data.loaded / data.total) * 100);
+                    statusText.textContent = `Yuklanmoqda: ${percent}%`;
+                }
+            }
+        });
 
-// Groq bo'yicha rasm hajmi cheklovi: bitta so'rovda 4MB dan oshmasligi kerak
-const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
-
-/* =========================================================
-   RASM YARATISH (Pollinations.AI orqali) — kalit kerak emas,
-   ro'yxatdan o'tish ham kerak emas, butunlay bepul.
-
-   Xabarda "rasm" so'zi + chizish/yaratish ma'nosidagi fe'l birga
-   kelsa (ikki nuqta bo'lsa ham, bo'lmasa ham), Groq'ga emas, shu
-   manzilga so'rov yuboriladi. Masalan: "rasm chiz: ...", "rasm
-   yasab ber", "qani rasm" (oxirgisida tavsif bo'lmasa, foydalanuvchidan
-   so'raladi).
-   ========================================================= */
-const IMAGE_GEN_URL = "https://image.pollinations.ai/prompt/";
-
-// Ikki nuqta bilan keladigan aniq qoliplar — tavsif shulardan keyin keladi
-const IMAGE_COLON_TRIGGERS = ["rasm chiz:", "rasm yarat:", "rasm chizib ber:", "rasm yasab ber:"];
-
-// Ikki nuqtasiz, erkin so'rovlarni aniqlash uchun: "rasm" so'zi + fe'l ildizi
-const IMAGE_WORD = /\brasm(ni|ga|lar)?\b/i;
-const IMAGE_VERB = /\b(chiz|yasa|yarat)/i;
-
-// Qisqa, fe'lsiz so'rovlar — masalan "qani rasm", "rasm bormi" —
-// bularda "rasm" so'zi bilan birga kelib, rasm so'rayotganini bildiradigan
-// qo'shimcha so'zlar bo'ladi
-const IMAGE_SHORT_REQUEST = /\b(qani|bormi|korsat|ko'rsat)\b.*\brasm\w*\b|\brasm\w*\b.*\b(qani|bormi|korsat|ko'rsat)\b/i;
-
-const chatWindow = document.getElementById("chat-window");
-const inputForm = document.getElementById("input-form");
-const userInput = document.getElementById("user-input");
-const statusLine = document.getElementById("status-line");
-const sendBtn = document.getElementById("send-btn");
-
-const imageInput = document.getElementById("image-input");
-const fileInput = document.getElementById("file-input");
-const imageBtn = document.getElementById("image-btn");
-const fileBtn = document.getElementById("file-btn");
-const attachmentPreview = document.getElementById("attachment-preview");
-
-// Suhbat tarixi — OpenAI/Groq formatida: { role, content }
-let conversationHistory = [];
-let isReady = false;
-
-// Hozir biriktirilgan fayl (faqat bittasi bir vaqtda — rasm YOKI matn fayl)
-let pendingAttachment = null; // { type: "image"|"file", name, dataUrl?, text? }
-
-/* ---------- Ishga tushirishda boshlang'ich sozlash ---------- */
-function initChat() {
-  conversationHistory.push({
-    role: "system",
-    content: "Sen DEXO MIND ismli foydali AI yordamchisan.",
-  });
-
-  isReady = true;
-  statusLine.textContent = "tayyor — savolingizni yozing";
+        statusDot.className = 'status-dot ready';
+        statusText.textContent = 'Model tayyor';
+        sendBtn.disabled = false;
+    } catch (error) {
+        console.error("Model yuklashda xato:", error);
+        statusDot.className = 'status-dot';
+        statusText.textContent = 'Model yuklanmadi';
+        alert("Model yuklanmadi. Internet aloqasini tekshiring.");
+    }
 }
 
-/* ---------- Xabarni chat oynasiga chiqarish ---------- */
-function addMessage(text, role, extraNode) {
-  const bubble = document.createElement("div");
-  bubble.className = `msg ${role}`;
-  if (text) bubble.appendChild(document.createTextNode(text));
-  if (extraNode) bubble.appendChild(extraNode);
-  chatWindow.appendChild(bubble);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-  return bubble;
+// --- Internetdan Qidirish (CORS proksi orqali) ---
+async function searchWeb(query) {
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`)}`;
+    try {
+        const response = await fetch(proxyUrl);
+        const html = await response.text();
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const results = doc.querySelectorAll('.result__body');
+
+        let extracted = [];
+        results.forEach((result, index) => {
+            if (index >= 3) return; // Mobil uchun 3 ta natija yetarli
+            const title = result.querySelector('.result__title')?.innerText || '';
+            const snippet = result.querySelector('.result__snippet')?.innerText || '';
+            if (title || snippet) {
+                extracted.push(`${title}: ${snippet}`);
+            }
+        });
+
+        return extracted.length > 0 ? extracted.join('\n\n') : null;
+    } catch (error) {
+        console.error("Qidiruv xatosi:", error);
+        return null;
+    }
 }
 
-function addImageMessage(text, src, role) {
-  const img = document.createElement("img");
-  img.src = src;
-  img.className = "msg-image";
-  img.loading = "lazy";
-  return addMessage(text, role || "user", img);
+// --- Xabar Qo'shish ---
+function addMessage(role, content, meta = {}) {
+    if (isFirstMessage) {
+        welcomeScreen.style.display = 'none';
+        isFirstMessage = false;
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${role}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.textContent = role === 'user' ? '👤' : '🤖';
+
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    contentDiv.textContent = content;
+
+    const metaDiv = document.createElement('div');
+    metaDiv.className = 'message-meta';
+    if (meta.think) metaDiv.innerHTML += '<span class="badge think">🧠 Think</span>';
+    if (meta.search) metaDiv.innerHTML += '<span class="badge search">🔍 Search</span>';
+
+    messageDiv.appendChild(avatar);
+    const wrapper = document.createElement('div');
+    wrapper.style.flex = '1';
+    wrapper.appendChild(contentDiv);
+    if (meta.think || meta.search) wrapper.appendChild(metaDiv);
+    messageDiv.appendChild(wrapper);
+
+    messagesEl.appendChild(messageDiv);
+    scrollToBottom();
+    return contentDiv;
 }
 
-function addFileMessage(text, fileName) {
-  const chip = document.createElement("div");
-  chip.className = "msg-filechip";
-  chip.textContent = `📄 ${fileName}`;
-  return addMessage(text, "user", chip);
+// --- Pastga Aylantirish ---
+function scrollToBottom() {
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-/* ---------- "AI yozayapti..." indikatorini ko'rsatish ---------- */
+// --- Yozayotgan Ko'rsatkichi ---
 function showTypingIndicator() {
-  const wrap = document.createElement("div");
-  wrap.className = "msg ai typing";
-  wrap.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
-  chatWindow.appendChild(wrap);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-  return wrap;
+    const div = document.createElement('div');
+    div.className = 'message assistant';
+    div.id = 'typing-indicator';
+    div.innerHTML = `
+        <div class="message-avatar">🤖</div>
+        <div class="typing-indicator">
+            <span></span><span></span><span></span>
+        </div>
+    `;
+    messagesEl.appendChild(div);
+    scrollToBottom();
 }
 
-/* ---------- Xabar rasm yaratish so'rovi ekanligini tekshirish ----------
-   1) Avval aniq qoliplarni tekshiramiz: "rasm chiz: ..." — tavsif
-      ikki nuqtadan keyin keladi.
-   2) Topilmasa, erkin holatni tekshiramiz: xabarda "rasm" so'zi VA
-      chizish/yaratish ma'nosidagi fe'l birga uchrasa (masalan "rasm
-      yasab ber", "qani rasm chiz", "dexo mind uchun rasm yasab ber"),
-      shu holda butun xabar rasm so'rovi deb hisoblanadi. Tavsif sifatida:
-      - agar xabarda boshqa mazmunli so'zlar bo'lsa (masalan "dexo mind
-        uchun"), o'sha qism tavsif sifatida ishlatiladi;
-      - aks holda (faqat "rasm chiz" kabi qisqa buyruq bo'lsa), tavsif
-        bo'sh qaytariladi va foydalanuvchidan so'raladi.
-   Natija: rasm so'rovi bo'lmasa null, bo'lsa tavsif matni (bo'sh ham
-   bo'lishi mumkin).
-*/
-function extractImagePrompt(userText) {
-  const lower = userText.toLowerCase().trim();
-
-  // 1) Aniq "trigger:" qoliplari
-  for (const trigger of IMAGE_COLON_TRIGGERS) {
-    if (lower.startsWith(trigger)) {
-      return userText.slice(trigger.length).trim();
-    }
-  }
-
-  // 2) Erkin holat: "rasm" so'zi + chizish/yaratish fe'li ikkisi ham bo'lsa
-  if (IMAGE_WORD.test(lower) && IMAGE_VERB.test(lower)) {
-    // Buyruq so'zlarini xabardan olib tashlab, qolganini tavsif deb olamiz
-    const cleaned = userText
-      .replace(/\b(qani|menga|iltimos|ozim uchun|o'zim uchun)\b/gi, "")
-      .replace(/\brasm(ni|ga|lar)?\b/gi, "")
-      .replace(/\b(chizib ber|chiz|yasab ber|yasa|yarat(ib ber)?)\b/gi, "")
-      .replace(/\s{2,}/g, " ")
-      .trim();
-    return cleaned;
-  }
-
-  // 3) Qisqa, fe'lsiz so'rov: "qani rasm", "rasm bormi" va h.k.
-  if (IMAGE_SHORT_REQUEST.test(lower)) {
-    return ""; // tavsif yo'q — foydalanuvchidan so'raladi
-  }
-
-  return null;
+function removeTypingIndicator() {
+    document.getElementById('typing-indicator')?.remove();
 }
 
-/* ---------- Pollinations.AI orqali rasm yaratish ----------
-   Kalit kerak emas — shunchaki tavsifni URL'ga qo'shib, shu manzildan
-   rasmni to'g'ridan-to'g'ri <img> sifatida ko'rsatamiz.
-*/
-function buildImageUrl(prompt) {
-  const seed = Math.floor(Math.random() * 1000000); // har safar boshqa natija chiqishi uchun
-  return `${IMAGE_GEN_URL}${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true`;
-}
+// --- Asosiy Yuborish Funksiyasi ---
+async function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text || isLoading || !generator) return;
 
-/* ---------- Fayl/rasmni base64 Data URL ko'rinishida o'qish ---------- */
-function readFileAsDataUrl(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
+    isLoading = true;
+    userInput.value = '';
+    userInput.style.height = 'auto';
+    sendBtn.disabled = true;
 
-function readFileAsText(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsText(file);
-  });
-}
+    addMessage('user', text);
+    showTypingIndicator();
 
-/* ---------- Biriktirilgan fayl preview chipini chizish ---------- */
-function renderAttachmentPreview() {
-  attachmentPreview.innerHTML = "";
+    let contextText = '';
+    let usedSearch = false;
 
-  if (!pendingAttachment) {
-    attachmentPreview.classList.remove("active");
-    return;
-  }
-
-  attachmentPreview.classList.add("active");
-
-  const chip = document.createElement("div");
-  chip.className = "attachment-chip";
-
-  if (pendingAttachment.type === "image") {
-    const img = document.createElement("img");
-    img.src = pendingAttachment.dataUrl;
-    chip.appendChild(img);
-  }
-
-  const name = document.createElement("span");
-  name.className = "chip-name";
-  name.textContent = pendingAttachment.name;
-  chip.appendChild(name);
-
-  const remove = document.createElement("span");
-  remove.className = "chip-remove";
-  remove.textContent = "✕";
-  remove.addEventListener("click", () => {
-    pendingAttachment = null;
-    renderAttachmentPreview();
-  });
-  chip.appendChild(remove);
-
-  attachmentPreview.appendChild(chip);
-}
-
-/* ---------- Rasm tanlanganda ---------- */
-imageBtn.addEventListener("click", () => imageInput.click());
-
-imageInput.addEventListener("change", async () => {
-  const file = imageInput.files[0];
-  imageInput.value = ""; // keyingi safar xuddi shu faylni qayta tanlasa ham "change" otsin
-  if (!file) return;
-
-  if (file.size > MAX_IMAGE_BYTES) {
-    addMessage("Bu rasm juda katta (4MB dan oshmasligi kerak).", "system");
-    return;
-  }
-
-  const dataUrl = await readFileAsDataUrl(file);
-  pendingAttachment = { type: "image", name: file.name, dataUrl };
-  renderAttachmentPreview();
-});
-
-/* ---------- Matn fayl tanlanganda ---------- */
-fileBtn.addEventListener("click", () => fileInput.click());
-
-fileInput.addEventListener("change", async () => {
-  const file = fileInput.files[0];
-  fileInput.value = "";
-  if (!file) return;
-
-  const text = await readFileAsText(file);
-  pendingAttachment = { type: "file", name: file.name, text };
-  renderAttachmentPreview();
-});
-
-/* ---------- Groq API'ga so'rov yuborish (matn yoki rasm bilan) ---------- */
-async function askGroq(userText, attachment) {
-  let model = GROQ_TEXT_MODEL;
-  let userMessageForHistory;
-  let userMessageForApi;
-
-  if (attachment && attachment.type === "image") {
-    model = GROQ_VISION_MODEL;
-    const promptText = userText || "Bu rasmda nima borligini tasvirlab ber.";
-    userMessageForApi = {
-      role: "user",
-      content: [
-        { type: "text", text: promptText },
-        { type: "image_url", image_url: { url: attachment.dataUrl } },
-      ],
-    };
-    // Tarixga soddalashtirilgan shaklda saqlaymiz (rasmni qayta-qayta yubormaslik uchun)
-    userMessageForHistory = { role: "user", content: `[rasm yuborildi: ${attachment.name}] ${promptText}` };
-  } else if (attachment && attachment.type === "file") {
-    const combinedText =
-      (userText ? userText + "\n\n" : "") +
-      `--- Biriktirilgan fayl: ${attachment.name} ---\n${attachment.text}`;
-    userMessageForApi = { role: "user", content: combinedText };
-    userMessageForHistory = userMessageForApi;
-  } else {
-    userMessageForApi = { role: "user", content: userText };
-    userMessageForHistory = userMessageForApi;
-  }
-
-  // So'rovga: tarixning oldingi qismi (oddiy matn holida) + yangi xabar (rasm bo'lsa to'liq holida)
-  const messagesToSend = [...conversationHistory, userMessageForApi];
-
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${GROQ_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model,
-      messages: messagesToSend,
-    }),
-  });
-
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`API xato (${response.status}): ${errText}`);
-  }
-
-  const data = await response.json();
-  const reply = data?.choices?.[0]?.message?.content?.trim() || "Kechirasiz, javob ololmadim.";
-
-  // Tarixga soddalashtirilgan foydalanuvchi xabari + AI javobini qo'shamiz
-  conversationHistory.push(userMessageForHistory);
-  conversationHistory.push({ role: "assistant", content: reply });
-
-  return reply;
-}
-
-/* ---------- Forma yuborilganda ---------- */
-inputForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const text = userInput.value.trim();
-  const attachment = pendingAttachment;
-
-  if (!text && !attachment) return;
-
-  // ---- 1) Rasm YARATISH so'rovimi? (Pollinations.AI, kalit kerak emas) ----
-  const imagePrompt = !attachment ? extractImagePrompt(text) : null;
-  if (imagePrompt !== null) {
-    if (!imagePrompt) {
-      addMessage("Rasm tavsifini ham yozing, masalan: \"rasm chiz: qor bosgan tog'lar\"", "system");
-      return;
+    // Agar Search rejimi yoqilgan bo'lsa
+    if (searchMode) {
+        try {
+            const searchResults = await searchWeb(text);
+            if (searchResults) {
+                contextText = `Quyidagi ma'lumotlardan foydalanib savolga javob ber:\n${searchResults}\n\nSavol: ${text}\nJavob:`;
+                usedSearch = true;
+            } else {
+                contextText = `Savol: ${text}\nJavob:`;
+            }
+        } catch (e) {
+            console.error("Qidiruvda xato:", e);
+            contextText = `Savol: ${text}\nJavob:`;
+        }
+    } else {
+        contextText = `Savol: ${text}\nJavob:`;
     }
 
-    addMessage(text, "user");
-    userInput.value = "";
+    // Think rejimi uchun prompt (T5 modeli uchun moslashtirilgan)
+    let finalPrompt = contextText;
+    if (thinkMode) {
+        finalPrompt = `Sen chuqur fikrlaydigan AI yordamchisisan. Savolga javob berishdan oldin bosqichma-bosqich o'ylab ko'r. O'ylash jarayonini yoz, so'ngra yakuniy javobni ber.\n\n${contextText}`;
+    }
 
-    const typingBubble = showTypingIndicator();
-    const imageUrl = buildImageUrl(imagePrompt);
+    try {
+        // Transformers.js orqali generatsiya qilish
+        const output = await generator(finalPrompt, {
+            max_new_tokens: 256, // Mobil qurilmalar uchun token cheklovi
+            temperature: 0.7,
+            do_sample: true
+        });
 
-    // Rasm yuklanguncha kutamiz, shundan keyin "yozayapti" indikatorini almashtiramiz
-    const preload = new Image();
-    preload.onload = () => {
-      typingBubble.remove();
-      addImageMessage(`Mana: "${imagePrompt}"`, imageUrl, "ai");
-    };
-    preload.onerror = () => {
-      typingBubble.remove();
-      addMessage("Rasmni yarata olmadim, birozdan keyin qayta urinib ko'ring.", "system");
-    };
-    preload.src = imageUrl;
+        removeTypingIndicator();
+        
+        // T5 modeli ba'zan promptni ham qaytaradi, uni tozalaymiz
+        let responseText = output[0].generated_text;
+        if (responseText.startsWith(finalPrompt)) {
+            responseText = responseText.replace(finalPrompt, '').trim();
+        }
+        
+        addMessage('assistant', responseText || "Kechirasiz, javob generatsiya qila olmadim.", { think: thinkMode, search: usedSearch });
+    } catch (error) {
+        removeTypingIndicator();
+        addMessage('assistant', `Xatolik yuz berdi: ${error.message}`);
+    } finally {
+        isLoading = false;
+        sendBtn.disabled = false;
+        userInput.focus();
+    }
+}
 
-    return; // Groq'ga umuman murojaat qilinmaydi
-  }
+// --- Hodisalar ---
+sendBtn.addEventListener('click', sendMessage);
 
-  // ---- 2) Oddiy matn/rasm-ko'rish/fayl so'rovi — Groq orqali ----
-  if (GROQ_API_KEY === "BU_YERGA_OZ_KALITINGIZNI_QOYING") {
-    addMessage(
-      "API kalit hali kiritilmagan. index.js faylining yuqorisida GROQ_API_KEY ni o'zgartiring.",
-      "system"
-    );
-    return;
-  }
-
-  // Xabarni ekranga chiqarish
-  if (attachment && attachment.type === "image") {
-    addImageMessage(text, attachment.dataUrl, "user");
-  } else if (attachment && attachment.type === "file") {
-    addFileMessage(text, attachment.name);
-  } else {
-    addMessage(text, "user");
-  }
-
-  userInput.value = "";
-  pendingAttachment = null;
-  renderAttachmentPreview();
-
-  if (!isReady) {
-    addMessage("Hali tayyorlanmoqda, biroz kuting...", "system");
-    return;
-  }
-
-  const typingBubble = showTypingIndicator();
-
-  try {
-    const reply = await askGroq(text, attachment);
-    typingBubble.remove();
-    addMessage(reply, "ai");
-  } catch (err) {
-    typingBubble.remove();
-    console.error(err);
-    addMessage("Xatolik yuz berdi: " + err.message, "system");
-  }
+userInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
 });
 
-/* ---------- Ishga tushirish ---------- */
-initChat();
+userInput.addEventListener('input', () => {
+    userInput.style.height = 'auto';
+    userInput.style.height = Math.min(userInput.scrollHeight, 100) + 'px';
+});
+
+thinkBtn.addEventListener('click', () => {
+    thinkMode = !thinkMode;
+    thinkBtn.classList.toggle('active', thinkMode);
+});
+
+searchBtn.addEventListener('click', () => {
+    searchMode = !searchMode;
+    searchBtn.classList.toggle('active', searchMode);
+});
+
+document.querySelectorAll('.suggestion-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+        userInput.value = chip.dataset.prompt;
+        userInput.focus();
+    });
+});
+
+// --- Boshlash ---
+sendBtn.disabled = true;
+initModel();
