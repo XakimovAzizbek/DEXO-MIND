@@ -2,62 +2,47 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mening Shaxsiy AI'm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Yaratish</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
         <header class="app-header">
             <div class="logo">
                 <span class="logo-icon">🧠</span>
-                <span class="logo-text">Mening Neyron Tarmog'im</span>
-            </div>
-            <div class="model-status" id="model-status">
-                <span class="status-dot" id="status-dot"></span>
-                <span id="status-text">Yuklanmoqda...</span>
+                <span class="logo-text">AI Model Yaratish</span>
             </div>
         </header>
 
-        <!-- 1. O'qitish Bo'limi (Faqat sizga ko'rinadi) -->
-        <main class="content" id="trainer-section" style="display: none;">
+        <main class="content">
             <div class="panel">
-                <h2>1. Modelni O'qitish</h2>
-                <p>Quyidagi maydonga AI o'rganishi kerak bo'lgan matnlarni yozing (masalan, Savol va Javoblar).</p>
-                <textarea id="train-text" rows="6">Savol: Salom
-Javob: Salom, qalaysan?
-Savol: Isming nima?
-Javob: Men sening shaxsiy AI modelingman.
-Savol: Sen kim yaratgan?
-Javob: Meni o'zimning egam yaratdi.
-Savol: Qalaysan?
-Javob: Rahmat, yaxshi. O'zing-chi?</textarea>
+                <h2>1. Ma'lumot kiriting</h2>
+                <p>Suhbat matnlarini kiriting. Har bir gap yangi qatorda bo'lsin.</p>
+                <textarea id="train-text" rows="12">Salom
+Salom, qalaysan?
+Isming nima?
+Mening ismim AI.
+Sen kim yaratgan?
+Meni o'zimning egam yaratdi.
+Qalaysan?
+Rahmat, yaxshi. O'zing-chi?
+Yaxshi, rahmat.
+Nima qilyapsan?
+Hech narsa, sen bilan gaplashyapman.
+Yaxshi.
+Xo'p.
+Salom, do'stim.
+Salom, qalaysan, do'stim?
+Yaxshi, rahmat, o'zing-chi?
+Yaxshi.</textarea>
                 
                 <div class="controls">
-                    <button id="train-btn" class="btn-primary">O'qitishni Boshlash</button>
-                    <button id="export-btn" class="btn-success" disabled>Modelni Saqlash (.json)</button>
+                    <button id="train-btn" class="btn-primary">Modelni Yaratish</button>
+                    <button id="export-btn" class="btn-success" disabled>Saqlash (.json)</button>
                 </div>
-                <div id="loss-display" class="loss">O'qitish uchun tayyor...</div>
-                
-                <!-- Zaxira rejim uchun maydon (Agar brauzer fayl yuklashni bloklasa) -->
-                <textarea id="json-output" style="display:none; width:100%; height:150px; margin-top:15px; font-size:10px; background:#000; color:#0f0; border:1px solid #333; padding: 10px;"></textarea>
-                <button id="copy-json-btn" class="btn-primary" style="display:none; margin-top:10px;">Matnni Nusxalash (Copy)</button>
+                <div id="loss-display" class="loss">Tayyor...</div>
             </div>
-        </main>
-
-        <!-- 2. Suhbat Bo'limi (Boshqalar ko'radigan qism) -->
-        <main class="chat-container" id="chat-section" style="display: none;">
-            <div id="messages" class="messages"></div>
-            
-            <footer class="input-area">
-                <div class="input-wrapper">
-                    <textarea id="user-input" placeholder="Xabar yozing..." rows="1"></textarea>
-                    <button id="send-btn" class="send-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-                </div>
-            </footer>
         </main>
     </div>
     <script src="index.js"></script>
