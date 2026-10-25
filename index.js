@@ -1,242 +1,266 @@
-import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
+// ==========================================
+// 1. NEYRON TARMOQ (Sof JavaScript)
+// ==========================================
+class NeuralNet {
+    constructor(vocabSize, contextSize, hiddenSize) {
+        this.vocabSize = vocabSize;
+        this.contextSize = contextSize;
+        this.inputSize = vocabSize * contextSize;
+        this.hiddenSize = hiddenSize;
+        this.outSize = vocabSize;
+        this.initWeights();
+    }
+    initWeights() {
+        this.W1 = new Float32Array(this.hiddenSize * this.inputSize).map(() => (Math.random() * 2 - 1) * 0.1);
+        this.b1 = new Float32Array(this.hiddenSize);
+        this.W2 = new Float32Array(this.outSize * this.hiddenSize).map(() => (Math.random() * 2 - 1) * 0.1);
+        this.b2 = new Float32Array(this.outSize);
+    }
+    // Yuklash uchun
+    loadWeights(data) {
+        this.W1 = new Float32Array(data.W1);
+        this.b1 = new Float32Array(data.b1);
+        this.W2 = new Float32Array(data.W2);
+        this.b2 = new Float32Array(data.b2);
+    }
+    forward(x) {
+        const h = new Float32Array(this.hiddenSize);
+        for (let i = 0; i < this.hiddenSize; i++) {
+            let sum = this.b1[i];
+            for (let j = 0; j < this.inputSize; j++) sum += this.W1[i * this.inputSize + j] * x[j];
+            h[i] = sum > 0 ? sum : 0; // ReLU
+        }
+        const y = new Float32Array(this.outSize);
+        for (let i = 0; i < this.outSize; i++) {
+            let sum = this.b2[i];
+            for (let j = 0; j < this.hiddenSize; j++) sum += this.W2[i * this.hiddenSize + j] * h[j];
+            y[i] = sum;
+        }
+        // Softmax
+        let max = -Infinity;
+        for (let v of y) if (v > max) max = v;
+        let sum = 0;
+        const probs = new Float32Array(this.outSize);
+        for (let i = 0; i < this.outSize; i++) { probs[i] = Math.exp(y[i] - max); sum += probs[i]; }
+        for (let i = 0; i < this.outSize; i++) probs[i] /= sum;
+        return { h, probs };
+    }
+    train(x, targetIdx, lr) {
+        const { h, probs } = this.forward(x);
+        const dy = new Float32Array(probs);
+        dy[targetIdx] -= 1;
+        for (let i = 0; i < this.outSize; i++) {
+            this.b2[i] -= lr * dy[i];
+            for (let j = 0; j < this.hiddenSize; j++) this.W2[i * this.hiddenSize + j] -= lr * dy[i] * h[j];
+        }
+        const dh = new Float32Array(this.hiddenSize);
+        for (let j = 0; j < this.hiddenSize; j++) {
+            let sum = 0;
+            for (let i = 0; i < this.outSize; i++) sum += dy[i] * this.W2[i * this.hiddenSize + j];
+            dh[j] = h[j] > 0 ? sum : 0;
+        }
+        for (let i = 0; i < this.hiddenSize; i++) {
+            this.b1[i] -= lr * dh[i];
+            for (let j = 0; j < this.inputSize; j++) this.W1[i * this.inputSize + j] -= lr * dh[i] * x[j];
+        }
+        return -Math.log(probs[targetIdx] + 1e-15);
+    }
+    generate(contextIndices, length, temp = 0.7) {
+        let currentContext = [...contextIndices];
+        let result = [];
+        for (let step = 0; step < length; step++) {
+            const x = new Float32Array(this.inputSize);
+            for (let i = 0; i < this.contextSize; i++) x[i * this.vocabSize + currentContext[i]] = 1;
+            const { probs } = this.forward(x);
+            
+            // Temperature
+            let sum = 0;
+            const tempProbs = new Float32Array(this.outSize);
+            for (let i = 0; i < this.outSize; i++) {
+                tempProbs[i] = Math.pow(probs[i], 1 / temp);
+                sum += tempProbs[i];
+            }
+            for (let i = 0; i < this.outSize; i++) tempProbs[i] /= sum;
 
-// --- Transformers.js Sozlamalari ---
-env.allowLocalModels = false;
-env.useBrowserCache = true; // Keshni yoqish (qayta yuklanmasligi uchun)
+            let r = Math.random(), cumulative = 0, chosen = 0;
+            for (let i = 0; i < this.outSize; i++) {
+                cumulative += tempProbs[i];
+                if (r <= cumulative) { chosen = i; break; }
+            }
+            result.push(chosen);
+            currentContext.shift();
+            currentContext.push(chosen);
+        }
+        return result;
+    }
+}
 
-// --- DOM Elementlari ---
-const chatContainer = document.getElementById('chat-container');
-const messagesEl = document.getElementById('messages');
-const welcomeScreen = document.getElementById('welcome-screen');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const thinkBtn = document.getElementById('think-btn');
-const searchBtn = document.getElementById('search-btn');
+// ==========================================
+// 2. DASTUR LOGIKASI
+// ==========================================
+const trainerSection = document.getElementById('trainer-section');
+const chatSection = document.getElementById('chat-section');
 const statusDot = document.getElementById('status-dot');
 const statusText = document.getElementById('status-text');
 
-// --- Holat ---
-let generator = null;
-let isLoading = false;
-let thinkMode = false;
-let searchMode = false;
-let isFirstMessage = true;
-let chatHistory = []; // Suhbat tarixini saqlash uchun
+let vocab, charToIdx, idxToChar;
+let model;
+const contextSize = 10; // 10 ta harfga qarab, 11-harfni taxmin qiladi
 
-// --- Yangi Model ---
-// Qwen1.5-0.5B-Chat - haqiqiy suhbat uchun o'qitilgan model
-const MODEL_ID = "Xenova/Qwen1.5-0.5B-Chat";
-
-// --- Modelni Yuklash ---
-async function initModel() {
-    try {
-        statusDot.className = 'status-dot loading';
-        statusText.textContent = 'Model yuklanmoqda... (0%)';
-
-        // text-generation pipeline ishlatamiz
-        generator = await pipeline('text-generation', MODEL_ID, {
-            progress_callback: (data) => {
-                if (data.status === 'progress') {
-                    const percent = Math.round((data.loaded / data.total) * 100);
-                    statusText.textContent = `Yuklanmoqda: ${percent}%`;
-                }
-            }
-        });
-
-        statusDot.className = 'status-dot ready';
-        statusText.textContent = 'Model tayyor';
-        sendBtn.disabled = false;
-    } catch (error) {
-        console.error("Model yuklashda xato:", error);
-        statusDot.className = 'status-dot';
-        statusText.textContent = 'Model yuklanmadi';
-        alert("Model yuklanmadi. Internet aloqasini tekshiring yoki xotirani bo'shating.");
-    }
+// Matndan lug'at yaratish
+function buildVocab(text) {
+    vocab = [...new Set(text.split(''))];
+    charToIdx = {}; idxToChar = {};
+    vocab.forEach((c, i) => { charToIdx[c] = i; idxToChar[i] = c; });
 }
 
-// --- Internetdan Qidirish (Wikipedia API) ---
-async function searchWeb(query) {
+// ==========================================
+// 3. MODELNI YUKLASH (Agar boshqalar kirsa)
+// ==========================================
+async function loadExistingModel() {
     try {
-        // Wikipedia API orqali qidirish (CORS muammosi yo'q)
-        const wikiUrl = `https://uz.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`;
-        const response = await fetch(wikiUrl);
-        const data = await response.json();
+        statusText.textContent = "Model qidirilmoqda...";
+        const response = await fetch('model.json'); // Serverdagi modelni qidiradi
+        if (!response.ok) throw new Error("Model topilmadi");
         
-        if (data.query && data.query.search.length > 0) {
-            // Eng yaxshi 3 ta natijani olamiz va HTML teglaridan tozalaymiz
-            const results = data.query.search.slice(0, 3).map(item => 
-                `${item.title}: ${item.snippet.replace(/<[^>]*>/g, '')}`
-            );
-            return results.join('\n\n');
-        }
-        return null;
+        const data = await response.json();
+        buildVocab(data.vocabText);
+        model = new NeuralNet(vocab.length, contextSize, 128);
+        model.loadWeights(data);
+        
+        // Muvaffaqiyatli yuklandi -> Chatni ochamiz
+        statusDot.className = 'status-dot ready';
+        statusText.textContent = "Model tayyor";
+        trainerSection.style.display = 'none';
+        chatSection.style.display = 'flex';
+        addMessage('assistant', "Salom! Men tayyor modelman. Menga savol bering.");
     } catch (error) {
-        console.error("Qidiruv xatosi:", error);
-        return null;
+        // Model topilmadi -> O'qitish oynasini ochamiz
+        statusDot.className = 'status-dot';
+        statusText.textContent = "Model o'qitilmagan";
+        trainerSection.style.display = 'block';
+        chatSection.style.display = 'none';
     }
 }
 
-// --- Xabar Qo'shish ---
-function addMessage(role, content, meta = {}) {
-    if (isFirstMessage) {
-        welcomeScreen.style.display = 'none';
-        isFirstMessage = false;
+// ==========================================
+// 4. O'QITISH VA SAQLASH (Faqat siz uchun)
+// ==========================================
+document.getElementById('train-btn').addEventListener('click', () => {
+    const text = document.getElementById('train-text').value.toLowerCase();
+    if (text.length < 50) return alert("Kamida 50 ta harf kiriting!");
+    
+    buildVocab(text);
+    model = new NeuralNet(vocab.length, contextSize, 128);
+    
+    const indices = text.split('').map(c => charToIdx[c]);
+    const data = [];
+    for (let i = 0; i <= indices.length - contextSize - 1; i++) {
+        data.push({ context: indices.slice(i, i + contextSize), target: indices[i + contextSize] });
     }
 
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${role}`;
+    const trainBtn = document.getElementById('train-btn');
+    const exportBtn = document.getElementById('export-btn');
+    const lossDisplay = document.getElementById('loss-display');
+    
+    trainBtn.disabled = true;
+    exportBtn.disabled = true;
+    let epoch = 0;
+    const totalEpochs = 5000; // O'qitish davomiyligi
 
-    const avatar = document.createElement('div');
-    avatar.className = 'message-avatar';
-    avatar.textContent = role === 'user' ? '👤' : '🤖';
+    const interval = setInterval(() => {
+        let loss = 0;
+        for (let b = 0; b < 100; b++) {
+            const item = data[Math.floor(Math.random() * data.length)];
+            const x = new Float32Array(model.inputSize);
+            for (let c = 0; c < contextSize; c++) x[c * vocab.length + item.context[c]] = 1;
+            loss += model.train(x, item.target, 0.05); // Learning rate
+        }
+        epoch += 100;
+        lossDisplay.textContent = `O'qitilmoqda... Epoch: ${epoch} | Xatolik: ${(loss / 100).toFixed(4)}`;
 
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'message-content';
-    contentDiv.textContent = content;
+        if (epoch >= totalEpochs) {
+            clearInterval(interval);
+            trainBtn.disabled = false;
+            exportBtn.disabled = false;
+            lossDisplay.textContent = "O'qitish tugadi! Endi modelni saqlashingiz mumkin.";
+        }
+    }, 10);
+});
 
-    const metaDiv = document.createElement('div');
-    metaDiv.className = 'message-meta';
-    if (meta.think) metaDiv.innerHTML += '<span class="badge think">🧠 Think</span>';
-    if (meta.search) metaDiv.innerHTML += '<span class="badge search">🔍 Search</span>';
+// Modelni JSON qilib yuklab olish
+document.getElementById('export-btn').addEventListener('click', () => {
+    const modelData = {
+        vocabText: vocab.join(''), // Lug'atni saqlash
+        W1: Array.from(model.W1),
+        b1: Array.from(model.b1),
+        W2: Array.from(model.W2),
+        b2: Array.from(model.b2)
+    };
+    
+    const blob = new Blob([JSON.stringify(modelData)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "model.json";
+    a.click();
+    URL.revokeObjectURL(url);
+});
 
-    messageDiv.appendChild(avatar);
-    const wrapper = document.createElement('div');
-    wrapper.style.flex = '1';
-    wrapper.appendChild(contentDiv);
-    if (meta.think || meta.search) wrapper.appendChild(metaDiv);
-    messageDiv.appendChild(wrapper);
+// ==========================================
+// 5. CHAT (Suhbat)
+// ==========================================
+const messagesEl = document.getElementById('messages');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
 
-    messagesEl.appendChild(messageDiv);
-    scrollToBottom();
-    return contentDiv;
-}
-
-// --- Pastga Aylantirish ---
-function scrollToBottom() {
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-// --- Yozayotgan Ko'rsatkichi ---
-function showTypingIndicator() {
+function addMessage(role, text) {
     const div = document.createElement('div');
-    div.className = 'message assistant';
-    div.id = 'typing-indicator';
+    div.className = `message ${role}`;
     div.innerHTML = `
-        <div class="message-avatar">🤖</div>
-        <div class="typing-indicator">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="message-avatar">${role === 'user' ? '👤' : '🤖'}</div>
+        <div class="message-content">${text}</div>
     `;
     messagesEl.appendChild(div);
-    scrollToBottom();
+    messagesEl.scrollTop = messagesEl.scrollHeight;
 }
 
-function removeTypingIndicator() {
-    document.getElementById('typing-indicator')?.remove();
-}
-
-// --- Asosiy Yuborish Funksiyasi ---
-async function sendMessage() {
+function handleSend() {
     const text = userInput.value.trim();
-    if (!text || isLoading || !generator) return;
-
-    isLoading = true;
+    if (!text) return;
+    
     userInput.value = '';
-    userInput.style.height = 'auto';
-    sendBtn.disabled = true;
-
     addMessage('user', text);
-    showTypingIndicator();
-
-    let usedSearch = false;
-    let contextInfo = "";
-
-    // 1. Qidiruv (agar yoqilgan bo'lsa)
-    if (searchMode) {
-        const searchResults = await searchWeb(text);
-        if (searchResults) {
-            contextInfo = `Quyidagi ma'lumotlardan foydalanib javob ber:\n${searchResults}\n\n`;
-            usedSearch = true;
-        }
-    }
-
-    // 2. Suhbat tarixini shakllantirish
-    // Qwen modeli o'zining maxsus formatida gaplashishni yaxshi ko'radi
-    let prompt = "";
     
-    if (thinkMode) {
-        prompt += "Sen chuqur fikrlaydigan yordamchisan. Avval o'ylab ko'r, keyin javob ber.\n";
-    }
-    
-    prompt += contextInfo;
-    prompt += `Savol: ${text}\nJavob:`;
-
-    try {
-        // 3. Modeldan javob olish
-        const output = await generator(prompt, {
-            max_new_tokens: 300,
-            temperature: 0.7,
-            do_sample: true,
-            repetition_penalty: 1.2 // Bir xil gapni takrorlashni oldini oladi
-        });
-
-        removeTypingIndicator();
+    // Javob generatsiya qilish
+    setTimeout(() => {
+        let prompt = text.toLowerCase();
+        if (prompt.length < contextSize) prompt = prompt.padStart(contextSize, ' ');
         
-        // Model qaytargan matnni tozalash (promptning o'zini olib tashlash)
-        let responseText = output[0].generated_text;
-        if (responseText.includes("Javob:")) {
-            responseText = responseText.split("Javob:")[1].trim();
-        } else {
-            responseText = responseText.replace(prompt, '').trim();
+        const context = [];
+        for (let i = 0; i < contextSize; i++) {
+            const char = prompt[prompt.length - contextSize + i];
+            context.push(charToIdx[char] !== undefined ? charToIdx[char] : 0);
         }
         
-        // Agar model bo'sh joy qaytarsa
-        if (!responseText) responseText = "Kechirasiz, tushunmadim. Boshqacha so'rab ko'ring.";
-
-        addMessage('assistant', responseText, { think: thinkMode, search: usedSearch });
+        // 40 ta harf generatsiya qilamiz
+        const genIndices = model.generate(context, 40, 0.5);
+        let response = genIndices.map(i => idxToChar[i]).join('');
         
-    } catch (error) {
-        removeTypingIndicator();
-        addMessage('assistant', `Xatolik: ${error.message}`);
-    } finally {
-        isLoading = false;
-        sendBtn.disabled = false;
-        userInput.focus();
-    }
+        // Tozalash (agar model promptni takrorlasa)
+        if (response.startsWith(prompt)) response = response.replace(prompt, '').trim();
+        
+        addMessage('assistant', response || "...");
+    }, 50);
 }
 
-// --- Hodisalar ---
-sendBtn.addEventListener('click', sendMessage);
-
+sendBtn.addEventListener('click', handleSend);
 userInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
-    }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
 });
 
-userInput.addEventListener('input', () => {
-    userInput.style.height = 'auto';
-    userInput.style.height = Math.min(userInput.scrollHeight, 100) + 'px';
-});
-
-thinkBtn.addEventListener('click', () => {
-    thinkMode = !thinkMode;
-    thinkBtn.classList.toggle('active', thinkMode);
-});
-
-searchBtn.addEventListener('click', () => {
-    searchMode = !searchMode;
-    searchBtn.classList.toggle('active', searchMode);
-});
-
-document.querySelectorAll('.suggestion-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-        userInput.value = chip.dataset.prompt;
-        userInput.focus();
-    });
-});
-
-// --- Boshlash ---
-sendBtn.disabled = true;
-initModel();
+// ==========================================
+// 6. ISHGA TUSHIRISH
+// ==========================================
+// Sahifa ochilganda modelni yuklashga urinamiz
+loadExistingModel();

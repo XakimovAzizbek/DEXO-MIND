@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DeepSeek Lite — Brauzerda AI</title>
+    <title>Mening Shaxsiy AI'm</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -12,49 +12,50 @@
         <header class="app-header">
             <div class="logo">
                 <span class="logo-icon">🧠</span>
-                <span class="logo-text">DeepSeek Lite</span>
+                <span class="logo-text">Mening Neyron Tarmog'im</span>
             </div>
             <div class="model-status" id="model-status">
                 <span class="status-dot" id="status-dot"></span>
-                <span id="status-text">Model yuklanmagan</span>
+                <span id="status-text">Yuklanmoqda...</span>
             </div>
         </header>
 
-        <!-- Chat Area -->
-        <main class="chat-container" id="chat-container">
-            <div class="welcome-screen" id="welcome-screen">
-                <div class="welcome-icon">💬</div>
-                <h1>Qanday yordam bera olaman?</h1>
-                <p>Brauzerda ishlaydigan lokal AI. Internetdan qidirish va chuqur o'ylash uchun quyidagi tugmalardan foydalaning.</p>
-                <div class="suggestions">
-                    <button class="suggestion-chip" data-prompt="WebLLM nima?">WebLLM nima?</button>
-                    <button class="suggestion-chip" data-prompt="WebGPU nima uchun kerak?">WebGPU nima?</button>
+        <!-- 1. O'qitish Bo'limi (Faqat sizga ko'rinadi) -->
+        <main class="content" id="trainer-section" style="display: none;">
+            <div class="panel">
+                <h2>1. Modelni O'qitish</h2>
+                <p>Quyidagi maydonga AI o'rganishi kerak bo'lgan matnlarni yozing (masalan, Savol va Javoblar).</p>
+                <textarea id="train-text" rows="6">Savol: Salom
+Javob: Salom, qalaysan?
+Savol: Isming nima?
+Javob: Men sening shaxsiy AI modelingman.
+Savol: Sen kim yaratgan?
+Javob: Meni o'zimning egam yaratdi.
+Savol: Qalaysan?
+Javob: Rahmat, yaxshi. O'zing-chi?</textarea>
+                
+                <div class="controls">
+                    <button id="train-btn" class="btn-primary">O'qitishni Boshlash</button>
+                    <button id="export-btn" class="btn-success" disabled>Modelni Saqlash (.json)</button>
                 </div>
+                <div id="loss-display" class="loss">O'qitish uchun tayyor...</div>
             </div>
-            <div id="messages"></div>
         </main>
 
-        <!-- Input Area -->
-        <footer class="input-area">
-            <div class="input-wrapper">
-                <textarea id="user-input" placeholder="Xabar yozing..." rows="1"></textarea>
-                <div class="input-actions">
-                    <button class="action-btn think-btn" id="think-btn" title="Chuqur o'ylash rejimi">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path></svg>
-                        <span>Think</span>
-                    </button>
-                    <button class="action-btn search-btn" id="search-btn" title="Internetdan qidirish">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        <span>Search</span>
-                    </button>
-                    <button class="send-btn" id="send-btn" title="Yuborish">
+        <!-- 2. Suhbat Bo'limi (Boshqalar ko'radigan qism) -->
+        <main class="chat-container" id="chat-section" style="display: none;">
+            <div id="messages" class="messages"></div>
+            
+            <footer class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Xabar yozing..." rows="1"></textarea>
+                    <button id="send-btn" class="send-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                     </button>
                 </div>
-            </div>
-            <p class="disclaimer">AI xatolarga yo'l qo'yishi mumkin. Muhim ma'lumotlarni tekshiring.</p>
-        </footer>
+            </footer>
+        </main>
     </div>
-    <script type="module" src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
