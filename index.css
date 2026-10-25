@@ -30,6 +30,7 @@ body { background: var(--bg); color: var(--text); height: 100vh; height: 100dvh;
 textarea, input[type="text"] {
     width: 100%; background: var(--bg); color: var(--text);
     border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 14px; margin-bottom: 15px;
+    font-family: inherit;
 }
 .controls { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn-primary, .btn-success {
@@ -53,5 +54,5 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .input-area { padding: 15px; border-top: 1px solid var(--border); background: var(--bg); }
 .input-wrapper { display: flex; gap: 10px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; }
-#user-input { flex: 1; background: transparent; border: none; outline: none; color: var(--text); font-size: 15px; resize: none; padding: 5px 0; }
+#user-input { flex: 1; background: transparent; border: none; outline: none; color: var(--text); font-size: 15px; resize: none; padding: 5px 0; margin: 0; }
 .send-btn { background: var(--accent); border: none; border-radius: 8px; width: 40px; height: 40px; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; }
