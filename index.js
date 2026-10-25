@@ -1,7 +1,10 @@
 import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
 
-// Brauzer uchun lokal modelni o'chirib qo'yamiz (CDN dan yuklaydi)
+// --- Transformers.js Muhit Sozlamalari ---
+// Modelni faqat tarmoqdan (CDN) yuklash
 env.allowLocalModels = false;
+// Brauzer keshini majburiy yoqish (sahifa yangilanganda qayta yuklanmasligi uchun)
+env.useBrowserCache = true;
 
 // --- DOM Elementlari ---
 const chatContainer = document.getElementById('chat-container');
@@ -21,10 +24,11 @@ let thinkMode = false;
 let searchMode = false;
 let isFirstMessage = true;
 
-// --- Transformers.js Modelini Yuklash ---
+// --- Model Identifikatori ---
 // LaMini-Flan-T5-77M modeli yengil va mobil qurilmalar uchun mos
 const MODEL_ID = "Xenova/LaMini-Flan-T5-77M";
 
+// --- Modelni Yuklash ---
 async function initModel() {
     try {
         statusDot.className = 'status-dot loading';
@@ -35,18 +39,20 @@ async function initModel() {
                 if (data.status === 'progress') {
                     const percent = Math.round((data.loaded / data.total) * 100);
                     statusText.textContent = `Yuklanmoqda: ${percent}%`;
+                } else if (data.status === 'ready') {
+                    statusText.textContent = 'Model tayyor';
                 }
             }
         });
 
         statusDot.className = 'status-dot ready';
-        statusText.textContent = 'Model tayyor';
+        statusText.textContent = 'Model tayyor (Keshdan yoki tarmoqdan)';
         sendBtn.disabled = false;
     } catch (error) {
         console.error("Model yuklashda xato:", error);
         statusDot.className = 'status-dot';
         statusText.textContent = 'Model yuklanmadi';
-        alert("Model yuklanmadi. Internet aloqasini tekshiring.");
+        alert("Model yuklanmadi. Internet aloqasini tekshiring yoki brauzer keshini tozalang.");
     }
 }
 
@@ -171,7 +177,7 @@ async function sendMessage() {
         contextText = `Savol: ${text}\nJavob:`;
     }
 
-    // Think rejimi uchun prompt (T5 modeli uchun moslashtirilgan)
+    // Think rejimi uchun prompt
     let finalPrompt = contextText;
     if (thinkMode) {
         finalPrompt = `Sen chuqur fikrlaydigan AI yordamchisisan. Savolga javob berishdan oldin bosqichma-bosqich o'ylab ko'r. O'ylash jarayonini yoz, so'ngra yakuniy javobni ber.\n\n${contextText}`;
